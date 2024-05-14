@@ -35,7 +35,7 @@ public class Form_Employee extends javax.swing.JPanel {
         table = new com.raven.swing.Table();
         panelBorder2 = new com.raven.swing.PanelBorder();
         jLabel1 = new javax.swing.JLabel();
-        button1 = new com.raven.swing.Button();
+        button1 = new com.raven.swing.MyButton();
 
         panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -143,7 +143,7 @@ public class Form_Employee extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.Button button1;
+    private com.raven.swing.MyButton button1;
     private com.raven.component.Header header1;
     private javax.swing.JLabel jLabel1;
     private com.raven.swing.PanelBorder panelBorder1;
