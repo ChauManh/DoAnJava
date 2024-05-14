@@ -57,8 +57,8 @@ public class Form_Corn_Water extends javax.swing.JPanel {
         spTable = new javax.swing.JScrollPane();
         table = new com.raven.swing.Table();
         jLabel1 = new javax.swing.JLabel();
-        buttonSearch = new com.raven.swing.Button();
-        buttonBill = new com.raven.swing.Button();
+        buttonSearch = new com.raven.swing.MyButton();
+        buttonBill = new com.raven.swing.MyButton();
 
         setBackground(new java.awt.Color(229, 229, 229));
         setPreferredSize(new java.awt.Dimension(1100, 618));
@@ -175,8 +175,8 @@ DefaultTableModel ob =(DefaultTableModel) table.getModel();
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.Button buttonBill;
-    private com.raven.swing.Button buttonSearch;
+    private com.raven.swing.MyButton buttonBill;
+    private com.raven.swing.MyButton buttonSearch;
     private com.raven.component.Header header;
     private javax.swing.JLabel jLabel1;
     private com.raven.swing.PanelBorder panelBorder1;

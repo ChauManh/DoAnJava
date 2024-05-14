@@ -105,8 +105,8 @@ public class Form_Service extends javax.swing.JPanel {
         tableMovie = new com.raven.swing.Table();
         spTable2 = new javax.swing.JScrollPane();
         tableCombo = new com.raven.swing.Table();
-        buttonAddMovie = new com.raven.swing.Button();
-        buttonAddCombo = new com.raven.swing.Button();
+        buttonAddMovie = new com.raven.swing.MyButton();
+        buttonAddCombo = new com.raven.swing.MyButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -221,8 +221,8 @@ public class Form_Service extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.Button buttonAddCombo;
-    private com.raven.swing.Button buttonAddMovie;
+    private com.raven.swing.MyButton buttonAddCombo;
+    private com.raven.swing.MyButton buttonAddMovie;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane spTable;

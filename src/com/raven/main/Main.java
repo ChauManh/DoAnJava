@@ -9,6 +9,7 @@ import com.raven.event.EventMenuSelected;
 import com.raven.form.Form_Corn_Water;
 import com.raven.form.Form_Employee;
 import com.raven.form.Form_Home;
+import com.raven.form.Form_Login;
 import com.raven.form.Form_Revenue;
 import com.raven.form.Form_SellTicket;
 import com.raven.form.Form_Service;
@@ -133,7 +134,7 @@ public class Main extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

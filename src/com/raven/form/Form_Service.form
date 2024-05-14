@@ -160,7 +160,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="com.raven.swing.Button" name="buttonAddMovie">
+    <Component class="com.raven.swing.MyButton" name="buttonAddMovie">
       <Properties>
         <Property name="text" type="java.lang.String" value="Th&#xea;m phim"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -175,7 +175,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddMovieActionPerformed"/>
       </Events>
     </Component>
-    <Component class="com.raven.swing.Button" name="buttonAddCombo">
+    <Component class="com.raven.swing.MyButton" name="buttonAddCombo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Th&#xea;m Combo"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

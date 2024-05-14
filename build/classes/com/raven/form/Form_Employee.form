@@ -169,7 +169,7 @@
         <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin nh&#xe2;n vi&#xea;n"/>
       </Properties>
     </Component>
-    <Component class="com.raven.swing.Button" name="button1">
+    <Component class="com.raven.swing.MyButton" name="button1">
       <Properties>
         <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
