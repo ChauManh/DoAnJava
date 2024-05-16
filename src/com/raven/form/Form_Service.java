@@ -17,6 +17,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class Form_Service extends javax.swing.JPanel {
 
+    Form_Movie fAddMovie;
+    Form_Combo fAddCombo;
 
     public Form_Service() {
         initComponents();
@@ -34,35 +36,35 @@ public class Form_Service extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
                 
-        TableActionEvent event = new TableActionEvent() {
-            @Override
-            public void onEdit(int row) {
-                System.out.println("Edit row : " + row);
-            }
-
-            @Override
-            public void onDelete(int row) {
-                if (tableMovie.isEditing()) {
-                    tableMovie.getCellEditor().stopCellEditing();
-                }
-                DefaultTableModel model = (DefaultTableModel) tableMovie.getModel();
-                model.removeRow(row);
-            }
-
-            @Override
-            public void onView(int row) {
-                System.out.println("View row : " + row);
-            }
-        };
-            tableMovie.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
-            tableMovie.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(event));
-            tableMovie.getColumnModel().getColumn(0).setCellRenderer(new DefaultTableCellRenderer() {
-            @Override
-            public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
-                setHorizontalAlignment(SwingConstants.RIGHT);
-                return super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1);
-            }
-        });
+//        TableActionEvent event = new TableActionEvent() {
+//            @Override
+//            public void onEdit(int row) {
+//                System.out.println("Edit row : " + row);
+//            }
+//
+//            @Override
+//            public void onDelete(int row) {
+//                if (tableMovie.isEditing()) {
+//                    tableMovie.getCellEditor().stopCellEditing();
+//                }
+//                DefaultTableModel model = (DefaultTableModel) tableMovie.getModel();
+//                model.removeRow(row);
+//            }
+//
+//            @Override
+//            public void onView(int row) {
+//                System.out.println("View row : " + row);
+//            }
+//        };
+//            tableMovie.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
+//            tableMovie.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(event));
+//            tableMovie.getColumnModel().getColumn(0).setCellRenderer(new DefaultTableCellRenderer() {
+//            @Override
+//            public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
+//                setHorizontalAlignment(SwingConstants.RIGHT);
+//                return super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1);
+//            }
+//        });
         
         tableMovie.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024",StatusType.Released});
         tableMovie.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
@@ -210,12 +212,17 @@ public class Form_Service extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AddMovie(String id, String name, String age, String release){
+        
+        tableMovie.addRow(new Object[]{id, name, age, release});
+    }
+    
     private void buttonAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddMovieActionPerformed
-        System.out.println("Form add phim");
+        fAddMovie = new Form_Movie();
     }//GEN-LAST:event_buttonAddMovieActionPerformed
 
     private void buttonAddComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddComboActionPerformed
-        System.out.println("Form add Combo");
+        fAddCombo = new Form_Combo();
     }//GEN-LAST:event_buttonAddComboActionPerformed
 
     
