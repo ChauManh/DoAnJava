@@ -8,12 +8,12 @@ public class JDBCUtil {
     
     public static Connection getConnection() {
         Connection c = null;
-        
+
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             
-            String url = "jdbc:mysql://chaumanh-1108:3306/quanlybanvexemphim";
-            String username = "manh";
+            String url = "jdbc:mysql://localhost:3306/ql_banvexemphim";
+            String username = "user";
             String password = "";
             
             c = DriverManager.getConnection(url, username, password);
@@ -34,3 +34,4 @@ public class JDBCUtil {
         }
     }
 }
+    
