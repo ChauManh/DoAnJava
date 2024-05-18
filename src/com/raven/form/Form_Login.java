@@ -263,7 +263,8 @@ public class Form_Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Form_Login().setVisible(true);
+//                new Form_Login().setVisible(true);
+                  new Main().setVisible(true);
             }
         });
     }
