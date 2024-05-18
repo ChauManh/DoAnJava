@@ -76,7 +76,30 @@ public class PhimDAO implements DAOInterface<Phim> {
 
     @Override
     public int delete(Phim t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int ketQua = 0;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            Statement st = con.createStatement();
+            String sql = "UPDATE phim"
+                    + " SET"
+                    + " ten_phim = '" + t.getTenPhim() + "',"
+                    + " ten_dao_dien = '" + t.getTenDaoDien() + "',"
+                    + " mo_ta_phim = '" + t.getMoTaPhim() + "',"
+                    + " poster = '" + t.getPoster() + "',"
+                    + " trailer = '" + t.getTrailer() + "',"
+                    + " do_tuoi_cho_phep = " + t.getDoTuoiChoPhep() + ","
+                    + " ngay_phat_hanh = '" + t.getNgayPhatHanh()+ "',"
+                    + " diem_danh_gia = " + t.getDiemDanhGia() + ","
+                    + " luot_danh_gia = " + t.getLuotDanhGia()
+                    + " WHERE id_phim = " + t.getIdPhim();
+            ketQua = st.executeUpdate(sql);
+            System.out.println("Da thuc thi: " + sql);
+            System.out.println("Co " + ketQua + " dong bi thay doi.");
+            JDBCUtil.closeConnection(con);
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return ketQua;
     }
 
     @Override
