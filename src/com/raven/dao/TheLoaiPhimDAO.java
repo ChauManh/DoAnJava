@@ -5,7 +5,7 @@
 package com.raven.dao;
 
 import com.raven.database.JDBCUtil;
-import com.raven.models.Combo;
+import com.raven.models.TheLoaiPhim;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,18 +16,18 @@ import java.util.ArrayList;
  *
  * @author DANG GIA BAO
  */
-public class ComboDAO implements DAOInterface<Combo> {
-    public static ComboDAO getInstance() {
-        return new ComboDAO();
+public class TheLoaiPhimDAO implements DAOInterface<TheLoaiPhim> {
+    public static TheLoaiPhimDAO getInstance() {
+        return new TheLoaiPhimDAO();
     }
     @Override
-    public int insert(Combo t) {
+    public int insert(TheLoaiPhim t) {
         int ketQua = 0;
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "INSERT INTO combo (id_combo, ten_combo, chi_tiet_combo, gia)"
-                    + " VALUES(" + t.getIdCombo() + ", '" + t.getTenCombo()+ "' , '"+t.getChiTietCombo()+"' , "+t.getGia()+" );";
+            String sql = "INSERT INTO phim_the_loai (id_phim, id_the_loai)"
+                    + " VALUES("+t.getIdPhim()+", "+t.getIdTheLoai()+" );";
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
             System.out.println("Co " + ketQua + " dong bi thay doi.");
@@ -39,17 +39,14 @@ public class ComboDAO implements DAOInterface<Combo> {
     }
 
     @Override
-    public int update(Combo t) {
+    public int update(TheLoaiPhim t) {
         int ketQua = 0;
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "UPDATE combo" 
+            String sql = "UPDATE phim_the_loai"
                     + " SET"
-                    + " ten_combo = '" + t.getTenCombo() + "',"
-                    + " chi_tiet_combo = '" + t.getChiTietCombo() + "',"
-                    + " gia = " + t.getGia()
-                    + " WHERE id_combo = " + t.getIdCombo();
+                    + " id_the_loai = " + t.getIdTheLoai() + " WHERE id_phim = " + t.getIdPhim();
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
             System.out.println("Co " + ketQua + " dong bi thay doi.");
@@ -61,13 +58,13 @@ public class ComboDAO implements DAOInterface<Combo> {
     }
 
     @Override
-    public int delete(Combo t) {
+    public int delete(TheLoaiPhim t) {
         int ketQua = 0;
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "DELETE FROM combo" 
-                    + " WHERE id_combo = " + t.getIdCombo();
+            String sql = "DELETE from phim_the_loai"
+                        + " WHERE id_phim = " + t.getIdPhim();
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
             System.out.println("Co " + ketQua + " dong bi thay doi.");
@@ -79,20 +76,37 @@ public class ComboDAO implements DAOInterface<Combo> {
     }
 
     @Override
-    public ArrayList<Combo> selectAll() {
-        ArrayList<Combo> ketQua = new ArrayList<>();
+    public ArrayList<TheLoaiPhim> selectAll() {
+        ArrayList<TheLoaiPhim> ketQua = new ArrayList<>();
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "SELECT * FROM combo";
+            String sql = "SELECT * FROM phim_the_loai";
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
-                int idCombo = rs.getInt("id_combo");
-                String tenCombo = rs.getString("ten_combo");
-                String chiTietCombo = rs.getString("chi_tiet_combo");
-                double gia = rs.getDouble("gia");
-                Combo cb = new Combo(idCombo, tenCombo, chiTietCombo, gia);
-                ketQua.add(cb);
+                int idPhim = rs.getInt("id_phim");
+                int idTheLoai = rs.getInt("id_the_loai");
+                TheLoaiPhim tlp = new TheLoaiPhim(idPhim, idTheLoai);
+                ketQua.add(tlp);
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return ketQua;    
+    }
+
+    @Override
+    public TheLoaiPhim selectById(TheLoaiPhim t) {
+        TheLoaiPhim ketQua = null;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            Statement st = con.createStatement();
+            String sql = "SELECT * FROM phim_the_loai WHERE id_phim = " + t.getIdPhim();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()) {
+                int idPhim = rs.getInt("id_phim");
+                int idTheLoai = rs.getInt("id_the_loai");
+                ketQua = new TheLoaiPhim(idPhim, idTheLoai);
             }
         } catch(SQLException e) {
             e.printStackTrace();
@@ -101,44 +115,23 @@ public class ComboDAO implements DAOInterface<Combo> {
     }
 
     @Override
-    public Combo selectById(Combo t) {
-        Combo ketQua = null;
+    public ArrayList<TheLoaiPhim> selectByCondition(String condition) {
+        ArrayList<TheLoaiPhim> ketQua = new ArrayList<>();
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "SELECT * FROM combo WHERE combo_id = " + t.getIdCombo();
+            String sql = "SELECT * FROM phim_the_loai WHERE id_phim = " + condition;
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
-                int idCombo = rs.getInt("id_combo");
-                String tenCombo = rs.getString("ten_combo");
-                String chiTietCombo = rs.getString("chi_tiet_combo");
-                double gia = rs.getDouble("gia");
-                ketQua = new Combo(idCombo, tenCombo, chiTietCombo, gia);
+                int idPhim = rs.getInt("id_phim");
+                int idTheLoai = rs.getInt("id_the_loai");
+                TheLoaiPhim tlp = new TheLoaiPhim(idPhim, idTheLoai);
+                ketQua.add(tlp);
             }
         } catch(SQLException e) {
             e.printStackTrace();
         }
-        return ketQua;    }
-
-    @Override
-    public ArrayList<Combo> selectByCondition(String condition) {
-        ArrayList<Combo> ketQua = new ArrayList<>();
-        try {
-            Connection con = JDBCUtil.getConnection();
-            Statement st = con.createStatement();
-            String sql = "SELECT * FROM combo WHERE " + condition;
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next()) {
-                int idCombo = rs.getInt("id_combo");
-                String tenCombo = rs.getString("ten_combo");
-                String chiTietCombo = rs.getString("chi_tiet_combo");
-                double gia = rs.getDouble("gia");
-                Combo cb = new Combo(idCombo, tenCombo, chiTietCombo, gia);
-                ketQua.add(cb);
-            }
-        } catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return ketQua;        
+        return ketQua;
     }
+    
 }

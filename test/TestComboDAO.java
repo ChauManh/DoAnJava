@@ -15,8 +15,8 @@ public class TestComboDAO {
     public static void main(String args[]) {
         Combo cb = new Combo(1,"Combo 1", "Bap ngot nuoc", 50000);
         Combo cb1 = new Combo(1, "Combo 1", "Bap nuoc", 100000);
-//        ComboDAO.getInstance().insert(cb);
-//        ComboDAO.getInstance().update(cb1);
+        ComboDAO.getInstance().insert(cb);
+        ComboDAO.getInstance().update(cb1);
         ComboDAO.getInstance().delete(cb);
     }
 }
