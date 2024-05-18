@@ -7,6 +7,7 @@ package com.raven.dao;
 import com.raven.database.JDBCUtil;
 import com.raven.models.Combo;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -78,17 +79,66 @@ public class ComboDAO implements DAOInterface<Combo> {
     }
 
     @Override
-    public ArrayList selectAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<Combo> selectAll() {
+        ArrayList<Combo> ketQua = new ArrayList<>();
+        try {
+            Connection con = JDBCUtil.getConnection();
+            Statement st = con.createStatement();
+            String sql = "SELECT * FROM combo";
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()) {
+                int idCombo = rs.getInt("id_combo");
+                String tenCombo = rs.getString("ten_combo");
+                String chiTietCombo = rs.getString("chi_tiet_combo");
+                double gia = rs.getDouble("gia");
+                Combo cb = new Combo(idCombo, tenCombo, chiTietCombo, gia);
+                ketQua.add(cb);
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return ketQua;
     }
 
     @Override
     public Combo selectById(Combo t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        Combo ketQua = null;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            Statement st = con.createStatement();
+            String sql = "SELECT * FROM combo WHERE combo_id = " + t.getIdCombo();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()) {
+                int idCombo = rs.getInt("id_combo");
+                String tenCombo = rs.getString("ten_combo");
+                String chiTietCombo = rs.getString("chi_tiet_combo");
+                double gia = rs.getDouble("gia");
+                ketQua = new Combo(idCombo, tenCombo, chiTietCombo, gia);
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return ketQua;    }
 
     @Override
-    public ArrayList selectByCondition(String condition) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<Combo> selectByCondition(String condition) {
+        ArrayList<Combo> ketQua = new ArrayList<>();
+        try {
+            Connection con = JDBCUtil.getConnection();
+            Statement st = con.createStatement();
+            String sql = "SELECT * FROM combo WHERE " + condition;
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()) {
+                int idCombo = rs.getInt("id_combo");
+                String tenCombo = rs.getString("ten_combo");
+                String chiTietCombo = rs.getString("chi_tiet_combo");
+                double gia = rs.getDouble("gia");
+                Combo cb = new Combo(idCombo, tenCombo, chiTietCombo, gia);
+                ketQua.add(cb);
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return ketQua;        
     }
 }
