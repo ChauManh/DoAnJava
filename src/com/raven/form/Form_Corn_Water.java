@@ -13,6 +13,7 @@ import javax.swing.table.TableRowSorter;
 
 public class Form_Corn_Water extends javax.swing.JPanel {
 
+    private Form_Bill fBill;
   
     public Form_Corn_Water() {
         initComponents();
@@ -170,7 +171,7 @@ DefaultTableModel ob =(DefaultTableModel) table.getModel();
         }    }//GEN-LAST:event_buttonSearchActionPerformed
 
     private void buttonBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBillActionPerformed
-        // TODO add your handling code here:
+        fBill = new Form_Bill();
     }//GEN-LAST:event_buttonBillActionPerformed
 
 

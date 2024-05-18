@@ -10,12 +10,16 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 
 public class Form_SellTicket extends javax.swing.JPanel {
 
+    private Form_ChooseMovie fChoose;
+    private Form_Bill fBill;
 
     public Form_SellTicket() {
         initComponents();
@@ -45,9 +49,21 @@ public class Form_SellTicket extends javax.swing.JPanel {
         table.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", StatusType.UnRelease});
         table.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
         
-    }
-
-
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (e.getValueIsAdjusting()) {
+                    return; // Ignore selection changes during adjustment
+                }
+                int selectedRow = table.getSelectedRow();
+                if (selectedRow != -1) {
+                    String name = table.getValueAt(selectedRow,1)+"";
+                    fChoose = new Form_ChooseMovie(name); // Gọi showInformation với selectedRow hợp lệ
+                }
+            }
+        });
+}
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -157,6 +173,14 @@ public class Form_SellTicket extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+//    private void showFormBuy(int selectedRow) {
+//        fChoose = new Form_ChooseMovie();
+//
+////        if (selectedRow >= 0 && selectedRow < table.getRowCount()) {
+////            DefaultTableModel model_table = (DefaultTableModel) table.getModel();      
+////        }
+//    }
+//    
     
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel ob =(DefaultTableModel) table.getModel();
@@ -179,8 +203,7 @@ public class Form_SellTicket extends javax.swing.JPanel {
           }//GEN-LAST:event_buttonSearchActionPerformed
 
     private void buttonBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBillActionPerformed
-//        fBill = new Form_Bill();
-//        fBill.setVisible(true);
+        fBill = new Form_Bill();
     }//GEN-LAST:event_buttonBillActionPerformed
 
 
