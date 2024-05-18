@@ -13,7 +13,6 @@ import java.sql.Date;
 public class Phim {
     private int idPhim;
     private String tenPhim;
-    private int idTheLoai;
     private String tenDaoDien;
     private String moTaPhim;
     private String poster;
@@ -26,11 +25,21 @@ public class Phim {
     public Phim() {
         
     }
-    
-    public Phim(int idPhim, String tenPhim, int idTheLoai, String tenDaoDien, String moTaPhim, String poster, String trailer, int doTuoiChoPhep, Date ngayPhatHanh, double diemDanhGia, int luotDanhGia) {
+
+    public Phim(int idPhim, String tenPhim, String tenDaoDien, String moTaPhim, String poster, String trailer, int doTuoiChoPhep, Date ngayPhatHanh) {
         this.idPhim = idPhim;
         this.tenPhim = tenPhim;
-        this.idTheLoai = idTheLoai;
+        this.tenDaoDien = tenDaoDien;
+        this.moTaPhim = moTaPhim;
+        this.poster = poster;
+        this.trailer = trailer;
+        this.doTuoiChoPhep = doTuoiChoPhep;
+        this.ngayPhatHanh = ngayPhatHanh;
+    }
+    
+    public Phim(int idPhim, String tenPhim, String tenDaoDien, String moTaPhim, String poster, String trailer, int doTuoiChoPhep, Date ngayPhatHanh, double diemDanhGia, int luotDanhGia) {
+        this.idPhim = idPhim;
+        this.tenPhim = tenPhim;
         this.tenDaoDien = tenDaoDien;
         this.moTaPhim = moTaPhim;
         this.poster = poster;
@@ -55,14 +64,6 @@ public class Phim {
 
     public void setTenPhim(String tenPhim) {
         this.tenPhim = tenPhim;
-    }
-
-    public int getIdTheLoai() {
-        return idTheLoai;
-    }
-
-    public void setIdTheLoai(int idTheLoai) {
-        this.idTheLoai = idTheLoai;
     }
 
     public String getTenDaoDien() {

@@ -5,7 +5,7 @@
 package com.raven.dao;
 
 import com.raven.database.JDBCUtil;
-import com.raven.models.Combo;
+import com.raven.models.Phim;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,18 +15,27 @@ import java.util.ArrayList;
  *
  * @author DANG GIA BAO
  */
-public class ComboDAO implements DAOInterface<Combo> {
-    public static ComboDAO getInstance() {
-        return new ComboDAO();
+public class PhimDAO implements DAOInterface<Phim> {
+    public static PhimDAO getInstance() {
+        return new PhimDAO();
     }
     @Override
-    public int insert(Combo t) {
+    public int insert(Phim t) {
         int ketQua = 0;
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "INSERT INTO combo (id_combo, ten_combo, chi_tiet_combo, gia)"
-                    + " VALUES('"+t.getTenCombo()+"' , '"+t.getChiTietCombo()+"' , "+t.getGia()+" );";
+            String sql = "INSERT INTO phim (id_phim, ten_phim, ten_dao_dien, mo_ta_phim, poster, trailer, do_tuoi_cho_phep, ngay_phat_hanh, diem_danh_gia, luot_danh_gia)"
+                    +" VALUES"
+                    +"('"+t.getTenPhim()
+                    +"', '"+t.getTenDaoDien()
+                    +"', '"+t.getMoTaPhim()
+                    +"', '"+t.getPoster()
+                    +"', '"+t.getTrailer()
+                    +"', "+t.getDoTuoiChoPhep()
+                    +", '"+t.getNgayPhatHanh()
+                    +"', "+t.getDiemDanhGia()
+                    +", "+t.getLuotDanhGia()+" );";
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
             System.out.println("Co " + ketQua + " dong bi thay doi.");
@@ -38,17 +47,23 @@ public class ComboDAO implements DAOInterface<Combo> {
     }
 
     @Override
-    public int update(Combo t) {
+    public int update(Phim t) {
         int ketQua = 0;
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "UPDATE combo" 
+            String sql = "UPDATE phim"
                     + " SET"
-                    + " ten_combo = '" + t.getTenCombo() + "',"
-                    + " chi_tiet_combo = '" + t.getChiTietCombo() + "',"
-                    + " gia = " + t.getGia()
-                    + " WHERE id_combo = " + t.getIdCombo();
+                    + " ten_phim = '" + t.getTenPhim() + "',"
+                    + " ten_dao_dien = '" + t.getTenDaoDien() + "',"
+                    + " mo_ta_phim = '" + t.getMoTaPhim() + "',"
+                    + " poster = '" + t.getPoster() + "',"
+                    + " trailer = '" + t.getTrailer() + "',"
+                    + " do_tuoi_cho_phep = " + t.getDoTuoiChoPhep() + ","
+                    + " ngay_phat_hanh = '" + t.getNgayPhatHanh()+ "',"
+                    + " diem_danh_gia = " + t.getDiemDanhGia() + ","
+                    + " luot_danh_gia = " + t.getLuotDanhGia()
+                    + " WHERE id_phim = " + t.getIdPhim();
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
             System.out.println("Co " + ketQua + " dong bi thay doi.");
@@ -60,35 +75,23 @@ public class ComboDAO implements DAOInterface<Combo> {
     }
 
     @Override
-    public int delete(Combo t) {
-        int ketQua = 0;
-        try {
-            Connection con = JDBCUtil.getConnection();
-            Statement st = con.createStatement();
-            String sql = "DELETE FROM combo" 
-                    + " WHERE id_combo = " + t.getIdCombo();
-            ketQua = st.executeUpdate(sql);
-            System.out.println("Da thuc thi: " + sql);
-            System.out.println("Co " + ketQua + " dong bi thay doi.");
-            JDBCUtil.closeConnection(con);
-        } catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return ketQua;
-    }
-
-    @Override
-    public ArrayList selectAll() {
+    public int delete(Phim t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Combo selectById(Combo t) {
+    public ArrayList<Phim> selectAll() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public ArrayList selectByCondition(String condition) {
+    public Phim selectById(Phim t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public ArrayList<Phim> selectByCondition(String condition) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
 }

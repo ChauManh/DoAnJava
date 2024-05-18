@@ -18,7 +18,8 @@ public class Combo {
         
     }
     
-    public Combo(String tenCombo, String chiTietCombo, double gia) {
+    public Combo(int idCombo, String tenCombo, String chiTietCombo, double gia) {
+        this.idCombo = idCombo;
         this.tenCombo = tenCombo;
         this.chiTietCombo = chiTietCombo;
         this.gia = gia;
