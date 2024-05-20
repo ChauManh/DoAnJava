@@ -118,6 +118,7 @@ public class PhimDAO implements DAOInterface<Phim> {
                 Phim p = new Phim(idPhim, tenPhim, tenDaoDien, moTaPhim, poster, trailer, doTuoiChoPhep, ngayPhatHanh, diemDanhGia, luotDanhGia);
                 ketQua.add(p);
             }
+            JDBCUtil.closeConnection(con);
         } catch(SQLException e) {
             e.printStackTrace();
         }

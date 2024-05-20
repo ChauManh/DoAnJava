@@ -1,9 +1,12 @@
 
 package com.raven.form;
 
+import com.raven.dao.NhanVienDAO;
 import com.raven.model.StatusType;
+import com.raven.models.NhanVien;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.event.ListSelectionEvent;
@@ -13,7 +16,7 @@ import javax.swing.table.TableRowSorter;
 
 
 public class Form_Employee extends javax.swing.JPanel {
-
+    private ArrayList<NhanVien> listNhanVien = null;
 
     public Form_Employee() {
         initComponents();
@@ -28,13 +31,13 @@ public class Form_Employee extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getGreen() + Color.decode("#D6A4A4").getGreen()) / 2, 
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
-        
-        table.addRow(new Object[]{"1", "Châu Đức Mạnh", "Nam", "Quản lý"});
-        table.addRow(new Object[]{"2", "Nguyễn Thị Hoa", "Nữ", "Nhân viên"});
-        table.addRow(new Object[]{"3", "Lê Văn Tuấn", "Nam", "Kỹ sư"});
-        table.addRow(new Object[]{"4", "Trần Thị Mai", "Nữ", "Kế toán"});
-        table.addRow(new Object[]{"5", "Phạm Minh Hiếu", "Nam", "Bảo vệ"});
-        table.addRow(new Object[]{"6", "Đỗ Thị Thu Hà", "Nữ", "Tiếp tân"});
+        //Lay du lieu toan bo nhan vien tu dba
+        listNhanVien = NhanVienDAO.getInstance().selectAll();
+        //Hien thi nhan vien len table
+        for(int i = 0; i < listNhanVien.size(); i++) {
+            table.addRow(new Object[]{listNhanVien.get(i).getIdNhanVien(), listNhanVien.get(i).getTenNhanVien(), listNhanVien.get(i).getGioiTinh(), listNhanVien.get(i).getChucVu()});
+        }
+
         
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -69,11 +72,11 @@ public class Form_Employee extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         roleText = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        firstworkText = new javax.swing.JLabel();
+        ngaySinhText = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        numberText = new javax.swing.JLabel();
+        ngayVaoLamText = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        numberText1 = new javax.swing.JLabel();
+        sdtText = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         buttonSearch = new com.raven.swing.MyButton();
 
@@ -120,10 +123,8 @@ public class Form_Employee extends javax.swing.JPanel {
         jLabel2.setText("ID Nhân viên:");
 
         nameText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nameText.setText("Châu Đức Mạnh");
 
         idText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idText.setText("1");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Họ và tên: ");
@@ -132,31 +133,26 @@ public class Form_Employee extends javax.swing.JPanel {
         jLabel.setText("Giới tính:");
 
         sexText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        sexText.setText("Nam");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("Chức vụ:");
 
         roleText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        roleText.setText("Quản lý");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Ngày sinh:");
 
-        firstworkText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        firstworkText.setText("11/08/2004");
+        ngaySinhText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("Ngày vào làm:");
 
-        numberText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        numberText.setText("10/05/2024");
+        ngayVaoLamText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("Số điện thoại:");
 
-        numberText1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        numberText1.setText("0367485383");
+        sdtText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
         panelBorder2.setLayout(panelBorder2Layout);
@@ -192,9 +188,9 @@ public class Form_Employee extends javax.swing.JPanel {
                                 .addComponent(jLabel13)
                                 .addGap(46, 46, 46)))
                         .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numberText1)
-                            .addComponent(firstworkText)
-                            .addComponent(numberText)))
+                            .addComponent(sdtText)
+                            .addComponent(ngaySinhText)
+                            .addComponent(ngayVaoLamText)))
                     .addComponent(roleText))
                 .addGap(133, 133, 133))
         );
@@ -206,19 +202,19 @@ public class Form_Employee extends javax.swing.JPanel {
                     .addComponent(idText)
                     .addComponent(jLabel2)
                     .addComponent(jLabel10)
-                    .addComponent(firstworkText))
+                    .addComponent(ngaySinhText))
                 .addGap(18, 18, 18)
                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(nameText)
                     .addComponent(jLabel12)
-                    .addComponent(numberText))
+                    .addComponent(ngayVaoLamText))
                 .addGap(18, 18, 18)
                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel)
                     .addComponent(sexText)
                     .addComponent(jLabel13)
-                    .addComponent(numberText1))
+                    .addComponent(sdtText))
                 .addGap(18, 18, 18)
                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -285,6 +281,9 @@ public class Form_Employee extends javax.swing.JPanel {
             nameText.setText(model_table.getValueAt(selectedRow, 1) + "");
             sexText.setText(model_table.getValueAt(selectedRow, 2) + "");
             roleText.setText(model_table.getValueAt(selectedRow, 3) + "");
+            ngaySinhText.setText(listNhanVien.get(selectedRow).getNgaySinh().toString());
+            sdtText.setText(listNhanVien.get(selectedRow).getSdt());
+            ngayVaoLamText.setText(listNhanVien.get(selectedRow).getNgayVaoLam().toString());
         }
     }
     
@@ -311,7 +310,6 @@ public class Form_Employee extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.MyButton buttonSearch;
-    private javax.swing.JLabel firstworkText;
     private com.raven.component.Header header;
     private javax.swing.JLabel idText;
     private javax.swing.JLabel jLabel;
@@ -323,11 +321,12 @@ public class Form_Employee extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel nameText;
-    private javax.swing.JLabel numberText;
-    private javax.swing.JLabel numberText1;
+    private javax.swing.JLabel ngaySinhText;
+    private javax.swing.JLabel ngayVaoLamText;
     private com.raven.swing.PanelBorder panelBorder1;
     private com.raven.swing.PanelBorder panelBorder2;
     private javax.swing.JLabel roleText;
+    private javax.swing.JLabel sdtText;
     private javax.swing.JLabel sexText;
     private javax.swing.JScrollPane spTable;
     private com.raven.swing.Table table;

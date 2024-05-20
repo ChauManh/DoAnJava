@@ -16,6 +16,7 @@ public class NhanVien {
     private String gioiTinh;
     private String chucVu;
     private Date ngaySinh;
+    private Date ngayVaoLam;
     private String email;
     private String sdt;
    
@@ -23,14 +24,23 @@ public class NhanVien {
         
     }
 
-    public NhanVien(String idNhanVien, String tenNhanVien, String gioiTinh, String chucVu, Date ngaySinh, String email, String sdt) {
+    public NhanVien(String idNhanVien, String tenNhanVien, String gioiTinh, String chucVu, Date ngaySinh, Date ngayVaoLam, String email, String sdt) {
         this.idNhanVien = idNhanVien;
         this.tenNhanVien = tenNhanVien;
         this.gioiTinh = gioiTinh;
         this.chucVu = chucVu;
         this.ngaySinh = ngaySinh;
+        this.ngayVaoLam = ngayVaoLam;
         this.email = email;
         this.sdt = sdt;
+    }
+
+    public Date getNgayVaoLam() {
+        return ngayVaoLam;
+    }
+
+    public void setNgayVaoLam(Date ngayVaoLam) {
+        this.ngayVaoLam = ngayVaoLam;
     }
 
     public String getIdNhanVien() {
