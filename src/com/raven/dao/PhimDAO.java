@@ -8,6 +8,7 @@ import com.raven.database.JDBCUtil;
 import com.raven.models.Phim;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -100,17 +101,17 @@ public class PhimDAO implements DAOInterface<Phim> {
         ArrayList<Phim> ketQua = new ArrayList<>();
         try {
             Connection con = JDBCUtil.getConnection();
-            Statement st = con.createStatement();
             String sql = "SELECT * FROM phim";
+            PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
                 int idPhim = rs.getInt("id_phim");
-                String tenPhim = rs.getString("ten_name");
+                String tenPhim = rs.getString("ten_phim");
                 String tenDaoDien = rs.getString("ten_dao_dien");
                 String moTaPhim = rs.getString("mo_ta_phim");
                 String poster = rs.getString("poster");
                 String trailer = rs.getString("trailer");
-                int doTuoiChoPhep = rs.getInt("do_tuoi_cho_phep");
+                String doTuoiChoPhep = rs.getString("do_tuoi_cho_phep");
                 Date ngayPhatHanh = rs.getDate("ngay_phat_hanh");
                 double diemDanhGia = rs.getDouble("diem_danh_gia");
                 int luotDanhGia = rs.getInt("luot_danh_gia");
@@ -128,8 +129,8 @@ public class PhimDAO implements DAOInterface<Phim> {
         Phim ketQua = null;
         try {
             Connection con = JDBCUtil.getConnection();
-            Statement st = con.createStatement();
             String sql = "SELECT * FROM phim WHERE id_phim = " + t.getIdPhim();
+            PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
                 int idPhim = rs.getInt("id_phim");
@@ -138,7 +139,7 @@ public class PhimDAO implements DAOInterface<Phim> {
                 String moTaPhim = rs.getString("mo_ta_phim");
                 String poster = rs.getString("poster");
                 String trailer = rs.getString("trailer");
-                int doTuoiChoPhep = rs.getInt("do_tuoi_cho_phep");
+                String doTuoiChoPhep = rs.getString("do_tuoi_cho_phep");
                 Date ngayPhatHanh = rs.getDate("ngay_phat_hanh");
                 double diemDanhGia = rs.getDouble("diem_danh_gia");
                 int luotDanhGia = rs.getInt("luot_danh_gia");
@@ -155,8 +156,8 @@ public class PhimDAO implements DAOInterface<Phim> {
         ArrayList<Phim> ketQua = new ArrayList<>();
         try {
             Connection con = JDBCUtil.getConnection();
-            Statement st = con.createStatement();
             String sql = "SELECT * FROM phim WHERE " + condition;
+            PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
                 int idPhim = rs.getInt("id_phim");
@@ -165,7 +166,7 @@ public class PhimDAO implements DAOInterface<Phim> {
                 String moTaPhim = rs.getString("mo_ta_phim");
                 String poster = rs.getString("poster");
                 String trailer = rs.getString("trailer");
-                int doTuoiChoPhep = rs.getInt("do_tuoi_cho_phep");
+                String doTuoiChoPhep = rs.getString("do_tuoi_cho_phep");
                 Date ngayPhatHanh = rs.getDate("ngay_phat_hanh");
                 double diemDanhGia = rs.getDouble("diem_danh_gia");
                 int luotDanhGia = rs.getInt("luot_danh_gia");

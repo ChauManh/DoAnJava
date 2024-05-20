@@ -17,7 +17,7 @@ public class Phim {
     private String moTaPhim;
     private String poster;
     private String trailer;
-    private int doTuoiChoPhep;
+    private String doTuoiChoPhep;
     private Date ngayPhatHanh;
     private double diemDanhGia;
     private int luotDanhGia;
@@ -26,7 +26,7 @@ public class Phim {
         
     }
 
-    public Phim(int idPhim, String tenPhim, String tenDaoDien, String moTaPhim, String poster, String trailer, int doTuoiChoPhep, Date ngayPhatHanh) {
+    public Phim(int idPhim, String tenPhim, String tenDaoDien, String moTaPhim, String poster, String trailer, String doTuoiChoPhep, Date ngayPhatHanh) {
         this.idPhim = idPhim;
         this.tenPhim = tenPhim;
         this.tenDaoDien = tenDaoDien;
@@ -37,7 +37,7 @@ public class Phim {
         this.ngayPhatHanh = ngayPhatHanh;
     }
     
-    public Phim(int idPhim, String tenPhim, String tenDaoDien, String moTaPhim, String poster, String trailer, int doTuoiChoPhep, Date ngayPhatHanh, double diemDanhGia, int luotDanhGia) {
+    public Phim(int idPhim, String tenPhim, String tenDaoDien, String moTaPhim, String poster, String trailer, String doTuoiChoPhep, Date ngayPhatHanh, double diemDanhGia, int luotDanhGia) {
         this.idPhim = idPhim;
         this.tenPhim = tenPhim;
         this.tenDaoDien = tenDaoDien;
@@ -98,11 +98,11 @@ public class Phim {
         this.trailer = trailer;
     }
 
-    public int getDoTuoiChoPhep() {
+    public String getDoTuoiChoPhep() {
         return doTuoiChoPhep;
     }
 
-    public void setDoTuoiChoPhep(int doTuoiChoPhep) {
+    public void setDoTuoiChoPhep(String doTuoiChoPhep) {
         this.doTuoiChoPhep = doTuoiChoPhep;
     }
 
