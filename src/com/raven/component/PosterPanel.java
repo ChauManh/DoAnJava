@@ -25,9 +25,9 @@ public class PosterPanel extends javax.swing.JPanel {
         initComponents();
         setOpaque(false);
     }
-    public void setData(Phim data) {
+    public void setData(String poster) {
         try {
-            image = ImageIO.read(new URL(data.getPoster()));
+            image = ImageIO.read(new URL(poster));
         } catch(IOException e) {
             e.printStackTrace();
         }

@@ -15,7 +15,7 @@ import java.sql.Date;
 public class TestNhanVienDAO {
     public static void main(String args[]) {
         NhanVien nv = new NhanVien("1", "Bao", "Nam", "Quan li", Date.valueOf("2004-04-29"), "dangbao290404@gmail.com", "0356537193");
-//        NhanVienDAO.getInstance().insert(nv);
+        NhanVienDAO.getInstance().insert(nv);
         NhanVien nv1 = new NhanVien("1", "Dang Gia Bao", "Nam", "Nhan vien", Date.valueOf("2004-04-29"), "dangbao290404@gmail.com", "0356537193");
         NhanVienDAO.getInstance().update(nv1);
         NhanVien nv2 = new NhanVien();
