@@ -34,20 +34,20 @@ public class Form_SellTicket extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
                 
-        table.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024",StatusType.Released});
-        table.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-        table.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-        table.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", StatusType.UnRelease});
-        table.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-        table.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024",StatusType.Released});
-        table.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", StatusType.UnRelease});
-        table.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", StatusType.Released});
-        table.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", StatusType.Released});
-        table.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-        table.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-        table.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-        table.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", StatusType.UnRelease});
-        table.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
+        table.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024","70.000"});
+        table.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
+        table.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", "70.000"});
+        table.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", "70.000"});
+        table.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
+        table.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024","70.000"});
+        table.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", "70.000"});
+        table.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", "70.000"});
+        table.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", "70.000"});
+        table.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
+        table.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
+        table.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", "70.000"});
+        table.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", "70.000"});
+        table.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
         
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -89,7 +89,7 @@ public class Form_SellTicket extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", "Tình trạng"
+                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", "Giá vé"
             }
         ) {
             boolean[] canEdit = new boolean [] {
