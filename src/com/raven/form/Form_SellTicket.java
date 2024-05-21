@@ -1,13 +1,16 @@
 
 package com.raven.form;
 
+import com.raven.dao.PhimDAO;
 import com.raven.model.StatusType;
+import com.raven.models.Phim;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.event.ListSelectionEvent;
@@ -17,7 +20,7 @@ import javax.swing.table.TableRowSorter;
 
 
 public class Form_SellTicket extends javax.swing.JPanel {
-
+    private ArrayList<Phim> listPhim = null;
     private Form_ChooseMovie fChoose;
     private Form_Bill fBill;
 
@@ -33,21 +36,25 @@ public class Form_SellTicket extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getGreen() + Color.decode("#D6A4A4").getGreen()) / 2, 
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
-                
-        table.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024","70.000"});
-        table.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
-        table.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", "70.000"});
-        table.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", "70.000"});
-        table.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
-        table.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024","70.000"});
-        table.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", "70.000"});
-        table.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", "70.000"});
-        table.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", "70.000"});
-        table.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
-        table.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
-        table.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", "70.000"});
-        table.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", "70.000"});
-        table.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
+        listPhim = PhimDAO.getInstance().selectAll();
+        for(int i = 0; i < listPhim.size(); i++) {
+            Phim phim = listPhim.get(i);
+            table.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh().toString()});
+        }
+//        table.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024","70.000"});
+//        table.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
+//        table.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", "70.000"});
+//        table.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", "70.000"});
+//        table.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
+//        table.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024","70.000"});
+//        table.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", "70.000"});
+//        table.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", "70.000"});
+//        table.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", "70.000"});
+//        table.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
+//        table.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
+//        table.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", "70.000"});
+//        table.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", "70.000"});
+//        table.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
         
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
