@@ -2,8 +2,12 @@
 package com.raven.form;
 
 import com.raven.dao.PhimDAO;
+import com.raven.dao.TheLoaiDAO;
+import com.raven.dao.TheLoaiPhimDAO;
 import com.raven.model.StatusType;
 import com.raven.models.Phim;
+import com.raven.models.TheLoai;
+import com.raven.models.TheLoaiPhim;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -21,6 +25,8 @@ import javax.swing.table.TableRowSorter;
 
 public class Form_SellTicket extends javax.swing.JPanel {
     private ArrayList<Phim> listPhim = null;
+    private ArrayList<TheLoaiPhim> listTheLoaiPhim = null;
+    private ArrayList<TheLoai> listTheLoai = TheLoaiDAO.getInstance().selectAll();
     private Form_ChooseMovie fChoose;
     private Form_Bill fBill;
 
@@ -38,23 +44,21 @@ public class Form_SellTicket extends javax.swing.JPanel {
         this.setBackground(color);
         listPhim = PhimDAO.getInstance().selectAll();
         for(int i = 0; i < listPhim.size(); i++) {
+            ArrayList<String> theLoai = new ArrayList<>();
             Phim phim = listPhim.get(i);
-            table.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh().toString()});
+            String idPhim = ""+phim.getIdPhim();
+            listTheLoaiPhim = TheLoaiPhimDAO.getInstance().selectByCondition(idPhim);
+            for(int j = 0; j < listTheLoaiPhim.size(); j++) {
+                theLoai.add(listTheLoai.get(listTheLoaiPhim.get(j).getIdTheLoai()).getTenTheLoai());
+            }
+            StringBuilder sb = new StringBuilder();
+            for(String theLoais : theLoai) {
+                sb.append(theLoai);
+                sb.append(", ");
+            }
+            String tl = sb.toString();
+            table.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh().toString(), tl});
         }
-//        table.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024","70.000"});
-//        table.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
-//        table.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", "70.000"});
-//        table.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", "70.000"});
-//        table.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
-//        table.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024","70.000"});
-//        table.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", "70.000"});
-//        table.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", "70.000"});
-//        table.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", "70.000"});
-//        table.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
-//        table.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
-//        table.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", "70.000"});
-//        table.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", "70.000"});
-//        table.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
         
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -96,7 +100,7 @@ public class Form_SellTicket extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", "Giá vé"
+                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", "Thể Loại"
             }
         ) {
             boolean[] canEdit = new boolean [] {
