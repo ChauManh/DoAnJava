@@ -1,13 +1,22 @@
 
 package com.raven.form;
 
+import com.raven.dao.ComboDAO;
+import com.raven.dao.PhimDAO;
+import com.raven.dao.TheLoaiDAO;
+import com.raven.dao.TheLoaiPhimDAO;
 import com.raven.model.StatusType;
 import com.raven.model.TableActionEvent;
+import com.raven.models.Combo;
+import com.raven.models.Phim;
+import com.raven.models.TheLoai;
+import com.raven.models.TheLoaiPhim;
 import com.raven.swing.ScrollBar;
 import com.raven.swing.TableActionCellEditor;
 import com.raven.swing.TableActionCellRender;
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -16,7 +25,10 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Form_Service extends javax.swing.JPanel {
-
+    private ArrayList<Phim> listPhim = null;
+    private ArrayList<TheLoai> listTheLoai = TheLoaiDAO.getInstance().selectAll();
+    private ArrayList<TheLoaiPhim> listTheLoaiPhim = null;
+    private ArrayList<Combo> listCombo = ComboDAO.getInstance().selectAll();
     Form_Movie fAddMovie;
     Form_Combo fAddCombo;
 
@@ -35,7 +47,28 @@ public class Form_Service extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getGreen() + Color.decode("#D6A4A4").getGreen()) / 2, 
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
-                
+        listPhim = PhimDAO.getInstance().selectAll();
+        for(int i = 0; i < listPhim.size(); i++) {
+            ArrayList<String> theLoai = new ArrayList<>();
+            Phim phim = listPhim.get(i);
+            String idPhim = ""+phim.getIdPhim();
+            listTheLoaiPhim = TheLoaiPhimDAO.getInstance().selectByCondition(idPhim);
+            for(int j = 0; j < listTheLoaiPhim.size(); j++) {
+                theLoai.add(listTheLoai.get(listTheLoaiPhim.get(j).getIdTheLoai()).getTenTheLoai());
+            }
+            StringBuilder sb = new StringBuilder();
+            for(String theLoais : theLoai) {
+                sb.append(theLoai);
+                sb.append(", ");
+            }
+            String tl = sb.toString();
+            tableMovie.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh().toString(), tl});
+            
+        }
+        for(int i = 0; i < listCombo.size(); i++) {
+            Combo cb = listCombo.get(i);
+            tableCombo.addRow(new Object[]{cb.getIdCombo(), cb.getTenCombo(), cb.getChiTietCombo(), cb.getGia()});
+        }
 //        TableActionEvent event = new TableActionEvent() {
 //            @Override
 //            public void onEdit(int row) {
@@ -66,36 +99,36 @@ public class Form_Service extends javax.swing.JPanel {
 //            }
 //        });
         
-        tableMovie.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024",StatusType.Released});
-        tableMovie.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024",StatusType.Released});
-        tableMovie.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024",StatusType.Released});
+//        tableMovie.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024",StatusType.Released});
+//        tableMovie.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
         
-        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
+//        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
+//        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
+//        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
+//        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
+//        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
+//        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
+//        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
+//        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
+//        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
+//        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
+//        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
+//        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
+//        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
+//        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
+//        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
     }
 
 
@@ -117,7 +150,7 @@ public class Form_Service extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", ""
+                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", "Thể Loại"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -152,20 +185,10 @@ public class Form_Service extends javax.swing.JPanel {
         buttonAddMovie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonAddMovie.setPreferredSize(new java.awt.Dimension(88, 45));
         buttonAddMovie.setRadius(50);
-        buttonAddMovie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddMovieActionPerformed(evt);
-            }
-        });
 
         buttonAddCombo.setText("Thêm Combo");
         buttonAddCombo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonAddCombo.setRadius(50);
-        buttonAddCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddComboActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));
@@ -211,20 +234,12 @@ public class Form_Service extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AddMovie(String id, String name, String age, String release){
-        
-        tableMovie.addRow(new Object[]{id, name, age, release});
-    }
+//
+//    private void AddMovie(String id, String name, String age, String release){
+//        
+//        tableMovie.addRow(new Object[]{id, name, age, release});
+//    }
     
-    private void buttonAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddMovieActionPerformed
-        fAddMovie = new Form_Movie();
-    }//GEN-LAST:event_buttonAddMovieActionPerformed
-
-    private void buttonAddComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddComboActionPerformed
-        fAddCombo = new Form_Combo();
-    }//GEN-LAST:event_buttonAddComboActionPerformed
-
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
