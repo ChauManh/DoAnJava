@@ -1,9 +1,12 @@
 
 package com.raven.form;
 
+import com.raven.dao.ComboDAO;
 import com.raven.model.StatusType;
+import com.raven.models.Combo;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 
@@ -14,7 +17,7 @@ import javax.swing.table.TableRowSorter;
 public class Form_Corn_Water extends javax.swing.JPanel {
 
     private Form_Bill fBill;
-  
+    private ArrayList<Combo> listCombo = null;
     public Form_Corn_Water() {
         initComponents();
         
@@ -28,23 +31,13 @@ public class Form_Corn_Water extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getGreen() + Color.decode("#D6A4A4").getGreen()) / 2, 
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
-        
-        table.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        table.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        table.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        table.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        table.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-        table.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        table.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        table.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        table.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        table.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-        table.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        table.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        table.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        table.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        table.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-
+        //lấy danh sách combo từ dba
+        listCombo = ComboDAO.getInstance().selectAll();
+        //hiển thị danh sách combo lên bảng
+        for(int i = 0; i < listCombo.size(); i++) {
+            Combo cb = listCombo.get(i);
+            table.addRow(new Object[]{cb.getIdCombo(), cb.getTenCombo(), cb.getChiTietCombo(), cb.getGia()});
+        }
         
     }
 
