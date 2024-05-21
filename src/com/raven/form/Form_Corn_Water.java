@@ -75,7 +75,15 @@ public class Form_Corn_Water extends javax.swing.JPanel {
             new String [] {
                 "ID Combo", "Tên Combo", "Chi tiết Combo", "Giá"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         spTable.setViewportView(table);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N

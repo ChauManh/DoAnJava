@@ -57,19 +57,23 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="cmdDone" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="cmdCancel" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="cmdAdd" min="-2" pref="120" max="-2" attributes="0"/>
-                  <EmptySpace pref="456" max="32767" attributes="0"/>
-                  <Component id="cmdCancel" min="-2" pref="120" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -80,10 +84,10 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cmdCancel" pref="49" max="32767" attributes="0"/>
-                      <Component id="cmdAdd" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cmdCancel" pref="50" max="32767" attributes="0"/>
+                      <Component id="cmdDone" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
@@ -102,7 +106,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="7f" green="7f" red="7f" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Th&#xea;m m&#x1ed9;t phim m&#x1edb;i"/>
+            <Property name="text" type="java.lang.String" value="&#x110;&#x1eb7;t v&#xe9;"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel1">
@@ -123,51 +127,79 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="release1" min="-2" pref="483" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <Component id="release" min="-2" pref="483" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <Component id="age" min="-2" pref="483" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="myTextField3" min="-2" pref="483" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="564" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="nameMovie" min="-2" pref="335" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="226" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="366" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <Component id="spTable" min="-2" pref="320" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="nameMovie1" min="-2" pref="218" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nameMovie" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameMovie" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel10" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="myTextField3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="age" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="release" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="release1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="124" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="spTable" min="-2" pref="304" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel11" min="-2" pref="48" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="nameMovie1" min="-2" pref="25" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -176,68 +208,1147 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Segoe UI" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="T&#xea;n phim"/>
+                <Property name="text" type="java.lang.String" value="T&#xea;n phim:"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="T&#xea;n &#x111;&#x1ea1;o di&#x1ec5;n"/>
-              </Properties>
-            </Component>
-            <Component class="com.raven.swing.MyTextField" name="myTextField3">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myTextField3ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="&#x110;&#x1ed9; tu&#x1ed5;i cho ph&#xe9;p"/>
-              </Properties>
-            </Component>
-            <Component class="com.raven.swing.MyTextField" name="age">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ageActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ng&#xe0;y ph&#xe1;t h&#xe0;nh"/>
+                <Property name="text" type="java.lang.String" value="Ghi ch&#xfa; m&#xe0;u gh&#x1ebf;:"/>
               </Properties>
             </Component>
-            <Component class="com.raven.swing.MyTextField" name="release">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="releaseActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JLabel" name="nameMovie">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="buttonGhe31" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="buttonGhe38" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="buttonGhe4" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe5" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="buttonGhe11" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe14" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="buttonGhe6" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe7" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe8" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="buttonGhe15" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      <Component id="buttonGhe25" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      <Component id="buttonGhe39" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      <Component id="buttonGhe50" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      <Component id="buttonGhe58" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      <Component id="buttonGhe66" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="buttonGhe24" min="-2" pref="50" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="buttonGhe28" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="buttonGhe17" min="-2" pref="50" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="buttonGhe16" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="buttonGhe40" min="-2" pref="50" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="buttonGhe42" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="buttonGhe52" min="-2" pref="50" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="buttonGhe51" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="buttonGhe61" min="-2" pref="50" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="buttonGhe59" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="buttonGhe68" min="-2" pref="50" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Component id="buttonGhe67" min="-2" pref="50" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="buttonGhe22" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="buttonGhe23" min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="buttonGhe37" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="buttonGhe48" min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="buttonGhe33" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="buttonGhe49" min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="buttonGhe32" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="buttonGhe47" min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="buttonGhe9" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="buttonGhe10" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace pref="50" max="32767" attributes="0"/>
+                                          <Component id="buttonGhe34" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="buttonGhe12" min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="buttonGhe18" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="buttonGhe19" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="buttonGhe35" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="buttonGhe20" min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="buttonGhe69" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe70" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="buttonGhe71" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="buttonGhe60" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe63" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="buttonGhe62" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="buttonGhe53" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe54" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="buttonGhe55" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="buttonGhe41" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe43" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="buttonGhe46" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="buttonGhe26" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe27" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="buttonGhe36" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="buttonGhe30" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="buttonGhe44" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="buttonGhe56" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="buttonGhe64" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <Component id="buttonGhe72" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="buttonGhe13" min="-2" pref="50" max="-2" attributes="0"/>
+                                                  <Component id="buttonGhe21" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="buttonGhe29" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="buttonGhe45" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="buttonGhe57" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="buttonGhe65" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="buttonGhe73" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonGhe4" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe5" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe6" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe7" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe8" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe9" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe10" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe12" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe13" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe34" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonGhe11" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe14" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe15" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe16" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe17" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe18" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe19" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe20" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe21" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe35" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonGhe22" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe23" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe25" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe24" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe28" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe26" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe27" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe30" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe29" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe36" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonGhe31" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe38" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe39" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe40" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe41" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe42" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe43" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe44" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe45" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe46" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonGhe33" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe49" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe50" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe51" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe52" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe53" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe54" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe55" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe56" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe57" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonGhe32" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe47" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe58" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe59" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe60" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe61" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe62" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe63" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe64" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe65" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="buttonGhe37" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe48" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe66" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe67" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe68" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe69" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe70" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe71" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe72" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="buttonGhe73" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel5">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="M&#xc0;N H&#xcc;NH"/>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A01"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A02"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A03"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A04"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe8">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A05"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A06"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A07"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe12">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A09"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe13">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A10"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe11">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B01"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe11ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe14">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B02"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe15">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B03"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe16">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B05"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe17">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B04"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe18">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B06"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe19">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B07"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe20">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B09"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe21">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B10"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe22">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C01"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe22ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe23">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C02"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe23ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe24">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C04"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe24ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe25">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C03"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe25ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe26">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C06"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe26ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe27">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C07"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe27ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe28">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C05"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe28ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe29">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C10"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe29ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe30">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C09"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe30ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe31">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D01"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe31ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe32">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F01"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe32ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe33">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E01"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe33ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe34">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A08"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe35">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="B08"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe36">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="C08"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe37">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G01"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe37ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe38">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D02"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe38ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe39">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D03"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe39ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe40">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D04"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe40ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe41">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D06"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe41ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe42">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D05"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe42ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe43">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D07"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe43ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe44">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D09"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe44ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe45">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D10"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe45ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe46">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="D08"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe46ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe47">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F02"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe47ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe48">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G02"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe48ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe49">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E02"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe49ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe50">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E03"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe50ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe51">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E05"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe51ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe52">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E04"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe52ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe53">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E06"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe53ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe54">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E07"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe54ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe55">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E08"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe55ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe56">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E09"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe56ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe57">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="E10"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe57ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe58">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F03"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe58ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe59">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F05"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe59ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe60">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F06"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe60ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe61">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F04"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe61ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe62">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F08"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe62ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe63">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F07"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe63ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe64">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F09"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe64ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe65">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F10"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe65ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe66">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G03"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe66ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe67">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G05"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe67ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe68">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G04"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe68ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe69">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G06"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe69ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe70">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G07"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe70ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe71">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G08"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe71ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe72">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G09"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe72ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="com.raven.swing.ButtonGhe" name="buttonGhe73">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="G10"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="10" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGhe73ActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabel4">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Su&#x1ea5;t chi&#x1ebf;u:"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Th&#x1ec3; lo&#x1ea1;i"/>
+                <Property name="text" type="java.lang.String" value="&#x110;&#x1ecf;: C&#xf2;n"/>
               </Properties>
             </Component>
-            <Component class="com.raven.swing.MyTextField" name="release1">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="release1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="nameMovie">
+            <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="X&#xe0;m: &#x110;&#xe3; b&#xe1;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel9">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cam: &#x110;ang ch&#x1ecd;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel10">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ng&#xe0;y chi&#x1ebf;u:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="spTable">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="com.raven.swing.Table" name="table1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="3" rowCount="4">
+                        <Column editable="false" title="STT" type="java.lang.Object"/>
+                        <Column editable="false" title="S&#x1ed1; gh&#x1ebf;" type="java.lang.Object"/>
+                        <Column editable="false" title="Gi&#xe1; v&#xe9;" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabel11">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="T&#x1ed5;ng ti&#x1ec1;n:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="nameMovie1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="135.000"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -245,13 +1356,13 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="com.raven.swing.MyButton" name="cmdAdd">
+        <Component class="com.raven.swing.MyButton" name="cmdDone">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ho&#xe0;n th&#xe0;nh"/>
             <Property name="radius" type="int" value="50"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdAddActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdDoneActionPerformed"/>
           </Events>
         </Component>
         <Component class="com.raven.swing.MyButton" name="cmdCancel">
