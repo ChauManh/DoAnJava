@@ -11,12 +11,25 @@ import java.awt.RenderingHints;
 
 public class Form_ChooseCombo extends javax.swing.JFrame {
 
-
-    public Form_ChooseCombo() {
+    private int count = 1;
+    private int price;
+    private int total;
+    
+    public Form_ChooseCombo(String id, String name, String detail, String price) {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
+        
+        textCount.setText(count+"");
+        idCombo.setText(id);
+        nameCombo.setText(name);
+        textDetail.setText(detail);
+        textPrice.setText(price.replace(".", ""));
+        textTotal.setText(price.replace(".", ""));
+        
+        this.price = Integer.parseInt(price.replace(".", ""));
+        total = this.price;
     }
 
 
@@ -29,16 +42,18 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        movieName = new com.raven.swing.MyTextField();
-        jLabel4 = new javax.swing.JLabel();
-        myTextField3 = new com.raven.swing.MyTextField();
-        idMovie = new com.raven.swing.MyTextField();
-        jLabel5 = new javax.swing.JLabel();
-        age = new com.raven.swing.MyTextField();
-        jLabel6 = new javax.swing.JLabel();
-        release = new com.raven.swing.MyTextField();
         jLabel7 = new javax.swing.JLabel();
-        release1 = new com.raven.swing.MyTextField();
+        idCombo = new javax.swing.JLabel();
+        nameCombo = new javax.swing.JLabel();
+        textDetail = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        textPrice = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        textTotal = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        decrease = new javax.swing.JButton();
+        textCount = new javax.swing.JLabel();
+        increase = new javax.swing.JButton();
         cmdAdd = new com.raven.swing.MyButton();
         cmdCancel = new com.raven.swing.MyButton();
 
@@ -51,62 +66,59 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(127, 127, 127));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel1.setText("Thêm một phim mới");
+        jLabel1.setText("Đặt Combo");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("ID phim");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("ID Combo:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Tên phim");
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Tên Combo:");
 
-        movieName.addActionListener(new java.awt.event.ActionListener() {
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("Chi tiết Combo:");
+
+        idCombo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        nameCombo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        textDetail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("Giá Combo:");
+
+        textPrice.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        jLabel4.setBackground(new java.awt.Color(127, 127, 127));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel4.setText("Tổng tiền:");
+
+        textTotal.setBackground(new java.awt.Color(0, 0, 0));
+        textTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        jLabel6.setBackground(new java.awt.Color(127, 127, 127));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel6.setText("Số lượng:");
+
+        decrease.setText("-");
+        decrease.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                movieNameActionPerformed(evt);
+                decreaseActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Tên đạo diễn");
+        textCount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        textCount.setText("1");
 
-        myTextField3.addActionListener(new java.awt.event.ActionListener() {
+        increase.setText("+");
+        increase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                myTextField3ActionPerformed(evt);
-            }
-        });
-
-        idMovie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idMovieActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Độ tuổi cho phép");
-
-        age.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ageActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Ngày phát hành");
-
-        release.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                releaseActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Thể loại");
-
-        release1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                release1ActionPerformed(evt);
+                increaseActionPerformed(evt);
             }
         });
 
@@ -116,49 +128,67 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(release1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(release, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addGap(15, 15, 15))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(textPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(textDetail))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(nameCombo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(idCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(172, 172, 172))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textTotal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(decrease, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textCount, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(increase, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2)
-                .addGap(3, 3, 3)
-                .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(3, 3, 3)
-                .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGap(3, 3, 3)
-                .addComponent(myTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(3, 3, 3)
-                .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addGap(3, 3, 3)
-                .addComponent(release, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addGap(3, 3, 3)
-                .addComponent(release1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(idCombo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(nameCombo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(textDetail))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(textPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(decrease)
+                    .addComponent(textCount)
+                    .addComponent(increase)))
         );
 
         cmdAdd.setText("Hoàn thành");
@@ -203,10 +233,10 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(cmdAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
@@ -225,63 +255,52 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addMovie(){
-        String name = movieName.getText();
-
-        
-    }
     
-    private void movieNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_movieNameActionPerformed
-
-    private void myTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myTextField3ActionPerformed
-
-    }//GEN-LAST:event_myTextField3ActionPerformed
-
-    private void idMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idMovieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idMovieActionPerformed
-
     private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_cmdCancelActionPerformed
 
     private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
-        
+        this.setVisible(false);
     }//GEN-LAST:event_cmdAddActionPerformed
 
-    private void ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ageActionPerformed
+    private void decreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreaseActionPerformed
+        if (count > 1) {
+            count = count - 1;
+            textCount.setText(count+"");
+            this.total = this.total - this.price;
+            textTotal.setText(this.total+"");
+        }
+    }//GEN-LAST:event_decreaseActionPerformed
 
-    private void releaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_releaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_releaseActionPerformed
-
-    private void release1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_release1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_release1ActionPerformed
+    private void increaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increaseActionPerformed
+        count = count + 1;
+        textCount.setText(count+"");
+        this.total = this.total + this.price;
+        textTotal.setText(this.total+"");
+    }//GEN-LAST:event_increaseActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.MyTextField age;
     private com.raven.swing.MyButton cmdAdd;
     private com.raven.swing.MyButton cmdCancel;
-    private com.raven.swing.MyTextField idMovie;
+    private javax.swing.JButton decrease;
+    private javax.swing.JLabel idCombo;
+    private javax.swing.JButton increase;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private com.raven.swing.MyTextField movieName;
-    private com.raven.swing.MyTextField myTextField3;
+    private javax.swing.JLabel nameCombo;
     private com.raven.swing.PanelBorder panelBorder1;
-    private com.raven.swing.MyTextField release;
-    private com.raven.swing.MyTextField release1;
+    private javax.swing.JLabel textCount;
+    private javax.swing.JLabel textDetail;
+    private javax.swing.JLabel textPrice;
+    private javax.swing.JLabel textTotal;
     // End of variables declaration//GEN-END:variables
 }

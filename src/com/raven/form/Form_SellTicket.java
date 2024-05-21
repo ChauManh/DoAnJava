@@ -58,7 +58,8 @@ public class Form_SellTicket extends javax.swing.JPanel {
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow != -1) {
                     String name = table.getValueAt(selectedRow,1)+"";
-                    fChoose = new Form_ChooseMovie(name); // Gọi showInformation với selectedRow hợp lệ
+                    String price = table.getValueAt(selectedRow,4)+"";
+                    fChoose = new Form_ChooseMovie(name, price); // Gọi showInformation với selectedRow hợp lệ
                 }
             }
         });
@@ -134,6 +135,7 @@ public class Form_SellTicket extends javax.swing.JPanel {
             }
         });
 
+        buttonBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/bill.png"))); // NOI18N
         buttonBill.setText("Hóa đơn");
         buttonBill.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonBill.setRadius(20);

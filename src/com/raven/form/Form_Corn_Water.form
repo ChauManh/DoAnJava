@@ -173,6 +173,9 @@
     </Component>
     <Component class="com.raven.swing.MyButton" name="buttonBill">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/raven/icon/bill.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="H&#xf3;a &#x111;&#x1a1;n"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>

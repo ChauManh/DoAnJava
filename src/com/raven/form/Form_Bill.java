@@ -2,11 +2,13 @@
 package com.raven.form;
 
 import com.raven.model.StatusType;
+import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import javax.swing.ButtonGroup;
 
 
 public class Form_Bill extends javax.swing.JFrame {
@@ -17,6 +19,17 @@ public class Form_Bill extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
+        
+        spTableMovie.setVerticalScrollBar(new ScrollBar());
+        spTableMovie.getVerticalScrollBar().setBackground(Color.WHITE);
+        spTableMovie.getViewport().setBackground(Color.WHITE);
+        spTableCombo.setVerticalScrollBar(new ScrollBar());
+        spTableCombo.getVerticalScrollBar().setBackground(Color.WHITE);
+        spTableCombo.getViewport().setBackground(Color.WHITE);
+        
+        ButtonGroup pay = new ButtonGroup();
+        pay.add(momo);
+        pay.add(cash);
     }
 
 
@@ -27,19 +40,19 @@ public class Form_Bill extends javax.swing.JFrame {
         panelBorder1 = new com.raven.swing.PanelBorder();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        spTableMovie = new javax.swing.JScrollPane();
+        BillMovie = new com.raven.swing.Table();
+        spTableCombo = new javax.swing.JScrollPane();
+        BillMovie1 = new com.raven.swing.Table();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        movieName = new com.raven.swing.MyTextField();
         jLabel4 = new javax.swing.JLabel();
-        myTextField3 = new com.raven.swing.MyTextField();
-        idMovie = new com.raven.swing.MyTextField();
         jLabel5 = new javax.swing.JLabel();
-        age = new com.raven.swing.MyTextField();
+        momo = new javax.swing.JRadioButton();
+        cash = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
-        release = new com.raven.swing.MyTextField();
         jLabel7 = new javax.swing.JLabel();
-        release1 = new com.raven.swing.MyTextField();
-        cmdAdd = new com.raven.swing.MyButton();
+        cmdDone = new com.raven.swing.MyButton();
         cmdCancel = new com.raven.swing.MyButton();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -51,121 +64,142 @@ public class Form_Bill extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(127, 127, 127));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel1.setText("Thêm một phim mới");
+        jLabel1.setText("Tóm tắt đơn hàng");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("ID phim");
+        BillMovie.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Tên phim");
+            },
+            new String [] {
+                "Phim", "Số lượng", "Đơn giá", "Tổng tiền"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        movieName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                movieNameActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        spTableMovie.setViewportView(BillMovie);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Tên đạo diễn");
+        BillMovie1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        myTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                myTextField3ActionPerformed(evt);
+            },
+            new String [] {
+                "Combo", "Số lượng", "Đơn giá", "Tổng tiền"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        spTableCombo.setViewportView(BillMovie1);
 
-        idMovie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idMovieActionPerformed(evt);
-            }
-        });
+        jLabel2.setBackground(new java.awt.Color(127, 127, 127));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel2.setText("Tóm tắt đơn hàng");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Độ tuổi cho phép");
+        jLabel3.setBackground(new java.awt.Color(127, 127, 127));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel3.setText("Tổng hóa đơn:");
 
-        age.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ageActionPerformed(evt);
-            }
-        });
+        jLabel4.setBackground(new java.awt.Color(127, 127, 127));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel4.setText("Phương thức thanh toán");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Ngày phát hành");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/momo.png"))); // NOI18N
 
-        release.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                releaseActionPerformed(evt);
-            }
-        });
+        momo.setText("MOMO");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Thể loại");
+        cash.setText("CASH");
 
-        release1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                release1ActionPerformed(evt);
-            }
-        });
+        jLabel6.setBackground(new java.awt.Color(127, 127, 127));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setText("120.000");
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/cash.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(spTableMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
+            .addComponent(spTableCombo)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(release1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(release, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addGap(15, 15, 15))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel6)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(momo)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cash)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2)
-                .addGap(3, 3, 3)
-                .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(3, 3, 3)
-                .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
+                .addComponent(spTableMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(spTableCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(3, 3, 3)
-                .addComponent(myTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(3, 3, 3)
-                .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addGap(3, 3, 3)
-                .addComponent(release, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addGap(3, 3, 3)
-                .addComponent(release1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(momo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        cmdAdd.setText("Hoàn thành");
-        cmdAdd.setRadius(50);
-        cmdAdd.addActionListener(new java.awt.event.ActionListener() {
+        cmdDone.setText("Thanh toán");
+        cmdDone.setRadius(50);
+        cmdDone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdAddActionPerformed(evt);
+                cmdDoneActionPerformed(evt);
             }
         });
 
@@ -192,7 +226,7 @@ public class Form_Bill extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmdDone, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
@@ -204,10 +238,10 @@ public class Form_Bill extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(cmdAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(cmdDone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
 
@@ -225,51 +259,24 @@ public class Form_Bill extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addMovie(){
-        String name = movieName.getText();
 
-        
-    }
     
-    private void movieNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_movieNameActionPerformed
-
-    private void myTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myTextField3ActionPerformed
-
-    }//GEN-LAST:event_myTextField3ActionPerformed
-
-    private void idMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idMovieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idMovieActionPerformed
-
     private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_cmdCancelActionPerformed
 
-    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
-        
-    }//GEN-LAST:event_cmdAddActionPerformed
-
-    private void ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ageActionPerformed
-
-    private void releaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_releaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_releaseActionPerformed
-
-    private void release1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_release1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_release1ActionPerformed
+    private void cmdDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdDoneActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_cmdDoneActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.MyTextField age;
-    private com.raven.swing.MyButton cmdAdd;
+    private com.raven.swing.Table BillMovie;
+    private com.raven.swing.Table BillMovie1;
+    private javax.swing.JRadioButton cash;
     private com.raven.swing.MyButton cmdCancel;
-    private com.raven.swing.MyTextField idMovie;
+    private com.raven.swing.MyButton cmdDone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -278,10 +285,9 @@ public class Form_Bill extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private com.raven.swing.MyTextField movieName;
-    private com.raven.swing.MyTextField myTextField3;
+    private javax.swing.JRadioButton momo;
     private com.raven.swing.PanelBorder panelBorder1;
-    private com.raven.swing.MyTextField release;
-    private com.raven.swing.MyTextField release1;
+    private javax.swing.JScrollPane spTableCombo;
+    private javax.swing.JScrollPane spTableMovie;
     // End of variables declaration//GEN-END:variables
 }

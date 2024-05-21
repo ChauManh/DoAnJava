@@ -1,13 +1,14 @@
 
 package com.raven.form;
 
-import com.raven.model.Model_Banner;
+import com.raven.dao.PhimDAO;
+import com.raven.models.Phim;
 import java.awt.Color;
-import javax.swing.ImageIcon;
+import java.util.ArrayList;
 
 
 public class Form_Home extends javax.swing.JPanel {
-
+    private ArrayList<Phim> listPhim = null;
     public Form_Home() {
         initComponents();
         Color color = new Color((Color.decode("#DAE2F8").getRed() + Color.decode("#D6A4A4").getRed()) / 2, 
@@ -15,10 +16,10 @@ public class Form_Home extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
         jPanel1.setBackground(color);
-        banner3.setData(new Model_Banner(new ImageIcon(getClass().getResource("/com/raven/img/poster_latmat.png")), "Lật mặt 7: Một Điều Ước", "9.7/10 (14.4K đánh giá)", "Gia đình, Tỉnh cảm, Hài"));
-        banner1.setData(new Model_Banner(new ImageIcon(getClass().getResource("/com/raven/img/poster_vayham.png")), "Vây hãm: Kẻ trừng phạt", "9.7/10 (1.8K đánh giá)", "Hình sự, Chính kịch, Hành động"));
-        banner2.setData(new Model_Banner(new ImageIcon(getClass().getResource("/com/raven/img/poster_tarot.png")), "Tarot", "7.4/10 (138 đánh giá)", "Kinh dị, Gay cấn"));
-
+        listPhim = PhimDAO.getInstance().selectAll();
+        posterPanel1.setData(listPhim.get(listPhim.size()-1));
+        posterPanel2.setData(listPhim.get((listPhim.size()-2)));
+        posterPanel3.setData(listPhim.get((listPhim.size()-3)));        
     }
 
 
@@ -28,9 +29,9 @@ public class Form_Home extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        banner2 = new com.raven.component.Banner();
-        banner3 = new com.raven.component.Banner();
-        banner1 = new com.raven.component.Banner();
+        posterPanel2 = new com.raven.component.PosterPanel();
+        posterPanel3 = new com.raven.component.PosterPanel();
+        posterPanel1 = new com.raven.component.PosterPanel();
 
         setBackground(new java.awt.Color(229, 229, 229));
         setForeground(new java.awt.Color(204, 204, 204));
@@ -41,9 +42,9 @@ public class Form_Home extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(229, 229, 229));
         jPanel1.setLayout(new java.awt.GridLayout(1, 3, 10, 0));
-        jPanel1.add(banner2);
-        jPanel1.add(banner3);
-        jPanel1.add(banner1);
+        jPanel1.add(posterPanel2);
+        jPanel1.add(posterPanel3);
+        jPanel1.add(posterPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -55,8 +56,8 @@ public class Form_Home extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE))
-                .addGap(15, 15, 15))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,10 +72,10 @@ public class Form_Home extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.component.Banner banner1;
-    private com.raven.component.Banner banner2;
-    private com.raven.component.Banner banner3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private com.raven.component.PosterPanel posterPanel1;
+    private com.raven.component.PosterPanel posterPanel2;
+    private com.raven.component.PosterPanel posterPanel3;
     // End of variables declaration//GEN-END:variables
 }

@@ -50,14 +50,11 @@ public class Main extends javax.swing.JFrame {
                     setForm(fSell);
                 } else if (index == 4) {
                     setForm(fCornWater);
-                } else if (index == 6)
-                {
+                } else if (index == 6) {
                     setForm(fService);
-                } else if (index == 8)
-                {
+                } else if (index == 8) {
                     setForm(fRevenue);
-                } else if (index == 10)
-                {
+                } else if (index == 10) {
                     setForm(fEmployee);
                 }
                     
