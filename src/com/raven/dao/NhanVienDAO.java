@@ -28,8 +28,8 @@ public class NhanVienDAO implements DAOInterface<NhanVien> {
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "INSERT INTO nhan_vien (id_nhan_vien, ten_nhan_vien, gioi_tinh, chuc_vu, ngay_sinh, ngay_vao_lam, email, sdt)"
-                    + " VALUES('"+t.getIdNhanVien()+"' , '"+t.getTenNhanVien()+"' , '"+t.getGioiTinh()+"', '"+t.getChucVu()+"', '"+t.getNgaySinh()+"', '"+t.getNgayVaoLam()+"', '"+t.getEmail()+"', '"+t.getSdt()+"');";
+            String sql = "INSERT INTO nhan_vien (id_nhan_vien, ten_nhan_vien, gioi_tinh, chuc_vu, ngay_sinh, ngay_vao_lam, sdt)"
+                    + " VALUES('"+t.getIdNhanVien()+"' , '"+t.getTenNhanVien()+"' , '"+t.getGioiTinh()+"', '"+t.getChucVu()+"', '"+t.getNgaySinh()+"', '"+t.getNgayVaoLam()+"', '"+t.getSdt()+"');";
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
             System.out.println("Co " + ketQua + " dong bi thay doi.");
@@ -53,7 +53,6 @@ public class NhanVienDAO implements DAOInterface<NhanVien> {
                     + " chuc_vu = '" + t.getChucVu() + "',"
                     + " ngay_sinh = '" + t.getNgaySinh() + "',"
                     + " ngay_vao_lam = '" + t.getNgayVaoLam() + "',"
-                    + " email = '" + t.getEmail() + "',"
                     + " sdt = '" + t.getSdt() + "'"
                     + " WHERE id_nhan_vien = '" + t.getIdNhanVien() + "'";
             ketQua = st.executeUpdate(sql);
@@ -98,9 +97,8 @@ public class NhanVienDAO implements DAOInterface<NhanVien> {
                 String chucVu = rs.getString("chuc_vu");
                 Date ngaySinh = rs.getDate("ngay_sinh");
                 Date ngayVaoLam = rs.getDate("ngay_vao_lam");
-                String email = rs.getString("email");
                 String sdt = rs.getString("sdt");
-                NhanVien nv =  new NhanVien(idNhanVien, tenNhanVien, gioiTinh, chucVu, ngaySinh, ngayVaoLam, email, sdt);
+                NhanVien nv =  new NhanVien(idNhanVien, tenNhanVien, gioiTinh, chucVu, ngaySinh, ngayVaoLam, sdt);
                 ketQua.add(nv);
             }
             JDBCUtil.closeConnection(con);

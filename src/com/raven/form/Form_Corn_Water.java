@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -18,6 +20,7 @@ public class Form_Corn_Water extends javax.swing.JPanel {
 
     private Form_Bill fBill;
     private ArrayList<Combo> listCombo = null;
+    private Form_ChooseCombo fChoose;
     public Form_Corn_Water() {
         initComponents();
         
@@ -39,6 +42,24 @@ public class Form_Corn_Water extends javax.swing.JPanel {
             table.addRow(new Object[]{cb.getIdCombo(), cb.getTenCombo(), cb.getChiTietCombo(), cb.getGia()});
         }
         
+        
+
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (e.getValueIsAdjusting()) {
+                    return; // Ignore selection changes during adjustment
+                }
+                int selectedRow = table.getSelectedRow();
+                if (selectedRow != -1) {
+                    String id = table.getValueAt(selectedRow,0)+"";
+                    String name = table.getValueAt(selectedRow,1)+"";
+                    String detail = table.getValueAt(selectedRow, 2)+"";
+                    String price = table.getValueAt(selectedRow, 3)+"";
+                    fChoose = new Form_ChooseCombo(id, name, detail, price); // Gọi showInformation với selectedRow hợp lệ
+                }
+            }
+        });
     }
 
   
@@ -113,6 +134,7 @@ public class Form_Corn_Water extends javax.swing.JPanel {
             }
         });
 
+        buttonBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/bill.png"))); // NOI18N
         buttonBill.setText("Hóa đơn");
         buttonBill.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonBill.setRadius(20);
@@ -153,7 +175,7 @@ public class Form_Corn_Water extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
-DefaultTableModel ob =(DefaultTableModel) table.getModel();
+        DefaultTableModel ob =(DefaultTableModel) table.getModel();
         TableRowSorter<DefaultTableModel> obj=new TableRowSorter<>(ob);
         table.setRowSorter(obj);
         obj.setRowFilter(RowFilter.regexFilter(header.searchText.getText()));

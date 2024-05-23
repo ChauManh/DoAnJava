@@ -3,10 +3,13 @@ package com.raven.form;
 
 import com.raven.model.StatusType;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import javax.swing.JComboBox;
+import javax.swing.UIManager;
 
 
 public class Form_Movie extends javax.swing.JFrame {
@@ -14,9 +17,12 @@ public class Form_Movie extends javax.swing.JFrame {
 
     public Form_Movie() {
         initComponents();
+
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
+        setDataType(jComboBox);
+        
     }
 
 
@@ -38,6 +44,8 @@ public class Form_Movie extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         release = new com.raven.swing.MyTextField();
         jLabel7 = new javax.swing.JLabel();
+        jComboBox = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
         release1 = new com.raven.swing.MyTextField();
         cmdAdd = new com.raven.swing.MyButton();
         cmdCancel = new com.raven.swing.MyButton();
@@ -104,6 +112,12 @@ public class Form_Movie extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Thể loại");
 
+        jComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setText("Mô tả");
+
         release1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 release1ActionPerformed(evt);
@@ -117,19 +131,26 @@ public class Form_Movie extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(release1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(release, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addGap(15, 15, 15))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(release1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel7)
+                                .addComponent(release, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                                .addComponent(jLabel6)
+                                .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                                .addComponent(jLabel5)
+                                .addComponent(idMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                                .addComponent(myTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                                .addComponent(jLabel4)
+                                .addComponent(movieName, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2)
+                                .addComponent(jComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(15, 15, 15))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,9 +177,13 @@ public class Form_Movie extends javax.swing.JFrame {
                 .addComponent(release, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(release1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         cmdAdd.setText("Hoàn thành");
@@ -225,10 +250,27 @@ public class Form_Movie extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addMovie(){
-        String name = movieName.getText();
-
-        
+    private void setDataType(JComboBox combo){
+         combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{
+            "Hành động",
+            "Phiêu lưu, mạo hiểm",
+            "Tiểu sử",
+            "Hoạt hình",
+            "Hài",
+            "Trinh thám",
+            "Hình sự",
+            "tài liệu",
+            "Chính kịch",
+            "Gia đình",
+            "Cổ trang",
+            "Kinh dị",
+            "Ca nhạc",
+            "Tâm lý tình cảm",
+            "Khoa học viễn tưởng",
+            "Giật gân, ly kỳ",
+            "Bi kịch",
+            "Chiến tranh"
+        }));
     }
     
     private void movieNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieNameActionPerformed
@@ -248,7 +290,7 @@ public class Form_Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdCancelActionPerformed
 
     private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
-        
+        this.setVisible(false);
     }//GEN-LAST:event_cmdAddActionPerformed
 
     private void ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageActionPerformed
@@ -270,6 +312,7 @@ public class Form_Movie extends javax.swing.JFrame {
     private com.raven.swing.MyButton cmdAdd;
     private com.raven.swing.MyButton cmdCancel;
     private com.raven.swing.MyTextField idMovie;
+    private javax.swing.JComboBox<String> jComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -277,6 +320,7 @@ public class Form_Movie extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private com.raven.swing.MyTextField movieName;
     private com.raven.swing.MyTextField myTextField3;
