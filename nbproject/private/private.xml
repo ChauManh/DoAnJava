@@ -4,12 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_SellTicket.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_ChooseCombo.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Corn_Water.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/swing/MenuItem.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_ChooseMovie.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_ChooseSeat.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_addEmployee.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/swing/ScrollBar.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Employee.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Combo.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/database/JDBCUtil.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_ChooseCombo_1.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/swing/ListMenu.java</file>
         </group>
     </open-files>
 </project-private>

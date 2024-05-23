@@ -7,7 +7,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
+import javax.swing.JFrame;
 
 
 public class Form_ChooseCombo extends javax.swing.JFrame {
@@ -20,7 +20,7 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(HIDE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         textCount.setText(count+"");
         idCombo.setText(id);
@@ -35,7 +35,7 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
 
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         panelBorder1 = new com.raven.swing.PanelBorder();
@@ -58,11 +58,13 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
         cmdAdd = new com.raven.swing.MyButton();
         cmdCancel = new com.raven.swing.MyButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
 
         panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
         panelBorder1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(178, 178, 178), 2));
+        panelBorder1.setOpaque(true);
 
         jLabel1.setBackground(new java.awt.Color(127, 127, 127));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -254,36 +256,36 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>//GEN-END:initComponents
 
     
-    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
         this.setVisible(false);
-    }                                         
+    }//GEN-LAST:event_cmdCancelActionPerformed
 
-    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {                                       
+    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
         this.setVisible(false);
-    }                                      
+    }//GEN-LAST:event_cmdAddActionPerformed
 
-    private void decreaseActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void decreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreaseActionPerformed
         if (count > 1) {
             count = count - 1;
             textCount.setText(count+"");
             this.total = this.total - this.price;
             textTotal.setText(this.total+"");
         }
-    }                                        
+    }//GEN-LAST:event_decreaseActionPerformed
 
-    private void increaseActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void increaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increaseActionPerformed
         count = count + 1;
         textCount.setText(count+"");
         this.total = this.total + this.price;
         textTotal.setText(this.total+"");
-    }                                        
+    }//GEN-LAST:event_increaseActionPerformed
 
     
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.MyButton cmdAdd;
     private com.raven.swing.MyButton cmdCancel;
     private javax.swing.JButton decrease;
@@ -303,5 +305,5 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
     private javax.swing.JLabel textDetail;
     private javax.swing.JLabel textPrice;
     private javax.swing.JLabel textTotal;
-    // End of variables declaration                   
+    // End of variables declaration//GEN-END:variables
 }
