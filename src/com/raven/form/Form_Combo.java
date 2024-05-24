@@ -1,16 +1,15 @@
-
 package com.raven.form;
 
+import com.raven.dao.ComboDAO;
 import com.raven.model.StatusType;
+import com.raven.models.Combo;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-
 public class Form_Combo extends javax.swing.JFrame {
-
 
     public Form_Combo() {
         initComponents();
@@ -18,7 +17,6 @@ public class Form_Combo extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -29,12 +27,12 @@ public class Form_Combo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        movieName = new com.raven.swing.MyTextField();
+        comboName = new com.raven.swing.MyTextField();
         jLabel4 = new javax.swing.JLabel();
-        myTextField3 = new com.raven.swing.MyTextField();
-        idMovie = new com.raven.swing.MyTextField();
+        comboDetail = new com.raven.swing.MyTextField();
+        idCombo = new com.raven.swing.MyTextField();
         jLabel5 = new javax.swing.JLabel();
-        age = new com.raven.swing.MyTextField();
+        comboPrice = new com.raven.swing.MyTextField();
         cmdAdd = new com.raven.swing.MyButton();
         cmdCancel = new com.raven.swing.MyButton();
 
@@ -58,33 +56,33 @@ public class Form_Combo extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Tên Combo");
 
-        movieName.addActionListener(new java.awt.event.ActionListener() {
+        comboName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                movieNameActionPerformed(evt);
+                comboNameActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Chi tiết Combo");
 
-        myTextField3.addActionListener(new java.awt.event.ActionListener() {
+        comboDetail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                myTextField3ActionPerformed(evt);
+                comboDetailActionPerformed(evt);
             }
         });
 
-        idMovie.addActionListener(new java.awt.event.ActionListener() {
+        idCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idMovieActionPerformed(evt);
+                idComboActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Giá");
 
-        age.addActionListener(new java.awt.event.ActionListener() {
+        comboPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ageActionPerformed(evt);
+                comboPriceActionPerformed(evt);
             }
         });
 
@@ -95,12 +93,12 @@ public class Form_Combo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboName, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2))
                 .addGap(15, 15, 15))
@@ -111,19 +109,19 @@ public class Form_Combo extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel2)
                 .addGap(3, 3, 3)
-                .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(idCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(3, 3, 3)
-                .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(3, 3, 3)
-                .addComponent(myTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboDetail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addGap(3, 3, 3)
-                .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(270, Short.MAX_VALUE))
         );
 
@@ -191,51 +189,58 @@ public class Form_Combo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addMovie(){
-        String name = movieName.getText();
+    private void addCombo() {
+        String textId = idCombo.getText();
+        int id = Integer.parseInt(textId);
+        String name = comboName.getText();
+        String detail = comboDetail.getText();
+        String textPrice = comboPrice.getText();
+        double price = Double.parseDouble(textPrice);
 
-        
+        Combo t = new Combo(id, name, detail, price);
+        ComboDAO.getInstance().insert(t);
+
     }
-    
-    private void movieNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieNameActionPerformed
+
+    private void comboNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_movieNameActionPerformed
+    }//GEN-LAST:event_comboNameActionPerformed
 
-    private void myTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myTextField3ActionPerformed
+    private void comboDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDetailActionPerformed
 
-    }//GEN-LAST:event_myTextField3ActionPerformed
+    }//GEN-LAST:event_comboDetailActionPerformed
 
-    private void idMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idMovieActionPerformed
+    private void idComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idMovieActionPerformed
+    }//GEN-LAST:event_idComboActionPerformed
 
     private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_cmdCancelActionPerformed
 
     private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
-        
+        addCombo();
+        this.setVisible(false);
     }//GEN-LAST:event_cmdAddActionPerformed
 
-    private void ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageActionPerformed
+    private void comboPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ageActionPerformed
+    }//GEN-LAST:event_comboPriceActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.MyTextField age;
     private com.raven.swing.MyButton cmdAdd;
     private com.raven.swing.MyButton cmdCancel;
-    private com.raven.swing.MyTextField idMovie;
+    private com.raven.swing.MyTextField comboDetail;
+    private com.raven.swing.MyTextField comboName;
+    private com.raven.swing.MyTextField comboPrice;
+    private com.raven.swing.MyTextField idCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private com.raven.swing.MyTextField movieName;
-    private com.raven.swing.MyTextField myTextField3;
     private com.raven.swing.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables
 }

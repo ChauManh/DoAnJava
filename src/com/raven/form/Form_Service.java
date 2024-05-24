@@ -1,8 +1,10 @@
 
 package com.raven.form;
 
+import com.raven.dao.ComboDAO;
 import com.raven.model.StatusType;
 import com.raven.model.TableActionEvent;
+import com.raven.models.Combo;
 import com.raven.swing.ScrollBar;
 import com.raven.swing.TableActionCellEditor;
 import com.raven.swing.TableActionCellRender;
@@ -81,21 +83,10 @@ public class Form_Service extends javax.swing.JPanel {
         tableMovie.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", StatusType.UnRelease});
         tableMovie.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
         
-        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
+        for (Combo combo : ComboDAO.getInstance().selectAll()) {
+            tableCombo.addRow(new Object[]{combo.getIdCombo(), combo.getTenCombo(), combo.getChiTietCombo(), combo.getGia()});
+            }
+
     }
 
 
@@ -211,11 +202,6 @@ public class Form_Service extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AddMovie(String id, String name, String age, String release){
-        
-        tableMovie.addRow(new Object[]{id, name, age, release});
-    }
     
     private void buttonAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddMovieActionPerformed
         fAddMovie = new Form_Movie();

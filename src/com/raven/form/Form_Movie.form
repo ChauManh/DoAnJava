@@ -126,7 +126,7 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="release1" pref="492" max="32767" attributes="0"/>
+                              <Component id="description" pref="492" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -139,7 +139,7 @@
                                       <Component id="age" pref="483" max="32767" attributes="0"/>
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       <Component id="idMovie" pref="483" max="32767" attributes="0"/>
-                                      <Component id="myTextField3" pref="483" max="32767" attributes="0"/>
+                                      <Component id="director" pref="483" max="32767" attributes="0"/>
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <Component id="movieName" pref="483" max="32767" attributes="0"/>
                                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -167,7 +167,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="myTextField3" min="-2" max="-2" attributes="0"/>
+                      <Component id="director" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -183,7 +183,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="release1" min="-2" max="-2" attributes="0"/>
+                      <Component id="description" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="39" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -219,9 +219,9 @@
                 <Property name="text" type="java.lang.String" value="T&#xea;n &#x111;&#x1ea1;o di&#x1ec5;n"/>
               </Properties>
             </Component>
-            <Component class="com.raven.swing.MyTextField" name="myTextField3">
+            <Component class="com.raven.swing.MyTextField" name="director">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myTextField3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="directorActionPerformed"/>
               </Events>
             </Component>
             <Component class="com.raven.swing.MyTextField" name="idMovie">
@@ -289,9 +289,9 @@
                 <Property name="text" type="java.lang.String" value="M&#xf4; t&#x1ea3;"/>
               </Properties>
             </Component>
-            <Component class="com.raven.swing.MyTextField" name="release1">
+            <Component class="com.raven.swing.MyTextField" name="description">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="release1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="descriptionActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

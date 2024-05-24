@@ -1,13 +1,18 @@
 
 package com.raven.form;
 
+import com.raven.dao.PhimDAO;
 import com.raven.model.StatusType;
+import com.raven.models.Phim;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JComboBox;
 import javax.swing.UIManager;
 
@@ -37,7 +42,7 @@ public class Form_Movie extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         movieName = new com.raven.swing.MyTextField();
         jLabel4 = new javax.swing.JLabel();
-        myTextField3 = new com.raven.swing.MyTextField();
+        director = new com.raven.swing.MyTextField();
         idMovie = new com.raven.swing.MyTextField();
         jLabel5 = new javax.swing.JLabel();
         age = new com.raven.swing.MyTextField();
@@ -46,7 +51,7 @@ public class Form_Movie extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jComboBox = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        release1 = new com.raven.swing.MyTextField();
+        description = new com.raven.swing.MyTextField();
         cmdAdd = new com.raven.swing.MyButton();
         cmdCancel = new com.raven.swing.MyButton();
 
@@ -79,9 +84,9 @@ public class Form_Movie extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Tên đạo diễn");
 
-        myTextField3.addActionListener(new java.awt.event.ActionListener() {
+        director.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                myTextField3ActionPerformed(evt);
+                directorActionPerformed(evt);
             }
         });
 
@@ -118,9 +123,9 @@ public class Form_Movie extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Mô tả");
 
-        release1.addActionListener(new java.awt.event.ActionListener() {
+        description.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                release1ActionPerformed(evt);
+                descriptionActionPerformed(evt);
             }
         });
 
@@ -132,7 +137,7 @@ public class Form_Movie extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(release1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+                        .addComponent(description, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +149,7 @@ public class Form_Movie extends javax.swing.JFrame {
                                 .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
                                 .addComponent(jLabel5)
                                 .addComponent(idMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                                .addComponent(myTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                                .addComponent(director, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
                                 .addComponent(jLabel4)
                                 .addComponent(movieName, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
                                 .addComponent(jLabel3)
@@ -166,7 +171,7 @@ public class Form_Movie extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(3, 3, 3)
-                .addComponent(myTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(director, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addGap(3, 3, 3)
@@ -182,7 +187,7 @@ public class Form_Movie extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(release1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -273,13 +278,28 @@ public class Form_Movie extends javax.swing.JFrame {
         }));
     }
     
+    private void addMovie(){
+        String textId = idMovie.getText();
+        int id = Integer.parseInt(textId);
+        String tenPhim = movieName.getText();
+        String tenDaoDien = director.getText();
+        String moTaPhim = description.getText();
+        String poster = "";
+        String trailer = "";
+        String doTuoiChoPhep = age.getText();
+        Date ngayPhatHanh = new Date(123); // lỗi
+        
+        Phim t = new Phim(id, tenPhim, tenDaoDien, moTaPhim, poster, trailer, doTuoiChoPhep, ngayPhatHanh);
+        PhimDAO.getInstance().insert(t);
+    }
+    
     private void movieNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_movieNameActionPerformed
 
-    private void myTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myTextField3ActionPerformed
+    private void directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_directorActionPerformed
 
-    }//GEN-LAST:event_myTextField3ActionPerformed
+    }//GEN-LAST:event_directorActionPerformed
 
     private void idMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idMovieActionPerformed
         // TODO add your handling code here:
@@ -290,6 +310,7 @@ public class Form_Movie extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdCancelActionPerformed
 
     private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
+        addMovie();
         this.setVisible(false);
     }//GEN-LAST:event_cmdAddActionPerformed
 
@@ -301,9 +322,9 @@ public class Form_Movie extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_releaseActionPerformed
 
-    private void release1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_release1ActionPerformed
+    private void descriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_release1ActionPerformed
+    }//GEN-LAST:event_descriptionActionPerformed
 
     
 
@@ -311,6 +332,8 @@ public class Form_Movie extends javax.swing.JFrame {
     private com.raven.swing.MyTextField age;
     private com.raven.swing.MyButton cmdAdd;
     private com.raven.swing.MyButton cmdCancel;
+    private com.raven.swing.MyTextField description;
+    private com.raven.swing.MyTextField director;
     private com.raven.swing.MyTextField idMovie;
     private javax.swing.JComboBox<String> jComboBox;
     private javax.swing.JLabel jLabel1;
@@ -323,9 +346,7 @@ public class Form_Movie extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private com.raven.swing.MyTextField movieName;
-    private com.raven.swing.MyTextField myTextField3;
     private com.raven.swing.PanelBorder panelBorder1;
     private com.raven.swing.MyTextField release;
-    private com.raven.swing.MyTextField release1;
     // End of variables declaration//GEN-END:variables
 }
