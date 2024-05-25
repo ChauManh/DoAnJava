@@ -1,4 +1,3 @@
-
 package com.raven.form;
 
 import com.raven.dao.PhimDAO;
@@ -18,7 +17,8 @@ public class Form_Home extends javax.swing.JPanel {
         this.setBackground(color);
         jPanel1.setBackground(color);
         setBanner();
-    }
+}
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -68,9 +68,9 @@ public class Form_Home extends javax.swing.JPanel {
 
     public void setBanner(){
         listPhim = PhimDAO.getInstance().selectAll();
-        posterPanel1.setData(listPhim.get(listPhim.size()-1));
-        posterPanel2.setData(listPhim.get((listPhim.size()-2)));
-        posterPanel3.setData(listPhim.get((listPhim.size()-3)));        
+        posterPanel1.setData(listPhim.get(listPhim.size()-1).getPoster());
+        posterPanel2.setData(listPhim.get(listPhim.size()-2).getPoster());
+        posterPanel3.setData(listPhim.get(listPhim.size()-3).getPoster());        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -126,10 +126,20 @@ public class Form_Service extends javax.swing.JPanel {
         buttonAddMovie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonAddMovie.setPreferredSize(new java.awt.Dimension(88, 45));
         buttonAddMovie.setRadius(50);
+        buttonAddMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddMovieActionPerformed(evt);
+            }
+        });
 
         buttonAddCombo.setText("Thêm Combo");
         buttonAddCombo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonAddCombo.setRadius(50);
+        buttonAddCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddComboActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));

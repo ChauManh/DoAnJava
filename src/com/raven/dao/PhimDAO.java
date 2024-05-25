@@ -110,7 +110,6 @@ public int insert(Phim t) {
                 Phim p = new Phim(idPhim, tenPhim, tenDaoDien, moTaPhim, poster, trailer, doTuoiChoPhep, ngayPhatHanh);
                 ketQua.add(p);
             }
-            JDBCUtil.closeConnection(con);
         } catch(SQLException e) {
             e.printStackTrace();
         }
