@@ -7,6 +7,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 
 
 public class Form_ChooseCombo extends javax.swing.JFrame {
@@ -34,7 +35,7 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
 
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         panelBorder1 = new com.raven.swing.PanelBorder();
@@ -253,36 +254,36 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     
-    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
+    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {                                          
         this.setVisible(false);
-    }//GEN-LAST:event_cmdCancelActionPerformed
+    }                                         
 
-    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
+    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {                                       
         this.setVisible(false);
-    }//GEN-LAST:event_cmdAddActionPerformed
+    }                                      
 
-    private void decreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreaseActionPerformed
+    private void decreaseActionPerformed(java.awt.event.ActionEvent evt) {                                         
         if (count > 1) {
             count = count - 1;
             textCount.setText(count+"");
             this.total = this.total - this.price;
             textTotal.setText(this.total+"");
         }
-    }//GEN-LAST:event_decreaseActionPerformed
+    }                                        
 
-    private void increaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increaseActionPerformed
+    private void increaseActionPerformed(java.awt.event.ActionEvent evt) {                                         
         count = count + 1;
         textCount.setText(count+"");
         this.total = this.total + this.price;
         textTotal.setText(this.total+"");
-    }//GEN-LAST:event_increaseActionPerformed
+    }                                        
 
     
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private com.raven.swing.MyButton cmdAdd;
     private com.raven.swing.MyButton cmdCancel;
     private javax.swing.JButton decrease;
@@ -302,5 +303,5 @@ public class Form_ChooseCombo extends javax.swing.JFrame {
     private javax.swing.JLabel textDetail;
     private javax.swing.JLabel textPrice;
     private javax.swing.JLabel textTotal;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }

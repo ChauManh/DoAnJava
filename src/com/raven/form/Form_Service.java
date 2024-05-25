@@ -3,8 +3,14 @@ package com.raven.form;
 
 import com.raven.dao.ComboDAO;
 import com.raven.dao.PhimDAO;
+import com.raven.dao.TheLoaiDAO;
+import com.raven.dao.TheLoaiPhimDAO;
 import com.raven.model.StatusType;
 import com.raven.model.TableActionEvent;
+import com.raven.models.Combo;
+import com.raven.models.Phim;
+import com.raven.models.TheLoai;
+import com.raven.models.TheLoaiPhim;
 import com.raven.models.Combo;
 import com.raven.models.Phim;
 import com.raven.swing.ScrollBar;
@@ -12,13 +18,17 @@ import com.raven.swing.TableActionCellEditor;
 import com.raven.swing.TableActionCellRender;
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 
 
 public class Form_Service extends javax.swing.JPanel {
-
+    private ArrayList<Phim> listPhim = null;
+    private ArrayList<TheLoai> listTheLoai = TheLoaiDAO.getInstance().selectAll();
+    private ArrayList<TheLoaiPhim> listTheLoaiPhim = null;
+    private ArrayList<Combo> listCombo = ComboDAO.getInstance().selectAll();
     Form_Movie fAddMovie;
     Form_Combo fAddCombo;
 
@@ -116,20 +126,10 @@ public class Form_Service extends javax.swing.JPanel {
         buttonAddMovie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonAddMovie.setPreferredSize(new java.awt.Dimension(88, 45));
         buttonAddMovie.setRadius(50);
-        buttonAddMovie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddMovieActionPerformed(evt);
-            }
-        });
 
         buttonAddCombo.setText("Thêm Combo");
         buttonAddCombo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonAddCombo.setRadius(50);
-        buttonAddCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddComboActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));

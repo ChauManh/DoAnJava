@@ -177,9 +177,6 @@
         </Property>
         <Property name="radius" type="int" value="50"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddMovieActionPerformed"/>
-      </Events>
     </Component>
     <Component class="com.raven.swing.MyButton" name="buttonAddCombo">
       <Properties>
@@ -189,9 +186,6 @@
         </Property>
         <Property name="radius" type="int" value="50"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddComboActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

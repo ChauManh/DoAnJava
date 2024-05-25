@@ -2,14 +2,19 @@
 package com.raven.form;
 
 import com.raven.dao.PhimDAO;
+import com.raven.dao.TheLoaiDAO;
+import com.raven.dao.TheLoaiPhimDAO;
 import com.raven.model.StatusType;
 import com.raven.models.Phim;
+import com.raven.models.TheLoai;
+import com.raven.models.TheLoaiPhim;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.event.ListSelectionEvent;
@@ -19,7 +24,9 @@ import javax.swing.table.TableRowSorter;
 
 
 public class Form_SellTicket extends javax.swing.JPanel {
-
+    private ArrayList<Phim> listPhim = null;
+    private ArrayList<TheLoaiPhim> listTheLoaiPhim = null;
+    private ArrayList<TheLoai> listTheLoai = TheLoaiDAO.getInstance().selectAll();
     private Form_ChooseMovie fChoose;
     private Form_Bill fBill;
 
@@ -94,7 +101,7 @@ public class Form_SellTicket extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", "Giá vé"
+                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", "Thể Loại"
             }
         ) {
             boolean[] canEdit = new boolean [] {

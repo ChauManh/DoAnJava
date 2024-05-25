@@ -2,8 +2,10 @@
 package com.raven.dao;
 
 import com.raven.database.JDBCUtil;
+import com.raven.models.TheLoai;
 import com.raven.models.TheLoaiPhim;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -77,8 +79,8 @@ public class TheLoaiPhimDAO implements DAOInterface<TheLoaiPhim> {
         ArrayList<TheLoaiPhim> ketQua = new ArrayList<>();
         try {
             Connection con = JDBCUtil.getConnection();
-            Statement st = con.createStatement();
             String sql = "SELECT * FROM phim_the_loai";
+            PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
                 int idPhim = rs.getInt("id_phim");
@@ -97,8 +99,8 @@ public class TheLoaiPhimDAO implements DAOInterface<TheLoaiPhim> {
         TheLoaiPhim ketQua = null;
         try {
             Connection con = JDBCUtil.getConnection();
-            Statement st = con.createStatement();
             String sql = "SELECT * FROM phim_the_loai WHERE id_phim = " + t.getIdPhim();
+            PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
                 int idPhim = rs.getInt("id_phim");
@@ -110,14 +112,15 @@ public class TheLoaiPhimDAO implements DAOInterface<TheLoaiPhim> {
         }
         return ketQua;
     }
-
+    
+    
     @Override
     public ArrayList<TheLoaiPhim> selectByCondition(String condition) {
         ArrayList<TheLoaiPhim> ketQua = new ArrayList<>();
         try {
             Connection con = JDBCUtil.getConnection();
-            Statement st = con.createStatement();
             String sql = "SELECT * FROM phim_the_loai WHERE id_phim = " + condition;
+            PreparedStatement st = con.prepareStatement(sql);            
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
                 int idPhim = rs.getInt("id_phim");

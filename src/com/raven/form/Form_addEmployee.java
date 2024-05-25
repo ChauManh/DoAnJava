@@ -1,26 +1,25 @@
 
 package com.raven.form;
 
-import com.raven.model.StatusType;
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import com.raven.dao.NhanVienDAO;
+import com.raven.models.NhanVien;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 
 
 public class Form_addEmployee extends javax.swing.JFrame {
-    
-    public Form_addEmployee() {
+    private Form_Employee parent;
+    public Form_addEmployee(Form_Employee parent) {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
-        
         ButtonGroup comboBoxGioiTinh = new ButtonGroup();
-        comboBoxGioiTinh.add(nam);
-        comboBoxGioiTinh.add(nu);
+        comboBoxGioiTinh.add(btnNam);
+        comboBoxGioiTinh.add(btnNu);
+        this.parent = parent;
     }
 
 
@@ -33,22 +32,23 @@ public class Form_addEmployee extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        movieName = new com.raven.swing.MyTextField();
+        textTenNhanVien = new com.raven.swing.MyTextField();
         jLabel4 = new javax.swing.JLabel();
-        idMovie = new com.raven.swing.MyTextField();
+        textIdNhanVien = new com.raven.swing.MyTextField();
         jLabel5 = new javax.swing.JLabel();
-        age = new com.raven.swing.MyTextField();
+        textChucVu = new com.raven.swing.MyTextField();
         jLabel6 = new javax.swing.JLabel();
-        release = new com.raven.swing.MyTextField();
         jLabel7 = new javax.swing.JLabel();
-        release1 = new com.raven.swing.MyTextField();
         jLabel8 = new javax.swing.JLabel();
-        release2 = new com.raven.swing.MyTextField();
-        nam = new javax.swing.JRadioButton();
-        nu = new javax.swing.JRadioButton();
-        cmdAdd = new com.raven.swing.MyButton();
-        cmdCancel = new com.raven.swing.MyButton();
+        textSdt = new com.raven.swing.MyTextField();
+        btnNam = new javax.swing.JRadioButton();
+        btnNu = new javax.swing.JRadioButton();
+        dateNgayVaoLam = new com.toedter.calendar.JDateChooser();
+        dateNgaySinh = new com.toedter.calendar.JDateChooser();
+        btnXacNhan = new com.raven.swing.MyButton();
+        btnHuy = new com.raven.swing.MyButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
 
@@ -69,60 +69,24 @@ public class Form_addEmployee extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Tên nhân viên");
 
-        movieName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                movieNameActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Giới tính");
-
-        idMovie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idMovieActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Chức vụ");
 
-        age.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ageActionPerformed(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Ngày sinh");
-
-        release.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                releaseActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Ngày vào làm");
 
-        release1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                release1ActionPerformed(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Số điện thoại");
 
-        release2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                release2ActionPerformed(evt);
-            }
-        });
+        btnNam.setText("Nam");
 
-        nam.setText("Nam");
-
-        nu.setText("Nữ");
+        btnNu.setText("Nữ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,24 +94,25 @@ public class Form_addEmployee extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(nam, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nu, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(release2, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(release1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(release, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dateNgaySinh, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(dateNgayVaoLam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(btnNam, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnNu, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textSdt, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel6)
+                        .addComponent(textChucVu, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addComponent(textIdNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addComponent(textTenNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2)))
                 .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
@@ -156,52 +121,52 @@ public class Form_addEmployee extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel2)
                 .addGap(3, 3, 3)
-                .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textIdNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(3, 3, 3)
-                .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textTenNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nam)
-                    .addComponent(nu))
+                    .addComponent(btnNam)
+                    .addComponent(btnNu))
                 .addGap(26, 26, 26)
                 .addComponent(jLabel5)
                 .addGap(3, 3, 3)
-                .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
-                .addGap(3, 3, 3)
-                .addComponent(release, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addGap(3, 3, 3)
-                .addComponent(release1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateNgayVaoLam, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(release2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textSdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        cmdAdd.setText("Hoàn thành");
-        cmdAdd.setRadius(50);
-        cmdAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnXacNhan.setText("Xác nhận");
+        btnXacNhan.setRadius(50);
+        btnXacNhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdAddActionPerformed(evt);
+                btnXacNhanActionPerformed(evt);
             }
         });
 
-        cmdCancel.setText("Hủy");
-        cmdCancel.setBorderColor(new java.awt.Color(219, 32, 32));
-        cmdCancel.setColorClick(new java.awt.Color(245, 97, 97));
-        cmdCancel.setColorOver(new java.awt.Color(225, 191, 191));
-        cmdCancel.setRadius(50);
-        cmdCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnHuy.setText("Hủy");
+        btnHuy.setBorderColor(new java.awt.Color(219, 32, 32));
+        btnHuy.setColorClick(new java.awt.Color(245, 97, 97));
+        btnHuy.setColorOver(new java.awt.Color(225, 191, 191));
+        btnHuy.setRadius(50);
+        btnHuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCancelActionPerformed(evt);
+                btnHuyActionPerformed(evt);
             }
         });
 
@@ -217,9 +182,9 @@ public class Form_addEmployee extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
         );
         panelBorder1Layout.setVerticalGroup(
@@ -231,8 +196,8 @@ public class Form_addEmployee extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(cmdAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnHuy, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(btnXacNhan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
 
@@ -251,45 +216,77 @@ public class Form_addEmployee extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void movieNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_movieNameActionPerformed
+    private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnHuyActionPerformed
 
-    private void idMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idMovieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idMovieActionPerformed
-
-    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_cmdCancelActionPerformed
-
-    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_cmdAddActionPerformed
-
-    private void ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ageActionPerformed
-
-    private void releaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_releaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_releaseActionPerformed
-
-    private void release1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_release1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_release1ActionPerformed
-
-    private void release2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_release2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_release2ActionPerformed
+    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
+        boolean b = false;
+        String idNhanVien = null;
+        String tenNhanVien = null;
+        String gioiTinh = null;
+        String chucVu = null;
+        String sdt = null;
+        java.sql.Date sqlNgaySinh = null;
+        java.sql.Date sqlNgayVaoLam = null;
+        while(b==false) {
+            idNhanVien = textIdNhanVien.getText();
+            tenNhanVien = textTenNhanVien.getText();
+            if(btnNam.isSelected()) {
+                gioiTinh = "Nam";
+            } else if(btnNu.isSelected()) {
+                gioiTinh = "Nu";
+            } else {
+                JOptionPane.showMessageDialog(null, "Vui lòng chọn giới tính!");
+                return;
+            }
+            chucVu = textChucVu.getText();
+            Date ngaySinh = dateNgaySinh.getDate();
+            if(ngaySinh != null) {
+                long milis = ngaySinh.getTime();
+                sqlNgaySinh = new java.sql.Date(milis);
+            } else {
+                JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày sinh!");
+                return;
+            }
+            Date ngayVaoLam = dateNgayVaoLam.getDate();
+            if(ngayVaoLam != null) {
+                long milis = ngayVaoLam.getTime();
+                sqlNgayVaoLam = new java.sql.Date(milis);
+            } else {
+                JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày vào làm!");
+                return;
+            }
+            sdt = textSdt.getText();
+            ArrayList<NhanVien> listNhanVien = NhanVienDAO.getInstance().selectAll();
+            for(int i = 0; i < listNhanVien.size(); i++) {
+                if(idNhanVien.equals(listNhanVien.get(i).getIdNhanVien())) {
+                    JOptionPane.showMessageDialog(null, "Mã nhân viên đã tồn tại!");
+                    return;
+                }
+            }
+            if(idNhanVien.isBlank() || tenNhanVien.isBlank() || chucVu.isBlank() || sdt.isBlank()) {
+                JOptionPane.showMessageDialog(null, "Vui lòng điền đầy đủ thông tin!");
+                return;
+            } else {
+                b = true;
+            }
+        }
+        NhanVien nv = new NhanVien(idNhanVien, tenNhanVien, gioiTinh, chucVu, sqlNgaySinh, sqlNgayVaoLam, sdt);
+        NhanVienDAO.getInstance().insert(nv);
+        parent.updateTable(nv);
+        this.dispose();
+    }//GEN-LAST:event_btnXacNhanActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.raven.swing.MyTextField age;
-    private com.raven.swing.MyButton cmdAdd;
-    private com.raven.swing.MyButton cmdCancel;
-    private com.raven.swing.MyTextField idMovie;
+    private com.raven.swing.MyButton btnHuy;
+    private javax.swing.JRadioButton btnNam;
+    private javax.swing.JRadioButton btnNu;
+    private com.raven.swing.MyButton btnXacNhan;
+    private com.toedter.calendar.JDateChooser dateNgaySinh;
+    private com.toedter.calendar.JDateChooser dateNgayVaoLam;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -299,12 +296,10 @@ public class Form_addEmployee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private com.raven.swing.MyTextField movieName;
-    private javax.swing.JRadioButton nam;
-    private javax.swing.JRadioButton nu;
     private com.raven.swing.PanelBorder panelBorder1;
-    private com.raven.swing.MyTextField release;
-    private com.raven.swing.MyTextField release1;
-    private com.raven.swing.MyTextField release2;
+    private com.raven.swing.MyTextField textChucVu;
+    private com.raven.swing.MyTextField textIdNhanVien;
+    private com.raven.swing.MyTextField textSdt;
+    private com.raven.swing.MyTextField textTenNhanVien;
     // End of variables declaration//GEN-END:variables
 }

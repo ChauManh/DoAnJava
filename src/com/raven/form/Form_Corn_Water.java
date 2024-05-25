@@ -6,6 +6,7 @@ import com.raven.model.StatusType;
 import com.raven.models.Combo;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.event.ListSelectionEvent;
@@ -18,8 +19,8 @@ import javax.swing.table.TableRowSorter;
 public class Form_Corn_Water extends javax.swing.JPanel {
 
     private Form_Bill fBill;
+    private ArrayList<Combo> listCombo = null;
     private Form_ChooseCombo fChoose;
-  
     public Form_Corn_Water() {
         initComponents();
         
