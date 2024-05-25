@@ -4,6 +4,7 @@
  */
 package com.raven.form;
 import com.raven.swing.ButtonGhe;
+import java.awt.GridLayout;
 /**
  *
  * @author DANG GIA BAO
@@ -16,8 +17,13 @@ public class Form_ChooseSeat extends javax.swing.JFrame {
     public Form_ChooseSeat() {
         initComponents();
         this.setLocationRelativeTo(null);
-        for(int i = 0; i < 3; i++) {
+        GridLayout layoutGheTrai = new GridLayout(14, 3, 10, 15);
+        listGheTrai.setLayout(layoutGheTrai);
+        for(int i = 0; i < 42; i++) {
+            ButtonGhe gheTrai = new ButtonGhe();
+            gheTrai.setText(""+i);
             
+            listGheTrai.add(gheTrai);
         }
     }
 

@@ -28,8 +28,9 @@ public class Form_SellTicket extends javax.swing.JPanel {
     private ArrayList<TheLoaiPhim> listTheLoaiPhim = null;
     private ArrayList<TheLoai> listTheLoai = TheLoaiDAO.getInstance().selectAll();
     private Form_ChooseMovie fChoose;
+    private Form_MovieDetails fMovieDetails;
     private Form_Bill fBill;
-
+    private ArrayList<String> theLoaiPhim = new ArrayList<>();
     public Form_SellTicket() {
         initComponents();
         spTable.setVerticalScrollBar(new ScrollBar());
@@ -57,6 +58,7 @@ public class Form_SellTicket extends javax.swing.JPanel {
                 sb.append(", ");
             }
             String tl = sb.toString();
+            theLoaiPhim.add(sb.toString());
             table.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh().toString(), tl});
         }
         
@@ -68,9 +70,7 @@ public class Form_SellTicket extends javax.swing.JPanel {
                 }
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow != -1) {
-                    String name = table.getValueAt(selectedRow,1)+"";
-                    String price = table.getValueAt(selectedRow,4)+"";
-                    fChoose = new Form_ChooseMovie(name, price); // Gọi showInformation với selectedRow hợp lệ
+                    fMovieDetails = new Form_MovieDetails(listPhim.get(table.getSelectedRow()), theLoaiPhim.get(table.getSelectedRow()));
                 }
             }
         });

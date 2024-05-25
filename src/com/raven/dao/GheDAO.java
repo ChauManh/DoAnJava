@@ -18,14 +18,16 @@ import java.util.ArrayList;
  * @author DANG GIA BAO
  */
 public class GheDAO implements DAOInterface<Ghe> {
-
+    public static GheDAO getInstance() {
+        return new GheDAO();
+    }
     @Override
     public int insert(Ghe t) {
         int ketQua = 0;
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "INSERT INTO ghe (id_ghe, loai_ghe, gia, tinh_trang_ghe, id_phong)"
+            String sql = "INSERT INTO ghe (id_ghe, loai_ghe, gia, id_phong)"
                     + " VALUES('"+t.getIdGhe()+"', '"+t.getLoaiGhe()+"', "+t.getGia()+", '"+t.getIdPhong()+"');";
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
@@ -69,9 +71,8 @@ public class GheDAO implements DAOInterface<Ghe> {
                 String idGhe = rs.getString("id_ghe");
                 String loaiGhe = rs.getString("loai_ghe");
                 double gia = rs.getDouble("gia");
-                String tinhTrangGhe = rs.getString("tinh_trang_ghe");
                 String idPhong = rs.getString("id_phong");
-                Ghe g = new Ghe(idGhe, loaiGhe, gia, tinhTrangGhe, idPhong);
+                Ghe g = new Ghe(idGhe, loaiGhe, gia, idPhong);
                 ketQua.add(g);
             }
         } catch(SQLException e) {

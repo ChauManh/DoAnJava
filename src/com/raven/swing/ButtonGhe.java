@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
 public class ButtonGhe extends JButton {
-
+    
       public boolean isClicked() {
         return clicked;
     }
