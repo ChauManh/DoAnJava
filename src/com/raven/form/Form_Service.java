@@ -15,8 +15,6 @@ import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 
 
 public class Form_Service extends javax.swing.JPanel {
@@ -38,54 +36,27 @@ public class Form_Service extends javax.swing.JPanel {
         Color color = new Color((Color.decode("#DAE2F8").getRed() + Color.decode("#D6A4A4").getRed()) / 2, 
         (Color.decode("#DAE2F8").getGreen() + Color.decode("#D6A4A4").getGreen()) / 2, 
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
-        this.setBackground(color);
-                
-//        TableActionEvent event = new TableActionEvent() {
-//            @Override
-//            public void onEdit(int row) {
-//                System.out.println("Edit row : " + row);
-//            }
-//
-//            @Override
-//            public void onDelete(int row) {
-//                if (tableMovie.isEditing()) {
-//                    tableMovie.getCellEditor().stopCellEditing();
-//                }
-//                DefaultTableModel model = (DefaultTableModel) tableMovie.getModel();
-//                model.removeRow(row);
-//            }
-//
-//            @Override
-//            public void onView(int row) {
-//                System.out.println("View row : " + row);
-//            }
-//        };
-//            tableMovie.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
-//            tableMovie.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(event));
-//            tableMovie.getColumnModel().getColumn(0).setCellRenderer(new DefaultTableCellRenderer() {
-//            @Override
-//            public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
-//                setHorizontalAlignment(SwingConstants.RIGHT);
-//                return super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1);
-//            }
-//        });
-        
-        setTableMovie();
+        this.setBackground(color);                      
 
-//        tableMovie.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024",StatusType.Released});
-//        tableMovie.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024",StatusType.Released});
-//        tableMovie.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
+        TableActionEvent event = new TableActionEvent() {
+            @Override
+            public void onEdit(int row) {
+                System.out.println("Edit row : " + row);
+            }
+
+            @Override
+            public void onDelete(int row) {
+                System.out.println("Delete row : " + row);
+            }
+
+            @Override
+            public void onView(int row) {
+                System.out.println("View row : " + row);
+            }
+        };
+        tableMovie.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
+        tableMovie.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(event));
+        setTableMovie();             
         
         setTableCombo();
 
@@ -110,11 +81,11 @@ public class Form_Service extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", "Tên đạo diễn"
+                "ID Phim", "Tên phim", "Ngày phát hành", "Tên đạo diễn", "Action"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -207,7 +178,7 @@ public class Form_Service extends javax.swing.JPanel {
     
     public void setTableMovie(){
         for (Phim phim : PhimDAO.getInstance().selectAll()) {
-            tableMovie.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh(), phim.getTenDaoDien()});
+            tableMovie.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getNgayPhatHanh(), phim.getTenDaoDien()});
             }
     }
     

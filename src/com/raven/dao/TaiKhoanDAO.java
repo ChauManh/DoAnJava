@@ -1,76 +1,129 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.raven.dao;
 
 import com.raven.database.JDBCUtil;
+import com.raven.models.ModelLogin;
 import com.raven.models.TaiKhoan;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.text.DecimalFormat;
+import java.util.Random;
 
-/**
- *
- * @author DANG GIA BAO
- */
-public class TaiKhoanDAO implements DAOInterface<TaiKhoan> {
-    public static TaiKhoanDAO getInstance() {
-        return new TaiKhoanDAO();
+public class TaiKhoanDAO {
+
+    private final Connection con;
+
+    public TaiKhoanDAO() {
+        con = JDBCUtil.getConnection();
     }
-    @Override
-    public int insert(TaiKhoan t) {
-        try {
-            Connection con = JDBCUtil.getConnection();
-            String sql = "INSERT INTO tai_khoan VALUES(?, ?, ?)";
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, t.getTenTaiKhoan());
-            st.setString(2, t.getMatKhau());
-            st.setString(3, t.getEmail());
-            st.execute();
-            JDBCUtil.closeConnection(con);
-        } catch(SQLException e) {
-            e.printStackTrace();
+
+    public TaiKhoan login(ModelLogin login) throws SQLException {
+        TaiKhoan data = null;
+        PreparedStatement p = con.prepareStatement("select userID, userName, email from `tai_khoan` where BINARY(email)=? and BINARY(`password`)=? and `Status`='Verified' limit 1");
+        p.setString(1, login.getEmail());
+        p.setString(2, login.getPassword());
+        ResultSet r = p.executeQuery();
+        if (r.next()) {
+            int userID = r.getInt(1);
+            String userName = r.getString(2);
+            String email = r.getString(3);
+            data = new TaiKhoan(userID, userName, email, "");
+}
+        r.close();
+        p.close();
+        return data;
+    }
+
+    
+    public void insert(TaiKhoan user) throws SQLException {
+        PreparedStatement p = con.prepareStatement(
+            "insert into `tai_khoan` (userName, email, `password`, verifyCode) values (?,?,?,?)", 
+            PreparedStatement.RETURN_GENERATED_KEYS
+        );
+        String code = generateVerifyCode();
+        p.setString(1, user.getUserName());
+        p.setString(2, user.getEmail());
+        p.setString(3, user.getPassword());
+        p.setString(4, code);
+        p.execute();
+        ResultSet r = p.getGeneratedKeys();
+        if (r.next()) {
+            int userID = r.getInt(1);
+            user.setUserID(userID);
+            user.setVerifyCode(code);
         }
-        return 0;
+        r.close();
+        p.close();
     }
 
-    @Override
-    public int update(TaiKhoan t) {
-        try {
-            Connection con = JDBCUtil.getConnection();
-            String sql = "UPDATE tai_khoan "
-                    + "SET mat_khau = '" + t.getMatKhau() + "' WHERE ten_tai_khoan = '" + t.getTenTaiKhoan() + "' AND email = '" + t.getEmail() + "';";
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, t.getTenTaiKhoan());
-            st.setString(2, t.getMatKhau());
-            st.setString(3, t.getEmail());
-            st.execute();
-            JDBCUtil.closeConnection(con);
-        } catch(SQLException e) {
-            e.printStackTrace();
+    private String generateVerifyCode() throws SQLException {
+        DecimalFormat df = new DecimalFormat("000000");
+        Random ran = new Random();
+        String code = df.format(ran.nextInt(1000000));  // Random from 0 to 999999
+        while (checkDuplicateCode(code)) {
+            code = df.format(ran.nextInt(1000000));
         }
-        return 0;
+        return code;
     }
 
-    @Override
-    public int delete(TaiKhoan t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private boolean checkDuplicateCode(String code) throws SQLException {
+        boolean duplicate = false;
+        PreparedStatement p = con.prepareStatement("select userID from `tai_khoan` where verifyCode=? limit 1");
+        p.setString(1, code);
+        ResultSet r = p.executeQuery();
+        if (r.next()) {
+            duplicate = true;
+        }
+        r.close();
+        p.close();
+        return duplicate;
     }
 
-    @Override
-    public ArrayList<TaiKhoan> selectAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean checkDuplicateUser(String user) throws SQLException {
+        boolean duplicate = false;
+        PreparedStatement p = con.prepareStatement("select userID from `tai_khoan` where userName=? and `Status`='Verified' limit 1");
+        p.setString(1, user);
+        ResultSet r = p.executeQuery();
+        if (r.next()) {
+            duplicate = true;
+        }
+        r.close();
+        p.close();
+        return duplicate;
     }
 
-    @Override
-    public TaiKhoan selectById(TaiKhoan t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean checkDuplicateEmail(String email) throws SQLException {
+        boolean duplicate = false;
+        PreparedStatement p = con.prepareStatement("select userID from `tai_khoan` where email=? and `Status`='Verified' limit 1");
+        p.setString(1, email);
+        ResultSet r = p.executeQuery();
+        if (r.next()) {
+            duplicate = true;
+        }
+        r.close();
+        p.close();
+        return duplicate;
     }
 
-    @Override
-    public ArrayList<TaiKhoan> selectByCondition(String condition) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void doneVerify(int userID) throws SQLException {
+        PreparedStatement p = con.prepareStatement("update `tai_khoan` set verifyCode='', `Status`='Verified' where userID=? limit 1");
+        p.setInt(1, userID);
+        p.execute();
+        p.close();
+    }
+
+    public boolean verifyCodeWithUser(int userID, String code) throws SQLException {
+        boolean verify = false;
+        PreparedStatement p = con.prepareStatement("select userID from `tai_khoan` where userID=? and verifyCode=? limit 1");
+        p.setInt(1, userID);
+        p.setString(2, code);
+        ResultSet r = p.executeQuery();
+        if (r.next()) {
+            verify = true;
+        }
+        r.close();
+        p.close();
+        return verify;
     }
 }

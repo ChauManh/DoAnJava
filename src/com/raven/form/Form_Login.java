@@ -1,4 +1,3 @@
-
 package com.raven.form;
 
 import com.raven.component.Message;
@@ -6,11 +5,15 @@ import com.raven.component.PanelCover;
 import com.raven.component.PanelLoading;
 import com.raven.component.PanelLoginAndRegister;
 import com.raven.component.PanelVerifyCode;
+import com.raven.dao.ServiceMail;
+import com.raven.dao.TaiKhoanDAO;
 import com.raven.main.Main;
-import com.raven.model.ModelLogin;
-import com.raven.model.ModelUser;
+import com.raven.models.ModelLogin;
+import com.raven.models.ModelMessage;
+import com.raven.models.TaiKhoan;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
@@ -32,13 +35,15 @@ public class Form_Login extends javax.swing.JFrame {
     private final double coverSize = 40;
     private final double loginSize = 60;
     private PanelLoading loading;
-    
+    private TaiKhoanDAO service;
+
     public Form_Login() {
         initComponents();
         init();
     }
 
     private void init() {
+        service = new TaiKhoanDAO();
         layout = new MigLayout("fill, insets 0");
         cover = new PanelCover();
         loading = new PanelLoading();
@@ -121,26 +126,84 @@ public class Form_Login extends javax.swing.JFrame {
                 }
             }
         });
+        verifyCode.addEventButtonOK(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                try {
+                    TaiKhoan user = loginAndRegister.getUser();
+                    if (service.verifyCodeWithUser(user.getUserID(), verifyCode.getInputCode())) {
+                        service.doneVerify(user.getUserID());
+                        showMessage(Message.MessageType.SUCCESS, "Register sucess");
+                        verifyCode.setVisible(false);
+                    } else {
+                        showMessage(Message.MessageType.ERROR, "Verify code incorrect");
+                    }
+                } catch (SQLException e) {
+                    showMessage(Message.MessageType.ERROR, "Error");
+                }
+            }
+        });
     }
 
-    private void register(){
-        loading.setVisible(true);
-//        verifyCode.setVisible(true);
-        ModelUser user = loginAndRegister.getUser();
-//        showMessage(Message.MessageType.SUCCESS, "Test");
+    private void register() {
+        TaiKhoan user = loginAndRegister.getUser();
+        try {
+            if (service.checkDuplicateUser(user.getUserName())) {
+                showMessage(Message.MessageType.ERROR, "User name already exit");
+            } else if (service.checkDuplicateEmail(user.getEmail())) {
+                showMessage(Message.MessageType.ERROR, "Email already exit");
+            } else {
+                service.insert(user);
+                sendMain(user);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException occurred: " + e.getMessage());
+            showMessage(Message.MessageType.ERROR, "Error Register");
+        }
     }
-    
-    private void login(){
+
+    private void login() {
+    try {
+        // Lấy dữ liệu đăng nhập từ giao diện
         ModelLogin data = loginAndRegister.getDataLogin();
-        if (data.getEmail().equals("") || data.getPassword().equals("")){
+        System.out.println("data" + ": " + data.getEmail() + " " + data.getPassword());
+        
+        // Thực hiện đăng nhập
+        TaiKhoan user = service.login(data);
+        
+        // Kiểm tra kết quả đăng nhập và xử lý tương ứng
+        if (user != null) {
+            // Đăng nhập thành công, mở cửa sổ chính và đóng cửa sổ đăng nhập
+            this.dispose();
+            Main.main(user);
+        } else {
+            // Đăng nhập không thành công, hiển thị thông báo lỗi
             showMessage(Message.MessageType.ERROR, "Email or Password incorrect");
         }
-        else {
-            this.dispose();
-            Main.main();
-        }
+    } catch (SQLException e) {
+        // Xử lý ngoại lệ SQL
+        showMessage(Message.MessageType.ERROR, "Error Login: " + e.getMessage());
     }
-    
+}
+
+
+    private void sendMain(TaiKhoan user) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                loading.setVisible(true);
+                ModelMessage ms = new ServiceMail().sendMail(user.getEmail(), user.getVerifyCode());
+                if (ms.isSuccess()) {
+                    loading.setVisible(false);
+                    verifyCode.setVisible(true);
+                } else {
+                    loading.setVisible(false);
+                    showMessage(Message.MessageType.ERROR, ms.getMessage());
+                }
+            }
+        }).start();
+    }
+
     private void showMessage(Message.MessageType messageType, String message) {
         Message ms = new Message();
         ms.showMessage(messageType, message);
@@ -153,6 +216,7 @@ public class Form_Login extends javax.swing.JFrame {
                     bg.repaint();
                 }
             }
+
             @Override
             public void timingEvent(float fraction) {
                 float f;
@@ -176,7 +240,7 @@ public class Form_Login extends javax.swing.JFrame {
                     ms.setShow(true);
                 }
             }
-    };
+        };
 
         Animator animator = new Animator(300, target);
         animator.setResolution(0);
@@ -194,7 +258,8 @@ public class Form_Login extends javax.swing.JFrame {
                 }
             }
         }).start();
-}
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -235,7 +300,6 @@ public class Form_Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -263,8 +327,7 @@ public class Form_Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new Form_Login().setVisible(true);
-                  new Main().setVisible(true);
+                new Form_Login().setVisible(true);
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.raven.model;
+package com.raven.models;
 
 public class ModelLogin {
 
