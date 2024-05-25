@@ -11,7 +11,10 @@ import java.awt.RenderingHints;
 
 public class Form_Combo extends javax.swing.JFrame {
 
-    public Form_Combo() {
+    private Form_Service fService;
+    
+    public Form_Combo(Form_Service fService) {
+        this.fService = fService;
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
@@ -199,6 +202,7 @@ public class Form_Combo extends javax.swing.JFrame {
 
         Combo t = new Combo(id, name, detail, price);
         ComboDAO.getInstance().insert(t);
+        this.fService.tableCombo.addRow(new Object[]{textId, name, detail, textPrice});
 
     }
 

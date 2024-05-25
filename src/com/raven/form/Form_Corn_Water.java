@@ -1,7 +1,9 @@
 
 package com.raven.form;
 
+import com.raven.dao.ComboDAO;
 import com.raven.model.StatusType;
+import com.raven.models.Combo;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -32,21 +34,22 @@ public class Form_Corn_Water extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
         
-        table.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        table.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        table.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        table.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        table.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-        table.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        table.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        table.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        table.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        table.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-        table.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-        table.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-        table.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-        table.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-        table.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
+        setTableCombo();
+//        table.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
+//        table.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
+//        table.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
+//        table.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
+//        table.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
+//        table.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
+//        table.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
+//        table.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
+//        table.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
+//        table.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
+//        table.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
+//        table.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
+//        table.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
+//        table.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
+//        table.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
 
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -178,6 +181,12 @@ public class Form_Corn_Water extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setTableCombo(){
+        for (Combo combo : ComboDAO.getInstance().selectAll()) {
+            table.addRow(new Object[]{combo.getIdCombo(), combo.getTenCombo(), combo.getChiTietCombo(), combo.getGia()});
+            }
+    }
+    
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel ob =(DefaultTableModel) table.getModel();
         TableRowSorter<DefaultTableModel> obj=new TableRowSorter<>(ob);

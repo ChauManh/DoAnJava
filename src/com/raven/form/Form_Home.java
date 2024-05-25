@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class Form_Home extends javax.swing.JPanel {
     private ArrayList<Phim> listPhim = null;
+    
     public Form_Home() {
         initComponents();
         Color color = new Color((Color.decode("#DAE2F8").getRed() + Color.decode("#D6A4A4").getRed()) / 2, 
@@ -16,13 +17,8 @@ public class Form_Home extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
         jPanel1.setBackground(color);
-        listPhim = PhimDAO.getInstance().selectAll();
-        posterPanel1.setData(listPhim.get(listPhim.size()-1));
-        posterPanel2.setData(listPhim.get((listPhim.size()-2)));
-        posterPanel3.setData(listPhim.get((listPhim.size()-3)));        
+        setBanner();
     }
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,6 +66,12 @@ public class Form_Home extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setBanner(){
+        listPhim = PhimDAO.getInstance().selectAll();
+        posterPanel1.setData(listPhim.get(listPhim.size()-1));
+        posterPanel2.setData(listPhim.get((listPhim.size()-2)));
+        posterPanel3.setData(listPhim.get((listPhim.size()-3)));        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

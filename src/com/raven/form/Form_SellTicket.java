@@ -1,7 +1,9 @@
 
 package com.raven.form;
 
+import com.raven.dao.PhimDAO;
 import com.raven.model.StatusType;
+import com.raven.models.Phim;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import java.awt.GradientPaint;
@@ -34,20 +36,22 @@ public class Form_SellTicket extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
                 
-        table.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024","70.000"});
-        table.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
-        table.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", "70.000"});
-        table.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", "70.000"});
-        table.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
-        table.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024","70.000"});
-        table.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", "70.000"});
-        table.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", "70.000"});
-        table.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", "70.000"});
-        table.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
-        table.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
-        table.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", "70.000"});
-        table.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", "70.000"});
-        table.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
+        setTableMovie();
+        
+//        table.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024","70.000"});
+//        table.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
+//        table.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", "70.000"});
+//        table.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", "70.000"});
+//        table.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
+//        table.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024","70.000"});
+//        table.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", "70.000"});
+//        table.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", "70.000"});
+//        table.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", "70.000"});
+//        table.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
+//        table.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", "70.000"});
+//        table.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", "70.000"});
+//        table.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", "70.000"});
+//        table.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", "70.000"});
         
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -183,6 +187,12 @@ public class Form_SellTicket extends javax.swing.JPanel {
 ////        }
 //    }
 //    
+    
+    public void setTableMovie(){
+        for (Phim phim : PhimDAO.getInstance().selectAll()) {
+            table.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh(), phim.getTenDaoDien()});
+            }
+    }
     
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel ob =(DefaultTableModel) table.getModel();

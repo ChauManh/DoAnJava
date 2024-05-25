@@ -2,9 +2,11 @@
 package com.raven.form;
 
 import com.raven.dao.ComboDAO;
+import com.raven.dao.PhimDAO;
 import com.raven.model.StatusType;
 import com.raven.model.TableActionEvent;
 import com.raven.models.Combo;
+import com.raven.models.Phim;
 import com.raven.swing.ScrollBar;
 import com.raven.swing.TableActionCellEditor;
 import com.raven.swing.TableActionCellRender;
@@ -68,24 +70,24 @@ public class Form_Service extends javax.swing.JPanel {
 //            }
 //        });
         
-        tableMovie.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024",StatusType.Released});
-        tableMovie.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024",StatusType.Released});
-        tableMovie.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-        tableMovie.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", StatusType.UnRelease});
-        tableMovie.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
+        setTableMovie();
+
+//        tableMovie.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024",StatusType.Released});
+//        tableMovie.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024",StatusType.Released});
+//        tableMovie.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", StatusType.Released});
+//        tableMovie.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", StatusType.UnRelease});
+//        tableMovie.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
         
-        for (Combo combo : ComboDAO.getInstance().selectAll()) {
-            tableCombo.addRow(new Object[]{combo.getIdCombo(), combo.getTenCombo(), combo.getChiTietCombo(), combo.getGia()});
-            }
+        setTableCombo();
 
     }
 
@@ -108,7 +110,7 @@ public class Form_Service extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", ""
+                "ID Phim", "Tên phim", "Độ tuổi cho phép", "Ngày phát hành", "Tên đạo diễn"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -203,12 +205,24 @@ public class Form_Service extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
     
+    public void setTableMovie(){
+        for (Phim phim : PhimDAO.getInstance().selectAll()) {
+            tableMovie.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh(), phim.getTenDaoDien()});
+            }
+    }
+    
+    public void setTableCombo(){
+        for (Combo combo : ComboDAO.getInstance().selectAll()) {
+            tableCombo.addRow(new Object[]{combo.getIdCombo(), combo.getTenCombo(), combo.getChiTietCombo(), combo.getGia()});
+            }
+    }
+    
     private void buttonAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddMovieActionPerformed
-        fAddMovie = new Form_Movie();
+        fAddMovie = new Form_Movie(this);
     }//GEN-LAST:event_buttonAddMovieActionPerformed
 
     private void buttonAddComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddComboActionPerformed
-        fAddCombo = new Form_Combo();
+        fAddCombo = new Form_Combo(this);
     }//GEN-LAST:event_buttonAddComboActionPerformed
 
     
@@ -220,7 +234,7 @@ public class Form_Service extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane spTable;
     private javax.swing.JScrollPane spTable2;
-    private com.raven.swing.Table tableCombo;
-    private com.raven.swing.Table tableMovie;
+    public com.raven.swing.Table tableCombo;
+    public com.raven.swing.Table tableMovie;
     // End of variables declaration//GEN-END:variables
 }

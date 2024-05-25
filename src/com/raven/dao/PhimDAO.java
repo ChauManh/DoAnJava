@@ -23,32 +23,29 @@ public class PhimDAO implements DAOInterface<Phim> {
         return new PhimDAO();
     }
     @Override
-    public int insert(Phim t) {
-        int ketQua = 0;
-        try {
-            Connection con = JDBCUtil.getConnection();
-            Statement st = con.createStatement();
-            String sql = "INSERT INTO phim (id_phim, ten_phim, ten_dao_dien, mo_ta_phim, poster, trailer, do_tuoi_cho_phep, ngay_phat_hanh, diem_danh_gia, luot_danh_gia)"
-                    +" VALUES"    
-                    +"("+t.getIdPhim()
-                    + ", '"+t.getTenPhim()
-                    +"', '"+t.getTenDaoDien()
-                    +"', '"+t.getMoTaPhim()
-                    +"', '"+t.getPoster()
-                    +"', '"+t.getTrailer()
-                    +"', "+t.getDoTuoiChoPhep()
-                    +", '"+t.getNgayPhatHanh()
-                    +"', "+t.getDiemDanhGia()
-                    +", "+t.getLuotDanhGia()+" );";
-            ketQua = st.executeUpdate(sql);
-            System.out.println("Da thuc thi: " + sql);
-            System.out.println("Co " + ketQua + " dong bi thay doi.");
-            JDBCUtil.closeConnection(con);
-        } catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return ketQua;
+public int insert(Phim t) {
+    int ketQua = 0;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        Statement st = con.createStatement();
+        String sql = "INSERT INTO phim (id_phim, ten_phim, ten_dao_dien, mo_ta_phim, poster, trailer, do_tuoi_cho_phep, ngay_phat_hanh)"
+                + " VALUES (" + t.getIdPhim()
+                + ", '" + t.getTenPhim() + "'"
+                + ", '" + t.getTenDaoDien() + "'"
+                + ", '" + t.getMoTaPhim() + "'"
+                + ", '" + t.getPoster() + "'"
+                + ", '" + t.getTrailer() + "'"
+                + ", '" + t.getDoTuoiChoPhep() + "'"
+                + ", '" + t.getNgayPhatHanh() + "'" + ");";
+        ketQua = st.executeUpdate(sql);
+        System.out.println("Da thuc thi: " + sql);
+        System.out.println("Co " + ketQua + " dong bi thay doi.");
+        JDBCUtil.closeConnection(con);
+    } catch(SQLException e) {
+        e.printStackTrace();
     }
+    return ketQua;
+}
 
     @Override
     public int update(Phim t) {
@@ -56,18 +53,15 @@ public class PhimDAO implements DAOInterface<Phim> {
         try {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
-            String sql = "UPDATE phim"
-                    + " SET"
-                    + " ten_phim = '" + t.getTenPhim() + "',"
-                    + " ten_dao_dien = '" + t.getTenDaoDien() + "',"
-                    + " mo_ta_phim = '" + t.getMoTaPhim() + "',"
-                    + " poster = '" + t.getPoster() + "',"
-                    + " trailer = '" + t.getTrailer() + "',"
-                    + " do_tuoi_cho_phep = " + t.getDoTuoiChoPhep() + ","
-                    + " ngay_phat_hanh = '" + t.getNgayPhatHanh()+ "',"
-                    + " diem_danh_gia = " + t.getDiemDanhGia() + ","
-                    + " luot_danh_gia = " + t.getLuotDanhGia()
-                    + " WHERE id_phim = " + t.getIdPhim();
+            String sql = "INSERT INTO phim (id_phim, ten_phim, ten_dao_dien, mo_ta_phim, poster, trailer, do_tuoi_cho_phep, ngay_phat_hanh)"
+                + " VALUES (" + t.getIdPhim()
+                + ", '" + t.getTenPhim() + "'"
+                + ", '" + t.getTenDaoDien() + "'"
+                + ", '" + t.getMoTaPhim() + "'"
+                + ", '" + t.getPoster() + "'"
+                + ", '" + t.getTrailer() + "'"
+                + ", '" + t.getDoTuoiChoPhep() + "'"
+                + ", '" + t.getNgayPhatHanh() + "');";
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
             System.out.println("Co " + ketQua + " dong bi thay doi.");
@@ -112,10 +106,8 @@ public class PhimDAO implements DAOInterface<Phim> {
                 String poster = rs.getString("poster");
                 String trailer = rs.getString("trailer");
                 String doTuoiChoPhep = rs.getString("do_tuoi_cho_phep");
-                Date ngayPhatHanh = rs.getDate("ngay_phat_hanh");
-                double diemDanhGia = rs.getDouble("diem_danh_gia");
-                int luotDanhGia = rs.getInt("luot_danh_gia");
-                Phim p = new Phim(idPhim, tenPhim, tenDaoDien, moTaPhim, poster, trailer, doTuoiChoPhep, ngayPhatHanh, diemDanhGia, luotDanhGia);
+                Date ngayPhatHanh = rs.getDate("ngay_phat_hanh");               
+                Phim p = new Phim(idPhim, tenPhim, tenDaoDien, moTaPhim, poster, trailer, doTuoiChoPhep, ngayPhatHanh);
                 ketQua.add(p);
             }
         } catch(SQLException e) {
@@ -141,9 +133,7 @@ public class PhimDAO implements DAOInterface<Phim> {
                 String trailer = rs.getString("trailer");
                 String doTuoiChoPhep = rs.getString("do_tuoi_cho_phep");
                 Date ngayPhatHanh = rs.getDate("ngay_phat_hanh");
-                double diemDanhGia = rs.getDouble("diem_danh_gia");
-                int luotDanhGia = rs.getInt("luot_danh_gia");
-                ketQua = new Phim(idPhim, tenPhim, tenDaoDien, moTaPhim, poster, trailer, doTuoiChoPhep, ngayPhatHanh, diemDanhGia, luotDanhGia);
+                ketQua = new Phim(idPhim, tenPhim, tenDaoDien, moTaPhim, poster, trailer, doTuoiChoPhep, ngayPhatHanh);
             }
         } catch(SQLException e) {
             e.printStackTrace();
@@ -167,10 +157,8 @@ public class PhimDAO implements DAOInterface<Phim> {
                 String poster = rs.getString("poster");
                 String trailer = rs.getString("trailer");
                 String doTuoiChoPhep = rs.getString("do_tuoi_cho_phep");
-                Date ngayPhatHanh = rs.getDate("ngay_phat_hanh");
-                double diemDanhGia = rs.getDouble("diem_danh_gia");
-                int luotDanhGia = rs.getInt("luot_danh_gia");
-                Phim p = new Phim(idPhim, tenPhim, tenDaoDien, moTaPhim, poster, trailer, doTuoiChoPhep, ngayPhatHanh, diemDanhGia, luotDanhGia);
+                Date ngayPhatHanh = rs.getDate("ngay_phat_hanh");             
+                Phim p = new Phim(idPhim, tenPhim, tenDaoDien, moTaPhim, poster, trailer, doTuoiChoPhep, ngayPhatHanh);
                 ketQua.add(p);
             }
         } catch(SQLException e) {
