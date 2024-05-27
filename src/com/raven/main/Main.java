@@ -13,6 +13,7 @@ import com.raven.form.Form_Login;
 import com.raven.form.Form_Revenue;
 import com.raven.form.Form_SellTicket;
 import com.raven.form.Form_Service;
+import com.raven.models.TaiKhoan;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -30,7 +31,11 @@ public class Main extends javax.swing.JFrame {
     private Form_Revenue fRevenue;
     private Form_Employee fEmployee;
     
-    public Main() {
+    private final TaiKhoan user;
+    
+    public Main(TaiKhoan user) {
+        
+        this.user = user;
         initComponents();
  
         fHome = new Form_Home();
@@ -131,7 +136,7 @@ public class Main extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main() {
+    public static void main(TaiKhoan user) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -161,7 +166,7 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                new Main(user).setVisible(true);
             }
         });
     }

@@ -25,10 +25,6 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Form_Service extends javax.swing.JPanel {
-    private ArrayList<Phim> listPhim = null;
-    private ArrayList<TheLoai> listTheLoai = TheLoaiDAO.getInstance().selectAll();
-    private ArrayList<TheLoaiPhim> listTheLoaiPhim = null;
-    private ArrayList<Combo> listCombo = ComboDAO.getInstance().selectAll();
     Form_Movie fAddMovie;
     Form_Combo fAddCombo;
 
@@ -46,89 +42,30 @@ public class Form_Service extends javax.swing.JPanel {
         Color color = new Color((Color.decode("#DAE2F8").getRed() + Color.decode("#D6A4A4").getRed()) / 2, 
         (Color.decode("#DAE2F8").getGreen() + Color.decode("#D6A4A4").getGreen()) / 2, 
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
-        this.setBackground(color);
-        listPhim = PhimDAO.getInstance().selectAll();
-        for(int i = 0; i < listPhim.size(); i++) {
-            ArrayList<String> theLoai = new ArrayList<>();
-            Phim phim = listPhim.get(i);
-            String idPhim = ""+phim.getIdPhim();
-            listTheLoaiPhim = TheLoaiPhimDAO.getInstance().selectByCondition(idPhim);
-            for(int j = 0; j < listTheLoaiPhim.size(); j++) {
-                theLoai.add(listTheLoai.get(listTheLoaiPhim.get(j).getIdTheLoai()).getTenTheLoai());
+        this.setBackground(color);                      
+
+        TableActionEvent event = new TableActionEvent() {
+            @Override
+            public void onEdit(int row) {
+                System.out.println("Edit row : " + row);
             }
-            StringBuilder sb = new StringBuilder();
-            for(String theLoais : theLoai) {
-                sb.append(theLoai);
-                sb.append(", ");
+
+            @Override
+            public void onDelete(int row) {
+                System.out.println("Delete row : " + row);
             }
-            String tl = sb.toString();
-            tableMovie.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh().toString(), tl});
-            
-        }
-        for(int i = 0; i < listCombo.size(); i++) {
-            Combo cb = listCombo.get(i);
-            tableCombo.addRow(new Object[]{cb.getIdCombo(), cb.getTenCombo(), cb.getChiTietCombo(), cb.getGia()});
-        }
-//        TableActionEvent event = new TableActionEvent() {
-//            @Override
-//            public void onEdit(int row) {
-//                System.out.println("Edit row : " + row);
-//            }
-//
-//            @Override
-//            public void onDelete(int row) {
-//                if (tableMovie.isEditing()) {
-//                    tableMovie.getCellEditor().stopCellEditing();
-//                }
-//                DefaultTableModel model = (DefaultTableModel) tableMovie.getModel();
-//                model.removeRow(row);
-//            }
-//
-//            @Override
-//            public void onView(int row) {
-//                System.out.println("View row : " + row);
-//            }
-//        };
-//            tableMovie.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
-//            tableMovie.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(event));
-//            tableMovie.getColumnModel().getColumn(0).setCellRenderer(new DefaultTableCellRenderer() {
-//            @Override
-//            public Component getTableCellRendererComponent(JTable jtable, Object o, boolean bln, boolean bln1, int i, int i1) {
-//                setHorizontalAlignment(SwingConstants.RIGHT);
-//                return super.getTableCellRendererComponent(jtable, o, bln, bln1, i, i1);
-//            }
-//        });
+
+            @Override
+            public void onView(int row) {
+                System.out.println("View row : " + row);
+            }
+        };
+        tableMovie.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
+        tableMovie.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(event));
+        setTableMovie();             
         
-//        tableMovie.addRow(new Object[]{"1", "Lật mặt 7: Một Điều Ước", "16+", "26/04/2024",StatusType.Released});
-//        tableMovie.addRow(new Object[]{"2", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"3", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"4", "Thiên Thần Hộ Mệnh", "13+", "012/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"5", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"6", "Vây hãm: Kẻ trừng phạt", "18+", "26/04/2024",StatusType.Released});
-//        tableMovie.addRow(new Object[]{"7", "Tarot", "18+", "10/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"8", "Cái giá của hạnh phúc", "18+", "19/04/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"9", "Nắm đấm trời ban", "16+", "03/05/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"10", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"11", "Trạng Tí Phiêu Lưu Ký", "PG", "30/04/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"12", "Bố Già", "16+", "01/05/2024", StatusType.Released});
-//        tableMovie.addRow(new Object[]{"13", "Thiên Thần Hộ Mệnh", "13+", "12/05/2024", StatusType.UnRelease});
-//        tableMovie.addRow(new Object[]{"14", "Tình Yêu Và Tham Vọng", "18+", "10/05/2024", StatusType.UnRelease});
-        
-//        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-//        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-//        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-//        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-//        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-//        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-//        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-//        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-//        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-//        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
-//        tableCombo.addRow(new Object[]{"1", "Combo 1", "2 nước ngọt, 1 bắp", "70.000"});
-//        tableCombo.addRow(new Object[]{"2", "Combo 2", "1 nước ngọt, 2 bắp", "80.000"});
-//        tableCombo.addRow(new Object[]{"3", "Combo 3", "3 nước ngọt, 1 bắp", "90.000"});
-//        tableCombo.addRow(new Object[]{"4", "Combo 4", "2 nước ngọt, 2 bắp", "100.000"});
-//        tableCombo.addRow(new Object[]{"5", "Combo 5", "1 nước ngọt, 3 bắp", "110.000"});
+        setTableCombo();
+
     }
 
 
@@ -234,12 +171,25 @@ public class Form_Service extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
-//
-//    private void AddMovie(String id, String name, String age, String release){
-//        
-//        tableMovie.addRow(new Object[]{id, name, age, release});
-//    }
+public void setTableMovie(){
+        for (Phim phim : PhimDAO.getInstance().selectAll()) {
+            tableMovie.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh().toString()});
+            }
+    }
     
+    public void setTableCombo(){
+        for (Combo combo : ComboDAO.getInstance().selectAll()) {
+            tableCombo.addRow(new Object[]{combo.getIdCombo(), combo.getTenCombo(), combo.getChiTietCombo(), combo.getGia()});
+            }
+    }
+    
+    private void buttonAddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddMovieActionPerformed
+        fAddMovie = new Form_Movie(this);
+    }//GEN-LAST:event_buttonAddMovieActionPerformed
+
+    private void buttonAddComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddComboActionPerformed
+        fAddCombo = new Form_Combo(this);
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -249,7 +199,7 @@ public class Form_Service extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane spTable;
     private javax.swing.JScrollPane spTable2;
-    private com.raven.swing.Table tableCombo;
-    private com.raven.swing.Table tableMovie;
+    public com.raven.swing.Table tableCombo;
+    public com.raven.swing.Table tableMovie;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,8 +1,8 @@
 
 package com.raven.component;
 
-import com.raven.model.ModelLogin;
-import com.raven.model.ModelUser;
+import com.raven.models.ModelLogin;
+import com.raven.models.TaiKhoan;
 import com.raven.swing.Button;
 import com.raven.swing.MyPasswordField;
 import com.raven.swing.MyTextField;
@@ -21,16 +21,16 @@ import net.miginfocom.swing.MigLayout;
 
 public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
 
-    private ModelUser user;
-    private ModelLogin dataLogin;
+    public TaiKhoan getUser(){
+        return taiKhoan;
+    }
 
     public ModelLogin getDataLogin() {
         return dataLogin;
     }
     
-    public ModelUser getUser() {
-        return user;
-    }
+    private TaiKhoan taiKhoan;
+    private ModelLogin dataLogin;
     
     private Color color = new Color((Color.decode("#DAE2F8").getRed() + Color.decode("#D6A4A4").getRed()) / 2, 
     (Color.decode("#DAE2F8").getGreen() + Color.decode("#D6A4A4").getGreen()) / 2, 
@@ -81,7 +81,10 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                 String userName = txtUser.getText().trim();
                 String email = txtEmail.getText().trim();
                 String password = String.valueOf(txtPass.getPassword());
-                user = new ModelUser(0, userName, email, password);
+                taiKhoan = new TaiKhoan(0, userName, email, password);
+                txtUser.setText("");
+                txtEmail.setText("");
+                txtPass.setText("");
             }
         }); 
     }
@@ -111,8 +114,7 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
         cmd.setForeground(new Color(0, 0, 0));
         cmd.setText("SIGN IN");
         cmd.addActionListener(eventLogin);
-        login.add(cmd, "w 40%, h 40");
-        
+        login.add(cmd, "w 40%, h 40");        
         cmd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

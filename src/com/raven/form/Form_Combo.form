@@ -125,12 +125,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="age" min="-2" pref="483" max="-2" attributes="0"/>
+                          <Component id="comboPrice" min="-2" pref="483" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="idMovie" min="-2" pref="483" max="-2" attributes="0"/>
-                          <Component id="myTextField3" min="-2" pref="483" max="-2" attributes="0"/>
+                          <Component id="idCombo" min="-2" pref="483" max="-2" attributes="0"/>
+                          <Component id="comboDetail" min="-2" pref="483" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="movieName" min="-2" pref="483" max="-2" attributes="0"/>
+                          <Component id="comboName" min="-2" pref="483" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -144,19 +144,19 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="idMovie" min="-2" max="-2" attributes="0"/>
+                      <Component id="idCombo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="movieName" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="myTextField3" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboDetail" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="age" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboPrice" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="270" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -179,9 +179,9 @@
                 <Property name="text" type="java.lang.String" value="T&#xea;n Combo"/>
               </Properties>
             </Component>
-            <Component class="com.raven.swing.MyTextField" name="movieName">
+            <Component class="com.raven.swing.MyTextField" name="comboName">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="movieNameActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboNameActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -192,14 +192,14 @@
                 <Property name="text" type="java.lang.String" value="Chi ti&#x1ebf;t Combo"/>
               </Properties>
             </Component>
-            <Component class="com.raven.swing.MyTextField" name="myTextField3">
+            <Component class="com.raven.swing.MyTextField" name="comboDetail">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myTextField3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboDetailActionPerformed"/>
               </Events>
             </Component>
-            <Component class="com.raven.swing.MyTextField" name="idMovie">
+            <Component class="com.raven.swing.MyTextField" name="idCombo">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idMovieActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idComboActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -210,9 +210,9 @@
                 <Property name="text" type="java.lang.String" value="Gi&#xe1;"/>
               </Properties>
             </Component>
-            <Component class="com.raven.swing.MyTextField" name="age">
+            <Component class="com.raven.swing.MyTextField" name="comboPrice">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ageActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboPriceActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

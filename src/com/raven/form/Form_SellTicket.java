@@ -28,8 +28,9 @@ public class Form_SellTicket extends javax.swing.JPanel {
     private ArrayList<TheLoaiPhim> listTheLoaiPhim = null;
     private ArrayList<TheLoai> listTheLoai = TheLoaiDAO.getInstance().selectAll();
     private Form_ChooseMovie fChoose;
+    private Form_MovieDetails fMovieDetails;
     private Form_Bill fBill;
-
+    private ArrayList<String> theLoaiPhim = new ArrayList<>();
     public Form_SellTicket() {
         initComponents();
         spTable.setVerticalScrollBar(new ScrollBar());
@@ -57,9 +58,12 @@ public class Form_SellTicket extends javax.swing.JPanel {
                 sb.append(", ");
             }
             String tl = sb.toString();
+            theLoaiPhim.add(sb.toString());
             table.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh().toString(), tl});
         }
-        
+
+
+
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -68,8 +72,7 @@ public class Form_SellTicket extends javax.swing.JPanel {
                 }
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow != -1) {
-                    String name = table.getValueAt(selectedRow,1)+"";
-                    fChoose = new Form_ChooseMovie(name); // Gọi showInformation với selectedRow hợp lệ
+                    fMovieDetails = new Form_MovieDetails(listPhim.get(table.getSelectedRow()), theLoaiPhim.get(table.getSelectedRow()));
                 }
             }
         });
@@ -145,6 +148,7 @@ public class Form_SellTicket extends javax.swing.JPanel {
             }
         });
 
+        buttonBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/bill.png"))); // NOI18N
         buttonBill.setText("Hóa đơn");
         buttonBill.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonBill.setRadius(20);
@@ -192,6 +196,12 @@ public class Form_SellTicket extends javax.swing.JPanel {
 ////        }
 //    }
 //    
+    
+    public void setTableMovie(){
+        for (Phim phim : PhimDAO.getInstance().selectAll()) {
+            table.addRow(new Object[]{phim.getIdPhim(), phim.getTenPhim(), phim.getDoTuoiChoPhep(), phim.getNgayPhatHanh(), phim.getTenDaoDien()});
+            }
+    }
     
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel ob =(DefaultTableModel) table.getModel();

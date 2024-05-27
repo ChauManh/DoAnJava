@@ -19,8 +19,7 @@ public class Phim {
     private String trailer;
     private String doTuoiChoPhep;
     private Date ngayPhatHanh;
-    private double diemDanhGia;
-    private int luotDanhGia;
+
 
     public Phim() {
         
@@ -37,18 +36,7 @@ public class Phim {
         this.ngayPhatHanh = ngayPhatHanh;
     }
     
-    public Phim(int idPhim, String tenPhim, String tenDaoDien, String moTaPhim, String poster, String trailer, String doTuoiChoPhep, Date ngayPhatHanh, double diemDanhGia, int luotDanhGia) {
-        this.idPhim = idPhim;
-        this.tenPhim = tenPhim;
-        this.tenDaoDien = tenDaoDien;
-        this.moTaPhim = moTaPhim;
-        this.poster = poster;
-        this.trailer = trailer;
-        this.doTuoiChoPhep = doTuoiChoPhep;
-        this.ngayPhatHanh = ngayPhatHanh;
-        this.diemDanhGia = diemDanhGia;
-        this.luotDanhGia = luotDanhGia;
-    }
+
 
     public int getIdPhim() {
         return idPhim;
@@ -113,20 +101,4 @@ public class Phim {
     public void setNgayPhatHanh(Date ngayPhatHanh) {
         this.ngayPhatHanh = ngayPhatHanh;
     }
-
-    public double getDiemDanhGia() {
-        return diemDanhGia;
-    }
-
-    public void setDiemDanhGia(double diemDanhGia) {
-        this.diemDanhGia = diemDanhGia;
-    }
-
-    public int getLuotDanhGia() {
-        return luotDanhGia;
-    }
-
-    public void setLuotDanhGia(int luotDanhGia) {
-        this.luotDanhGia = luotDanhGia;
-    }  
 }

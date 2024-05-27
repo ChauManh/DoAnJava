@@ -13,7 +13,7 @@ public class Ve {
     private int idPhim;
     private int idSuatChieu;
     private String idPhong;
-    private String idGhe;
+    private int idGhe;
     private double giaVe;
     private String trangThai;
     
@@ -21,7 +21,7 @@ public class Ve {
         
     }
 
-    public Ve(int idVe, int idPhim, int idSuatChieu, String idPhong, String idGhe, double giaVe, String trangThai) {
+    public Ve(int idVe, int idPhim, int idSuatChieu, String idPhong, int idGhe, double giaVe, String trangThai) {
         this.idVe = idVe;
         this.idPhim = idPhim;
         this.idSuatChieu = idSuatChieu;
@@ -63,11 +63,11 @@ public class Ve {
         this.idPhong = idPhong;
     }
 
-    public String getIdGhe() {
+    public int getIdGhe() {
         return idGhe;
     }
 
-    public void setIdGhe(String idGhe) {
+    public void setIdGhe(int idGhe) {
         this.idGhe = idGhe;
     }
 

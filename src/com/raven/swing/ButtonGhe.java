@@ -1,5 +1,6 @@
 package com.raven.swing;
 
+import com.raven.models.Ghe;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -9,7 +10,57 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
 public class ButtonGhe extends JButton {
+    private Ghe ghe;
+    public ButtonGhe(Ghe ghe) {
+        this.ghe = ghe;
+                //  Init Color
 
+        setColor(new Color(220, 50, 55));
+        colorOver = new Color(220, 50, 55, 180);
+        colorClick = new Color(255, 165, 0);
+        borderColor = new Color(0, 0, 0, 0);
+        
+        setContentAreaFilled(false);
+        //  Add event mouse
+//        addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseEntered(MouseEvent me) {
+//                    setBackground(colorOver);
+//            }
+//
+//            @Override
+//            public void mouseExited(MouseEvent me) {
+//                if (clicked == false)
+//                    setBackground(color);
+//                else setBackground(colorClick);
+//            }
+//
+//            @Override
+//            public void mousePressed(MouseEvent me) {
+//                if (clicked == false) { 
+//                    setBackground(colorClick);
+//                    clicked = true;
+//                }
+//                else {
+//                    setBackground(new Color(220, 50, 55));
+//                    clicked = false;
+//                }
+//            }
+//
+////            @Override
+////            public void mouseReleased(MouseEvent me) {
+////                // Maintain clicked color even if mouse exits the button
+////                clicked = false;
+////                setBackground(clicked ? colorClick : color);
+////            }
+//        });
+    }
+    public Ghe getGhe() {
+        return ghe;
+    }
+    public void setText() {
+        super.setText(ghe.getIdGhe()+"");
+    }
       public boolean isClicked() {
         return clicked;
     }

@@ -1,0 +1,134 @@
+[33mcommit 713ff568acabeceaf1a52e39eec8daa9883093b0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mManh[m[33m, [m[1;31morigin/Manh[m[33m)[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Sat May 25 11:20:39 2024 +0700
+
+    ...
+
+[33mcommit aaeffb453808aee099d257d75f4f5c4f402d3d9e[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Sat May 25 10:19:10 2024 +0700
+
+    update add movie and combo to table and database
+
+[33mcommit faed44e3707a692ffc608ee77fac01d0826f8b60[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Fri May 24 13:48:39 2024 +0700
+
+    use ComboDAO
+
+[33mcommit 5749ca2b964a2218f56f256ac6f876d4c5eb81ad[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Fri May 24 08:27:23 2024 +0700
+
+    Merge
+
+[33mcommit 1e51c4f1538502aaa9a49c404cc9000e413abb2c[m
+Merge: 02185b8 a3b8163
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Wed May 22 01:07:07 2024 +0700
+
+    update form them nv, them phim, them combo, hoa don, dat phim, dat combo
+
+[33mcommit 02185b87619d9bfbf9839def6294fe191686462c[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Mon May 20 23:41:05 2024 +0700
+
+    new
+
+[33mcommit a3b8163733026761318fe47eb8fa8c4e69d4883a[m
+Author: danggbao <dangbao290404@gmail.com>
+Date:   Mon May 20 19:31:16 2024 +0700
+
+    get poster from database and show it in home
+
+[33mcommit 106655bc0be46664092ac77523abd003dbe3986f[m
+Author: danggbao <dangbao290404@gmail.com>
+Date:   Sun May 19 04:22:19 2024 +0700
+
+    data access object
+
+[33mcommit 49cd09865457fea2a1b8302a30ddca330d656603[m
+Author: danggbao <dangbao290404@gmail.com>
+Date:   Sun May 19 00:58:12 2024 +0700
+
+    combo data accesss
+
+[33mcommit 09271a9e3d0879e60b904b6037b154bf41186559[m
+Author: danggbao <dangbao290404@gmail.com>
+Date:   Sun May 19 00:32:33 2024 +0700
+
+    update phimDAO
+
+[33mcommit a3cde098cc4a27675506f89938fc8fbb00ca54d6[m
+Author: danggbao <dangbao290404@gmail.com>
+Date:   Sun May 19 00:29:47 2024 +0700
+
+    phim data access
+
+[33mcommit f771c418af93d92ca1308e57f5cb421196361121[m
+Author: danggbao <dangbao290404@gmail.com>
+Date:   Sat May 18 23:37:44 2024 +0700
+
+    combo data access
+
+[33mcommit b0f5bef8b0d8af6f9784752135c0564e58ff2b26[m
+Author: danggbao <dangbao290404@gmail.com>
+Date:   Sat May 18 22:12:25 2024 +0700
+
+    models + data access object
+
+[33mcommit 56d03a892d943a0bd74b3810331edd590ef3b8b6[m
+Author: danggbao <dangbao290404@gmail.com>
+Date:   Fri May 17 17:24:03 2024 +0700
+
+    a
+
+[33mcommit 3fba3b1c7bd0d28b512cea41cb9d1915f4b8352b[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Merge: 904ec76 5b529d9
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Sat May 18 17:14:09 2024 +0700
+
+    new merge
+
+[33mcommit 5b529d9eadcf3f96ca2cdbd9889d48b88b8737a3[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Sat May 18 17:07:24 2024 +0700
+
+    new update
+
+[33mcommit 58e97cdb96a27a9d97aa6f3c33e7849e643b3df8[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Thu May 16 21:57:53 2024 +0700
+
+    new version
+
+[33mcommit 904ec76517003d7be0c3dfbb212cdf3b7a0be8c6[m
+Merge: 63db929 e168dca
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Wed May 15 01:19:25 2024 +0700
+
+    update form login and register
+
+[33mcommit e168dca653580e180cebfff4468b204355a77867[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Wed May 15 01:12:46 2024 +0700
+
+    update form login and register
+
+[33mcommit 63db9291074fc0a1d2b690cef6911e7975670a6c[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Mon May 13 23:44:01 2024 +0700
+
+    new update
+
+[33mcommit 4a3f4776126744a9b86dc999538dfc748a668c3a[m
+Author: danggbao <dangbao290404@gmail.com>
+Date:   Mon May 13 23:37:53 2024 +0700
+
+    database connection
+
+[33mcommit c92f7c8e8e920c010160df2abe0e9c7c4aca18b2[m
+Author: ChauManh <chaumanh1108@gmail.com>
+Date:   Mon May 13 23:24:16 2024 +0700
+
+    new update

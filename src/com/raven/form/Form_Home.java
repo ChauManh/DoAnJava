@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class Form_Home extends javax.swing.JPanel {
     private ArrayList<Phim> listPhim = null;
+    
     public Form_Home() {
         initComponents();
         Color color = new Color((Color.decode("#DAE2F8").getRed() + Color.decode("#D6A4A4").getRed()) / 2, 
@@ -21,8 +22,6 @@ public class Form_Home extends javax.swing.JPanel {
         posterPanel2.setData(listPhim.get((listPhim.size()-2)).getPoster());
         posterPanel3.setData(listPhim.get((listPhim.size()-3)).getPoster());
     }
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -69,6 +68,7 @@ public class Form_Home extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
