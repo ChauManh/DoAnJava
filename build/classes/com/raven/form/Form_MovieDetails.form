@@ -4,7 +4,10 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="undecorated" type="boolean" value="true"/>
+<<<<<<< HEAD
     <Property name="resizable" type="boolean" value="false"/>
+=======
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -50,11 +53,16 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel8" max="32767" attributes="0"/>
               </Group>
+<<<<<<< HEAD
               <Group type="102" attributes="0">
+=======
+              <Group type="102" alignment="0" attributes="0">
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel5" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -67,23 +75,39 @@
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+=======
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="myButton1" min="-2" pref="120" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="418" max="-2" attributes="0"/>
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
               <Group type="102" alignment="1" attributes="0">
+=======
+              <Group type="102" attributes="0">
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jPanel8" max="32767" attributes="0"/>
                       <Component id="poster" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="showTimePanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="161" max="32767" attributes="0"/>
                   <Component id="myButton1" min="-2" pref="56" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Component id="myButton1" pref="75" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
               </Group>
           </Group>
         </DimensionLayout>
@@ -174,7 +198,11 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                                   <Component id="textDoTuoiChoPhep" pref="445" max="32767" attributes="0"/>
+=======
+                                  <Component id="textDoTuoiChoPhep" pref="467" max="32767" attributes="0"/>
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -326,6 +354,12 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Xem Trailer"/>
                   </Properties>
+<<<<<<< HEAD
+=======
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTrailerActionPerformed"/>
+                  </Events>
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
                 </Component>
               </SubComponents>
             </Container>
@@ -401,6 +435,7 @@
               </Properties>
             </Component>
             <Component class="com.raven.swing.MyButton" name="btnHomNay">
+<<<<<<< HEAD
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHomNayActionPerformed"/>
               </Events>
@@ -414,6 +449,12 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNgayKiaActionPerformed"/>
               </Events>
+=======
+            </Component>
+            <Component class="com.raven.swing.MyButton" name="btnNgayMai">
+            </Component>
+            <Component class="com.raven.swing.MyButton" name="btnNgayKia">
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
             </Component>
           </SubComponents>
         </Container>
@@ -425,6 +466,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="myButton1ActionPerformed"/>
           </Events>
         </Component>
+<<<<<<< HEAD
         <Container class="javax.swing.JPanel" name="showTimePanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -445,6 +487,8 @@
             </DimensionLayout>
           </Layout>
         </Container>
+=======
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
       </SubComponents>
     </Container>
   </SubComponents>

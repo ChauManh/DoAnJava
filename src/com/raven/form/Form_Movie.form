@@ -125,6 +125,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                           <Component id="trailer" pref="498" max="32767" attributes="0"/>
                           <Component id="description" pref="498" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -156,6 +157,31 @@
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+=======
+                          <Group type="102" attributes="0">
+                              <Component id="release1" pref="492" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                      <Component id="release" pref="483" max="32767" attributes="0"/>
+                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="age" pref="483" max="32767" attributes="0"/>
+                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="idMovie" pref="483" max="32767" attributes="0"/>
+                                      <Component id="myTextField3" pref="483" max="32767" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="movieName" pref="483" max="32767" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBox" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
                           </Group>
                       </Group>
                   </Group>
@@ -183,6 +209,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="date" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
@@ -201,6 +228,18 @@
                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                       <Component id="trailer" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+=======
+                      <Component id="release" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jComboBox" min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="release1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
                   </Group>
               </Group>
             </DimensionLayout>
@@ -282,6 +321,7 @@
                 <Property name="text" type="java.lang.String" value="M&#xf4; t&#x1ea3;"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
             <Component class="com.toedter.calendar.JDateChooser" name="date">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -290,6 +330,9 @@
               </Properties>
             </Component>
             <Component class="com.raven.swing.MyTextField" name="movieName">
+=======
+            <Component class="com.raven.swing.MyTextField" name="release1">
+>>>>>>> cf8ac21e7f2d0a020e795f80404058418d8e39de
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="movieNameActionPerformed"/>
               </Events>

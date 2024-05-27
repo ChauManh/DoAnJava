@@ -6,6 +6,7 @@ import com.raven.model.StatusType;
 import com.raven.models.Phim;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -25,9 +26,12 @@ public class Form_Movie extends javax.swing.JFrame {
     public Form_Movie(Form_Service fService) {
         this.fService = fService;
         initComponents();
+
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
+        setDataType(jComboBox);
+        
         setDataType(jComboBox);
         
     }
@@ -370,6 +374,7 @@ public class Form_Movie extends javax.swing.JFrame {
     private com.raven.swing.MyTextField description;
     private com.raven.swing.MyTextField director;
     private com.raven.swing.MyTextField idMovie;
+    private javax.swing.JComboBox<String> jComboBox;
     private javax.swing.JComboBox<String> jComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

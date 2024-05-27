@@ -29,6 +29,7 @@ public class PhimDAO implements DAOInterface<Phim> {
             Connection con = JDBCUtil.getConnection();
             Statement st = con.createStatement();
             String sql = "INSERT INTO phim (id_phim, ten_phim, ten_dao_dien, mo_ta_phim, poster, trailer, do_tuoi_cho_phep, ngay_phat_hanh)"
+            String sql = "INSERT INTO phim (id_phim, ten_phim, ten_dao_dien, mo_ta_phim, poster, trailer, do_tuoi_cho_phep, ngay_phat_hanh)"
                     +" VALUES"    
                     +"("+t.getIdPhim()
                     + ", '"+t.getTenPhim()
@@ -37,6 +38,7 @@ public class PhimDAO implements DAOInterface<Phim> {
                     +"', '"+t.getPoster()
                     +"', '"+t.getTrailer()
                     +"', "+t.getDoTuoiChoPhep()
+                    +", '"+t.getNgayPhatHanh()+"' );";
                     +", '"+t.getNgayPhatHanh()+"' );";
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
