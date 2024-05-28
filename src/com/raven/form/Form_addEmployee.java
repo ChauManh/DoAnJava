@@ -274,7 +274,7 @@ public class Form_addEmployee extends javax.swing.JFrame {
         }
         NhanVien nv = new NhanVien(idNhanVien, tenNhanVien, gioiTinh, chucVu, sqlNgaySinh, sqlNgayVaoLam, sdt);
         NhanVienDAO.getInstance().insert(nv);
-        parent.updateTable(nv);
+        parent.addTable(nv);
         this.dispose();
     }//GEN-LAST:event_btnXacNhanActionPerformed
 

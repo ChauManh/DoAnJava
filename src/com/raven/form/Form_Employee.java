@@ -1,12 +1,15 @@
-
 package com.raven.form;
 
 import com.raven.dao.NhanVienDAO;
 import com.raven.model.StatusType;
+import com.raven.model.TableActionEvent;
 import com.raven.models.NhanVien;
 import com.raven.swing.ScrollBar;
+import com.raven.swing.TableActionCellEditor;
+import com.raven.swing.TableActionCellRender;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
 import javax.swing.event.ListSelectionEvent;
@@ -14,45 +17,68 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-
 public class Form_Employee extends javax.swing.JPanel {
+
     private ArrayList<NhanVien> listNhanVien = null;
     private Form_addEmployee fAddEmployee;
+
     public Form_Employee() {
         initComponents();
-        
+
         spTable.setVerticalScrollBar(new ScrollBar());
         spTable.getVerticalScrollBar().setBackground(Color.WHITE);
         spTable.getViewport().setBackground(Color.WHITE);
         JPanel p = new JPanel();
         p.setBackground(Color.WHITE);
-        
-        Color color = new Color((Color.decode("#DAE2F8").getRed() + Color.decode("#D6A4A4").getRed()) / 2, 
-        (Color.decode("#DAE2F8").getGreen() + Color.decode("#D6A4A4").getGreen()) / 2, 
-        (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
+
+        Color color = new Color((Color.decode("#DAE2F8").getRed() + Color.decode("#D6A4A4").getRed()) / 2,
+                (Color.decode("#DAE2F8").getGreen() + Color.decode("#D6A4A4").getGreen()) / 2,
+                (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);
         //Lay du lieu toan bo nhan vien tu dba
         listNhanVien = NhanVienDAO.getInstance().selectAll();
         //Hien thi nhan vien len table
-        for(int i = 0; i < listNhanVien.size(); i++) {
+        for (int i = 0; i < listNhanVien.size(); i++) {
             table.addRow(new Object[]{listNhanVien.get(i).getIdNhanVien(), listNhanVien.get(i).getTenNhanVien(), listNhanVien.get(i).getGioiTinh(), listNhanVien.get(i).getChucVu()});
         }
 
-        
-        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        TableActionEvent evt = new TableActionEvent() {
             @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (e.getValueIsAdjusting()) {
-                    return; // Ignore selection changes during adjustment
+            public void onEdit(int row) {
+            }
+
+            @Override
+            public void onDelete(int row) {
+                if (table.isEditing()) {
+                    table.getCellEditor().stopCellEditing();
                 }
-                int selectedRow = table.getSelectedRow();
-                if (selectedRow != -1) {
-                    showInformation(selectedRow); // Gọi showInformation với selectedRow hợp lệ
+
+                // Hiển thị bảng xác nhận
+                int confirm = JOptionPane.showConfirmDialog(
+                        null,
+                        "Bạn có chắc chắn muốn xóa nhân viên này không?",
+                        "Xác nhận xóa",
+                        JOptionPane.OK_CANCEL_OPTION
+                );
+
+                if (confirm == JOptionPane.OK_OPTION) {
+                    // Nếu người dùng chọn OK, tiến hành xóa
+                    NhanVienDAO.getInstance().delete(getInfoByID(row));
+                    DefaultTableModel model = (DefaultTableModel) table.getModel();
+                    model.removeRow(row);
+                } else {
                 }
             }
-        });
-}
 
+            @Override
+            public void onView(int row) {
+                showInformation(row);
+            }
+        };
+        table.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
+        table.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(evt));
+//        setTable();        
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -88,11 +114,11 @@ public class Form_Employee extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID Nhân viên", "Tên nhân viên", "Giới tính", "Chức vụ"
+                "ID Nhân viên", "Tên nhân viên", "Giới tính", "Chức vụ", "Action"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -100,6 +126,13 @@ public class Form_Employee extends javax.swing.JPanel {
             }
         });
         spTable.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setResizable(false);
+            table.getColumnModel().getColumn(1).setResizable(false);
+            table.getColumnModel().getColumn(2).setResizable(false);
+            table.getColumnModel().getColumn(3).setResizable(false);
+            table.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -291,7 +324,6 @@ public class Form_Employee extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
     private void showInformation(int selectedRow) {
         if (selectedRow >= 0 && selectedRow < table.getRowCount()) {
             DefaultTableModel model_table = (DefaultTableModel) table.getModel();
@@ -304,34 +336,37 @@ public class Form_Employee extends javax.swing.JPanel {
             ngayVaoLamText.setText(listNhanVien.get(selectedRow).getNgayVaoLam().toString());
         }
     }
-    
+
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
-        DefaultTableModel ob =(DefaultTableModel) table.getModel();
-        TableRowSorter<DefaultTableModel> obj=new TableRowSorter<>(ob);
+        DefaultTableModel ob = (DefaultTableModel) table.getModel();
+        TableRowSorter<DefaultTableModel> obj = new TableRowSorter<>(ob);
         table.setRowSorter(obj);
         obj.setRowFilter(RowFilter.regexFilter(header.searchText.getText()));
-        if (buttonSearch.getText().equals("Tìm kiếm") && header.searchText.getText().equals(""))
-        {
+        if (buttonSearch.getText().equals("Tìm kiếm") && header.searchText.getText().equals("")) {
             buttonSearch.setText("Tìm kiếm");
-        }
-        else if (buttonSearch.getText().equals("Tìm kiếm"))
-        {
+        } else if (buttonSearch.getText().equals("Tìm kiếm")) {
             buttonSearch.setText("Hủy");
             header.searchText.setText("");
-        }
-        else if (buttonSearch.getText().equals("Hủy"))
-        {
+        } else if (buttonSearch.getText().equals("Hủy")) {
             buttonSearch.setText("Tìm kiếm");
-        }        
+        }
     }//GEN-LAST:event_buttonSearchActionPerformed
     //Cập nhật lại bảng sau khi thêm một nhân viên
-    public void updateTable(NhanVien nv) {
+    public void addTable(NhanVien nv) {
         table.addRow(new Object[]{nv.getIdNhanVien(), nv.getTenNhanVien(), nv.getGioiTinh(), nv.getChucVu()});
     }
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         fAddEmployee = new Form_addEmployee(this);
     }//GEN-LAST:event_buttonAddActionPerformed
 
+    public NhanVien getInfoByID(int row) {
+        for (int i = 0; i < listNhanVien.size(); i++) {
+            if (listNhanVien.get(i).getIdNhanVien().equals(table.getValueAt(row, 0))) {
+                return listNhanVien.get(i);
+            }
+        }
+        return null;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.MyButton buttonAdd;
@@ -355,6 +390,6 @@ public class Form_Employee extends javax.swing.JPanel {
     private javax.swing.JLabel sdtText;
     private javax.swing.JLabel sexText;
     private javax.swing.JScrollPane spTable;
-    private com.raven.swing.Table table;
+    public com.raven.swing.Table table;
     // End of variables declaration//GEN-END:variables
 }
