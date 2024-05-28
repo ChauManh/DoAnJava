@@ -36,8 +36,8 @@ public class PhimDAO implements DAOInterface<Phim> {
                     +"', '"+t.getMoTaPhim()
                     +"', '"+t.getPoster()
                     +"', '"+t.getTrailer()
-                    +"', "+t.getDoTuoiChoPhep()
-                    +", '"+t.getNgayPhatHanh()+"' );";
+                    +"', '"+t.getDoTuoiChoPhep()
+                    +"', '"+t.getNgayPhatHanh()+"' );";
             ketQua = st.executeUpdate(sql);
             System.out.println("Da thuc thi: " + sql);
             System.out.println("Co " + ketQua + " dong bi thay doi.");

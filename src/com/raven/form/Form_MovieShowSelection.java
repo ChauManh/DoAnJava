@@ -43,7 +43,7 @@ public class Form_MovieShowSelection extends javax.swing.JFrame {
         }
         for(int i = 0; i < listPhong.size(); i++) {
             cbPhong.addItem(listPhong.get(i).getIdPhong());
-        }
+        }   
         DefaultListModel<Time> listModel = new DefaultListModel<>();
         for(int i = 0; i < listSuatChieu.size(); i++) {
             listModel.addElement(listSuatChieu.get(i).getSuatChieu());

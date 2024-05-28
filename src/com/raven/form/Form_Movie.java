@@ -2,8 +2,12 @@
 package com.raven.form;
 
 import com.raven.dao.PhimDAO;
+import com.raven.dao.TheLoaiDAO;
+import com.raven.dao.TheLoaiPhimDAO;
 import com.raven.model.StatusType;
 import com.raven.models.Phim;
+import com.raven.models.TheLoai;
+import com.raven.models.TheLoaiPhim;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
@@ -13,23 +17,25 @@ import java.awt.RenderingHints;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
+import javax.swing.JList;
 import javax.swing.UIManager;
 
 
 public class Form_Movie extends javax.swing.JFrame {
-
+    private ArrayList<TheLoai> dsTheLoai = TheLoaiDAO.getInstance().selectAll();
     private Form_Service fService;
+    private ArrayList<Phim> listPhim = PhimDAO.getInstance().selectAll();
     public Form_Movie(Form_Service fService) {
         this.fService = fService;
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(HIDE_ON_CLOSE);
-        setDataType(jComboBox);
-        
+        setDataType(listTheLoai);
     }
 
 
@@ -37,17 +43,16 @@ public class Form_Movie extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         panelBorder1 = new com.raven.swing.PanelBorder();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        idMovie = new com.raven.swing.MyTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         date = new com.toedter.calendar.JDateChooser();
         movieName = new com.raven.swing.MyTextField();
@@ -58,8 +63,17 @@ public class Form_Movie extends javax.swing.JFrame {
         poster = new com.raven.swing.MyTextField();
         jLabel10 = new javax.swing.JLabel();
         trailer = new com.raven.swing.MyTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listTheLoai = new javax.swing.JList<>();
         cmdAdd = new com.raven.swing.MyButton();
         cmdCancel = new com.raven.swing.MyButton();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
@@ -75,9 +89,6 @@ public class Form_Movie extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("ID phim");
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Tên phim");
 
@@ -92,9 +103,6 @@ public class Form_Movie extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Thể loại");
-
-        jComboBox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Mô tả");
@@ -143,6 +151,9 @@ public class Form_Movie extends javax.swing.JFrame {
             }
         });
 
+        listTheLoai.setSelectionBackground(new java.awt.Color(255, 204, 204));
+        jScrollPane2.setViewportView(listTheLoai);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -150,73 +161,65 @@ public class Form_Movie extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(trailer, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
-                    .addComponent(description, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                    .addComponent(description, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+                    .addComponent(trailer, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5)
-                                    .addComponent(idMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(movieName, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                                    .addComponent(director, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                                    .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE))))
+                            .addComponent(date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(movieName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                            .addComponent(director, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                            .addComponent(age, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
                         .addContainerGap())
-                    .addComponent(poster, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                    .addComponent(poster, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
                             .addComponent(jLabel10)
                             .addComponent(jLabel9))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2)
-                .addGap(3, 3, 3)
-                .addComponent(idMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(director, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(poster, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(trailer, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         cmdAdd.setText("Hoàn thành");
@@ -261,10 +264,10 @@ public class Form_Movie extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(cmdAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
@@ -283,38 +286,22 @@ public class Form_Movie extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void setDataType(JComboBox combo){
-         combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{
-            "Hành động",
-            "Phiêu lưu, mạo hiểm",
-            "Tiểu sử",
-            "Hoạt hình",
-            "Hài",
-            "Trinh thám",
-            "Hình sự",
-            "tài liệu",
-            "Chính kịch",
-            "Gia đình",
-            "Cổ trang",
-            "Kinh dị",
-            "Ca nhạc",
-            "Tâm lý tình cảm",
-            "Khoa học viễn tưởng",
-            "Giật gân, ly kỳ",
-            "Bi kịch",
-            "Chiến tranh"
-        }));
+    private void setDataType(JList jlist){
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+        for(int i = 0; i < dsTheLoai.size(); i++) {
+            listModel.addElement(dsTheLoai.get(i).getTenTheLoai());
+        }
+        jlist.setModel(listModel);
     }
     
     private void addMovie(){
-        String textId = idMovie.getText();
-        int id = Integer.parseInt(textId);
+        int id = listPhim.get(listPhim.size()-1).getIdPhim() + 1;
         String tenPhim = movieName.getText();
         String tenDaoDien = director.getText();
         String moTaPhim = description.getText();
         String textPoster = poster.getText(); 
         String textTrailer = trailer.getText();
-        String doTuoiChoPhep = age.getText(); 
+        String doTuoiChoPhep = age.getText();
         java.sql.Date sqlNgayPhatHanh = null;
         Date ngayPhatHanh = date.getDate();
             if(ngayPhatHanh != null) {
@@ -322,18 +309,29 @@ public class Form_Movie extends javax.swing.JFrame {
                 sqlNgayPhatHanh = new java.sql.Date(milis);               
         Phim t = new Phim(id, tenPhim, tenDaoDien, moTaPhim, textPoster, textTrailer, doTuoiChoPhep, sqlNgayPhatHanh);
         PhimDAO.getInstance().insert(t);
+        int idTheLoai = 0;
+        Object[] temp = listTheLoai.getSelectedValues();
+        for(Object o : temp) {
+            for(int i = 0; i < dsTheLoai.size(); i++) {
+                if(o.equals(dsTheLoai.get(i).getTenTheLoai())) {
+                    idTheLoai = dsTheLoai.get(i).getIdTheLoai();
+                    TheLoaiPhim tlp = new TheLoaiPhim(id, idTheLoai);
+                    TheLoaiPhimDAO.getInstance().insert(tlp);                        
+                }
+            }
+        }
+        this.fService.tableMovie.addRow(new Object[]{id, tenPhim, doTuoiChoPhep, sqlNgayPhatHanh, tenDaoDien});
         
-        this.fService.tableMovie.addRow(new Object[]{textId, tenPhim, doTuoiChoPhep, ngayPhatHanh, tenDaoDien});
         }
 }
     
     private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_cmdCancelActionPerformed
 
     private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
         addMovie();
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_cmdAddActionPerformed
 
     private void movieNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieNameActionPerformed
@@ -369,11 +367,8 @@ public class Form_Movie extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser date;
     private com.raven.swing.MyTextField description;
     private com.raven.swing.MyTextField director;
-    private com.raven.swing.MyTextField idMovie;
-    private javax.swing.JComboBox<String> jComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -381,7 +376,11 @@ public class Form_Movie extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> listTheLoai;
     private com.raven.swing.MyTextField movieName;
     private com.raven.swing.PanelBorder panelBorder1;
     private com.raven.swing.MyTextField poster;
