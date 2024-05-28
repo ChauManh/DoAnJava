@@ -27,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
 public class Form_Service extends javax.swing.JPanel {
     Form_Movie fAddMovie;
     Form_Combo fAddCombo;
+    private Form_MovieShowSelection fMovieShowSelection;
 
     public Form_Service() {
         initComponents();
@@ -81,6 +82,7 @@ public class Form_Service extends javax.swing.JPanel {
         buttonAddCombo = new com.raven.swing.MyButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnChinhSuatChieu = new com.raven.swing.MyButton();
 
         tableMovie.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,6 +137,16 @@ public class Form_Service extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(127, 127, 127));
         jLabel2.setText("Danh sách Phim");
 
+        btnChinhSuatChieu.setText("Chỉnh suât chiếu");
+        btnChinhSuatChieu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnChinhSuatChieu.setPreferredSize(new java.awt.Dimension(88, 45));
+        btnChinhSuatChieu.setRadius(50);
+        btnChinhSuatChieu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChinhSuatChieuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,7 +162,8 @@ public class Form_Service extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonAddMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonAddCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonAddCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnChinhSuatChieu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
@@ -161,7 +174,10 @@ public class Form_Service extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spTable, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonAddMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnChinhSuatChieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -187,12 +203,17 @@ public void setTableMovie(){
         fAddMovie = new Form_Movie(this);
     }//GEN-LAST:event_buttonAddMovieActionPerformed
 
-    private void buttonAddComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddComboActionPerformed
+    private void btnChinhSuatChieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChinhSuatChieuActionPerformed
+        fMovieShowSelection = new Form_MovieShowSelection();
+    }//GEN-LAST:event_btnChinhSuatChieuActionPerformed
+
+    private void buttonAddComboActionPerformed(java.awt.event.ActionEvent evt) {                                               
         fAddCombo = new Form_Combo(this);
     }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.raven.swing.MyButton btnChinhSuatChieu;
     private com.raven.swing.MyButton buttonAddCombo;
     private com.raven.swing.MyButton buttonAddMovie;
     private javax.swing.JLabel jLabel1;

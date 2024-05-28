@@ -3,23 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_SellTicket.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/NgayChieuSuatChieuPhimPhongDAO.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/swing/MenuItem.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/swing/ButtonGhe.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_ChooseCombo.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Service.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_ChooseSeat.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/Ve.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/NgayChieuSuatChieuGhePhongDAO.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/SuatChieuDAO.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/SuatChieu.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Employee.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/ServiceMail.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/test/TestPhimDAO.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/Ghe.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/NgayChieuSuatChieuPhimPhong.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Movie.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/DAOInterface.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_MovieDetails.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_SellTicket.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/main/Main.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/swing/MenuItem.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/test/TestGheDAO.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Home.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/PhimDAO.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/NgayChieuSuatChieuGhePhong.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Login.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/Phong.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/Phim.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/database/JDBCUtil.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/swing/ListMenu.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/swing/MyButton.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/NhanVienDAO.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Movie.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/TheLoaiPhim.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Corn_Water.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_MovieDetails.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Combo.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/PhongDAO.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/test/TestNgayChieuSuatChieuGhePhong.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/GheDAO.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/NhanVien.java</file>
         </group>
     </open-files>
 </project-private>

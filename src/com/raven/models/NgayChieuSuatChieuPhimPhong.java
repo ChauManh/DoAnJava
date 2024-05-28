@@ -17,8 +17,15 @@ public class NgayChieuSuatChieuPhimPhong {
     private String idPhong;
     private int idNgayChieuSuatChieu;
 
-    public NgayChieuSuatChieuPhimPhong( int idNgayChieuSuatChieu, Date ngayChieu, int idSuatChieu, int idPhim, String idPhong) {
+    public NgayChieuSuatChieuPhimPhong(int idNgayChieuSuatChieu, Date ngayChieu, int idSuatChieu, int idPhim, String idPhong) {
+        this.ngayChieu = ngayChieu;
+        this.idSuatChieu = idSuatChieu;
+        this.idPhim = idPhim;
+        this.idPhong = idPhong;
         this.idNgayChieuSuatChieu = idNgayChieuSuatChieu;
+    }
+
+    public NgayChieuSuatChieuPhimPhong(Date ngayChieu, int idSuatChieu, int idPhim, String idPhong) {
         this.ngayChieu = ngayChieu;
         this.idSuatChieu = idSuatChieu;
         this.idPhim = idPhim;
