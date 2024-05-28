@@ -1,6 +1,8 @@
 
 package com.raven.model;
 
+import javax.swing.JTable;
+
 
 public interface TableActionEvent {
 

@@ -48,7 +48,7 @@ public class Form_Service extends javax.swing.JPanel {
         (Color.decode("#DAE2F8").getBlue() + Color.decode("#D6A4A4").getBlue()) / 2);
         this.setBackground(color);                      
 
-        TableActionEvent event = new TableActionEvent() {
+        TableActionEvent movieEvent = new TableActionEvent() {
             @Override
             public void onEdit(int row) {
                 System.out.println("Edit row : " + row);
@@ -64,10 +64,28 @@ public class Form_Service extends javax.swing.JPanel {
                 System.out.println("View row : " + row);
             }
         };
-        tableMovie.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
-        tableMovie.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(event));
+        tableCombo.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
+        tableCombo.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(movieEvent));
         setTableMovie();             
         
+        TableActionEvent comboEvent = new TableActionEvent() {
+            @Override
+            public void onEdit(int row) {
+                System.out.println("Edit Combo row : " + row);
+            }
+
+            @Override
+            public void onDelete(int row) {
+                System.out.println("Delete Combo row : " + row);
+            }
+
+            @Override
+            public void onView(int row) {
+                System.out.println("View Combo row : " + row);
+            }
+        };
+        tableMovie.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
+        tableMovie.getColumnModel().getColumn(4).setCellEditor(new TableActionCellEditor(comboEvent));
         setTableCombo();
 
     }
@@ -103,17 +121,24 @@ public class Form_Service extends javax.swing.JPanel {
             }
         });
         spTable.setViewportView(tableMovie);
+        if (tableMovie.getColumnModel().getColumnCount() > 0) {
+            tableMovie.getColumnModel().getColumn(0).setResizable(false);
+            tableMovie.getColumnModel().getColumn(1).setResizable(false);
+            tableMovie.getColumnModel().getColumn(2).setResizable(false);
+            tableMovie.getColumnModel().getColumn(3).setResizable(false);
+            tableMovie.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         tableCombo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID Combo", "Tên Combo", "Chi tiết Combo", "Giá"
+                "ID Combo", "Tên Combo", "Chi tiết Combo", "Giá", "Action"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -121,6 +146,13 @@ public class Form_Service extends javax.swing.JPanel {
             }
         });
         spTable2.setViewportView(tableCombo);
+        if (tableCombo.getColumnModel().getColumnCount() > 0) {
+            tableCombo.getColumnModel().getColumn(0).setResizable(false);
+            tableCombo.getColumnModel().getColumn(1).setResizable(false);
+            tableCombo.getColumnModel().getColumn(2).setResizable(false);
+            tableCombo.getColumnModel().getColumn(3).setResizable(false);
+            tableCombo.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         buttonAddMovie.setText("Thêm phim");
         buttonAddMovie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

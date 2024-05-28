@@ -14,9 +14,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.KeyStroke;
 import net.miginfocom.swing.MigLayout;
 
 public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
@@ -87,6 +89,13 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                 txtPass.setText("");
             }
         }); 
+        cmd.getInputMap(JButton.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ENTER"), "signUpAction");
+        cmd.getActionMap().put("signUpAction", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                cmd.doClick();
+            }
+});
     }
 
     private void initLogin(ActionListener eventLogin) {
@@ -123,6 +132,14 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                 dataLogin = new ModelLogin(email, password);
             }
         }); 
+        // Ánh xạ nút Enter vào cmd sign in
+        cmd.getInputMap(JButton.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ENTER"), "signInAction");
+        cmd.getActionMap().put("signInAction", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                cmd.doClick();
+            }
+        });
     }
 
     public void showRegister(boolean show) {

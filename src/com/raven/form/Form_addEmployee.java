@@ -1,16 +1,18 @@
-
 package com.raven.form;
 
 import com.raven.dao.NhanVienDAO;
 import com.raven.models.NhanVien;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
-
 public class Form_addEmployee extends javax.swing.JFrame {
+
     private Form_Employee parent;
+
     public Form_addEmployee(Form_Employee parent) {
         initComponents();
         setVisible(true);
@@ -21,7 +23,6 @@ public class Form_addEmployee extends javax.swing.JFrame {
         comboBoxGioiTinh.add(btnNu);
         this.parent = parent;
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -215,7 +216,18 @@ public class Form_addEmployee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+//    private void setInfoToText(NhanVien nv){
+//        textIdNhanVien.setText(nv.getIdNhanVien());
+//        textTenNhanVien.setText(nv.getTenNhanVien());
+//        if (nv.getGioiTinh().equals("Nam")) {
+//            btnNam.setSelected(true);
+//        } else {
+//            btnNu.setSelected(true);
+//        }
+//        dateNgaySinh.setDate(nv.getNgaySinh());
+//        dateNgayVaoLam.setDate(nv.getNgayVaoLam());
+//    }
+//    
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnHuyActionPerformed
@@ -229,12 +241,12 @@ public class Form_addEmployee extends javax.swing.JFrame {
         String sdt = null;
         java.sql.Date sqlNgaySinh = null;
         java.sql.Date sqlNgayVaoLam = null;
-        while(b==false) {
+        while (b == false) {
             idNhanVien = textIdNhanVien.getText();
             tenNhanVien = textTenNhanVien.getText();
-            if(btnNam.isSelected()) {
+            if (btnNam.isSelected()) {
                 gioiTinh = "Nam";
-            } else if(btnNu.isSelected()) {
+            } else if (btnNu.isSelected()) {
                 gioiTinh = "Nu";
             } else {
                 JOptionPane.showMessageDialog(null, "Vui lòng chọn giới tính!");
@@ -242,7 +254,7 @@ public class Form_addEmployee extends javax.swing.JFrame {
             }
             chucVu = textChucVu.getText();
             Date ngaySinh = dateNgaySinh.getDate();
-            if(ngaySinh != null) {
+            if (ngaySinh != null) {
                 long milis = ngaySinh.getTime();
                 sqlNgaySinh = new java.sql.Date(milis);
             } else {
@@ -250,7 +262,7 @@ public class Form_addEmployee extends javax.swing.JFrame {
                 return;
             }
             Date ngayVaoLam = dateNgayVaoLam.getDate();
-            if(ngayVaoLam != null) {
+            if (ngayVaoLam != null) {
                 long milis = ngayVaoLam.getTime();
                 sqlNgayVaoLam = new java.sql.Date(milis);
             } else {
@@ -259,13 +271,13 @@ public class Form_addEmployee extends javax.swing.JFrame {
             }
             sdt = textSdt.getText();
             ArrayList<NhanVien> listNhanVien = NhanVienDAO.getInstance().selectAll();
-            for(int i = 0; i < listNhanVien.size(); i++) {
-                if(idNhanVien.equals(listNhanVien.get(i).getIdNhanVien())) {
+            for (int i = 0; i < listNhanVien.size(); i++) {
+                if (idNhanVien.equals(listNhanVien.get(i).getIdNhanVien())) {
                     JOptionPane.showMessageDialog(null, "Mã nhân viên đã tồn tại!");
                     return;
                 }
             }
-            if(idNhanVien.isBlank() || tenNhanVien.isBlank() || chucVu.isBlank() || sdt.isBlank()) {
+            if (idNhanVien.isBlank() || tenNhanVien.isBlank() || chucVu.isBlank() || sdt.isBlank()) {
                 JOptionPane.showMessageDialog(null, "Vui lòng điền đầy đủ thông tin!");
                 return;
             } else {
@@ -274,11 +286,10 @@ public class Form_addEmployee extends javax.swing.JFrame {
         }
         NhanVien nv = new NhanVien(idNhanVien, tenNhanVien, gioiTinh, chucVu, sqlNgaySinh, sqlNgayVaoLam, sdt);
         NhanVienDAO.getInstance().insert(nv);
-        parent.updateTable(nv);
+        parent.addTable(nv);
         this.dispose();
     }//GEN-LAST:event_btnXacNhanActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.MyButton btnHuy;
