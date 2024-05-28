@@ -26,6 +26,9 @@ import javax.swing.JOptionPane;
  * @author DANG GIA BAO
  */
 public class Form_MovieDetails extends javax.swing.JFrame {
+    private boolean bHomNay = false;
+    private boolean bNgayMai = false;
+    private boolean bNgayKia = false;
     private Phim p;
     private ArrayList<SuatChieu> listSC = SuatChieuDAO.getInstance().selectAll();
     private ArrayList<NgayChieuSuatChieuPhimPhong> listShowTime = new ArrayList<>();
@@ -89,7 +92,9 @@ public class Form_MovieDetails extends javax.swing.JFrame {
         btnNgayMai = new com.raven.swing.MyButton();
         btnNgayKia = new com.raven.swing.MyButton();
         myButton1 = new com.raven.swing.MyButton();
-        showTimePanel = new javax.swing.JPanel();
+        showTimeNayPanel = new javax.swing.JPanel();
+        showTimeMaiPanel = new javax.swing.JPanel();
+        showTimeKiaPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -306,17 +311,43 @@ public class Form_MovieDetails extends javax.swing.JFrame {
             }
         });
 
-        showTimePanel.setBackground(new java.awt.Color(255, 255, 255));
+        showTimeNayPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout showTimePanelLayout = new javax.swing.GroupLayout(showTimePanel);
-        showTimePanel.setLayout(showTimePanelLayout);
-        showTimePanelLayout.setHorizontalGroup(
-            showTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout showTimeNayPanelLayout = new javax.swing.GroupLayout(showTimeNayPanel);
+        showTimeNayPanel.setLayout(showTimeNayPanelLayout);
+        showTimeNayPanelLayout.setHorizontalGroup(
+            showTimeNayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 833, Short.MAX_VALUE)
         );
-        showTimePanelLayout.setVerticalGroup(
-            showTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 38, Short.MAX_VALUE)
+        showTimeNayPanelLayout.setVerticalGroup(
+            showTimeNayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        showTimeMaiPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout showTimeMaiPanelLayout = new javax.swing.GroupLayout(showTimeMaiPanel);
+        showTimeMaiPanel.setLayout(showTimeMaiPanelLayout);
+        showTimeMaiPanelLayout.setHorizontalGroup(
+            showTimeMaiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        showTimeMaiPanelLayout.setVerticalGroup(
+            showTimeMaiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        showTimeKiaPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout showTimeKiaPanelLayout = new javax.swing.GroupLayout(showTimeKiaPanel);
+        showTimeKiaPanel.setLayout(showTimeKiaPanelLayout);
+        showTimeKiaPanelLayout.setHorizontalGroup(
+            showTimeKiaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        showTimeKiaPanelLayout.setVerticalGroup(
+            showTimeKiaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
@@ -328,18 +359,23 @@ public class Form_MovieDetails extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(showTimePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelBorder1Layout.createSequentialGroup()
-                        .addGap(420, 420, 420)
-                        .addComponent(myButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelBorder1Layout.createSequentialGroup()
+                                    .addGap(420, 420, 420)
+                                    .addComponent(myButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelBorder1Layout.createSequentialGroup()
+                                    .addGap(60, 60, 60)
+                                    .addComponent(showTimeNayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(showTimeMaiPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(showTimeKiaPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,8 +386,12 @@ public class Form_MovieDetails extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(showTimePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addComponent(showTimeNayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(showTimeMaiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(showTimeKiaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addComponent(myButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -375,76 +415,104 @@ public class Form_MovieDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_myButton1ActionPerformed
 
     private void btnHomNayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomNayActionPerformed
-        ArrayList<NgayChieuSuatChieuPhimPhong> listSuatChieu = new ArrayList<>();
-        for(int i = 0; i < listShowTime.size(); i++) {
-            if(listShowTime.get(i).getNgayChieu().toString().equals(btnHomNay.getText()) && listShowTime.get(i).getIdPhim() == p.getIdPhim()) {
-                for(int j = 0; j < listSC.size(); j++) {
-                    if(listSC.get(j).getIdSuatChieu() == listShowTime.get(i).getIdSuatChieu()) {
-                        listSuatChieu.add(listShowTime.get(i));
+        if(bHomNay == false) {
+            showTimeMaiPanel.setVisible(false);
+            showTimeKiaPanel.setVisible(false);
+            ArrayList<NgayChieuSuatChieuPhimPhong> listSuatChieu = new ArrayList<>();
+            for(int i = 0; i < listShowTime.size(); i++) {
+                if(listShowTime.get(i).getNgayChieu().toString().equals(btnHomNay.getText()) && listShowTime.get(i).getIdPhim() == p.getIdPhim()) {
+                    for(int j = 0; j < listSC.size(); j++) {
+                        if(listSC.get(j).getIdSuatChieu() == listShowTime.get(i).getIdSuatChieu()) {
+                            listSuatChieu.add(listShowTime.get(i));
+                        }
                     }
                 }
             }
+            GridLayout gridLayout = new GridLayout(1, 15, 10, 10);
+            showTimeNayPanel.setLayout(gridLayout);
+            for(int i = 0; i < listSuatChieu.size(); i++) {
+                int j = i;
+                JButton btnSuatChieu = new JButton();
+                btnSuatChieu.setText(listSC.get(listSuatChieu.get(i).getIdSuatChieu()).getSuatChieu().toString());
+                btnSuatChieu.setSize(80, 40);
+                btnSuatChieu.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        formChooseSeat = new Form_ChooseSeat(listSuatChieu.get(j).getIdPhong(), listSuatChieu.get(j), p);
+                    }
+                });
+                showTimeNayPanel.add(btnSuatChieu);    
+                bHomNay = true;
+            }
+            showTimeNayPanel.setVisible(true);
         }
-        GridLayout gridLayout = new GridLayout(1, 15, 10, 10);
-        showTimePanel.setLayout(gridLayout);
-        for(int i = 0; i < listSuatChieu.size(); i++) {
-            int j = i;
-            JButton btnSuatChieu = new JButton();
-            btnSuatChieu.setText(listSC.get(listSuatChieu.get(i).getIdSuatChieu()).getSuatChieu().toString());
-            btnSuatChieu.setSize(80, 40);
-            btnSuatChieu.addActionListener(new ActionListener(){
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    formChooseSeat = new Form_ChooseSeat(listSuatChieu.get(j).getIdPhong(), listSuatChieu.get(j), p);
-                }
-            });
-            showTimePanel.add(btnSuatChieu);    
-        }
-        showTimePanel.revalidate();
     }//GEN-LAST:event_btnHomNayActionPerformed
 
     private void btnNgayMaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNgayMaiActionPerformed
-        ArrayList<Time> listSuatChieu = new ArrayList<>();
-        for(int i = 0; i < listShowTime.size(); i++) {
-            if(listShowTime.get(i).getNgayChieu().toString().equals(btnNgayMai.getText()) && listShowTime.get(i).getIdPhim() == p.getIdPhim()) {
-                for(int j = 0; j < listSC.size(); j++) {
-                    if(listSC.get(j).getIdSuatChieu() == listShowTime.get(i).getIdSuatChieu()) {
-                        listSuatChieu.add(listSC.get(listShowTime.get(i).getIdSuatChieu()).getSuatChieu());
+        if(bNgayMai == false) {
+            showTimeNayPanel.setVisible(false);
+            showTimeKiaPanel.setVisible(false);
+            ArrayList<NgayChieuSuatChieuPhimPhong> listSuatChieu = new ArrayList<>();
+            for(int i = 0; i < listShowTime.size(); i++) {
+                if(listShowTime.get(i).getNgayChieu().toString().equals(btnNgayMai.getText()) && listShowTime.get(i).getIdPhim() == p.getIdPhim()) {
+                    for(int j = 0; j < listSC.size(); j++) {
+                        if(listSC.get(j).getIdSuatChieu() == listShowTime.get(i).getIdSuatChieu()) {
+                            listSuatChieu.add(listShowTime.get(i));
+                        }
                     }
                 }
             }
+            GridLayout gridLayout = new GridLayout(1, 15, 10, 10);
+            showTimeMaiPanel.setLayout(gridLayout);
+            for(int i = 0; i < listSuatChieu.size(); i++) {
+                int j = i;
+                JButton btnSuatChieu = new JButton();
+                btnSuatChieu.setText(listSC.get(listSuatChieu.get(i).getIdSuatChieu()).getSuatChieu().toString());
+                btnSuatChieu.setSize(80, 40);
+                btnSuatChieu.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        formChooseSeat = new Form_ChooseSeat(listSuatChieu.get(j).getIdPhong(), listSuatChieu.get(j), p);
+                    }
+                });
+                showTimeMaiPanel.add(btnSuatChieu);    
+                bNgayMai = true;
+            }
+            showTimeMaiPanel.setVisible(true);
         }
-        GridLayout gridLayout = new GridLayout(1, 15, 10, 10);
-        showTimePanel.setLayout(gridLayout);
-        for(int i = 0; i < listSuatChieu.size(); i++) {
-            JButton btnSuatChieu = new JButton();
-            btnSuatChieu.setText(listSuatChieu.get(i).toString());
-            btnSuatChieu.setSize(80, 40);
-            showTimePanel.add(btnSuatChieu);    
-        }
-        showTimePanel.revalidate();
     }//GEN-LAST:event_btnNgayMaiActionPerformed
 
     private void btnNgayKiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNgayKiaActionPerformed
-        ArrayList<Time> listSuatChieu = new ArrayList<>();
-        for(int i = 0; i < listShowTime.size(); i++) {
-            if(listShowTime.get(i).getNgayChieu().toString().equals(btnNgayKia.getText()) && listShowTime.get(i).getIdPhim() == p.getIdPhim()) {
-                for(int j = 0; j < listSC.size(); j++) {
-                    if(listSC.get(j).getIdSuatChieu() == listShowTime.get(i).getIdSuatChieu()) {
-                        listSuatChieu.add(listSC.get(listShowTime.get(i).getIdSuatChieu()).getSuatChieu());
+        if(bNgayKia == false) {    
+            ArrayList<NgayChieuSuatChieuPhimPhong> listSuatChieu = new ArrayList<>();
+            for(int i = 0; i < listShowTime.size(); i++) {
+                if(listShowTime.get(i).getNgayChieu().toString().equals(btnNgayKia.getText()) && listShowTime.get(i).getIdPhim() == p.getIdPhim()) {
+                    for(int j = 0; j < listSC.size(); j++) {
+                        if(listSC.get(j).getIdSuatChieu() == listShowTime.get(i).getIdSuatChieu()) {
+                            listSuatChieu.add(listShowTime.get(i));
+                        }
                     }
                 }
             }
+            GridLayout gridLayout = new GridLayout(1, 15, 10, 10);
+            showTimeKiaPanel.setLayout(gridLayout);
+            for(int i = 0; i < listSuatChieu.size(); i++) {
+                int j = i;
+                JButton btnSuatChieu = new JButton();
+                btnSuatChieu.setText(listSC.get(listSuatChieu.get(i).getIdSuatChieu()).getSuatChieu().toString());
+                btnSuatChieu.setSize(80, 40);
+                btnSuatChieu.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        formChooseSeat = new Form_ChooseSeat(listSuatChieu.get(j).getIdPhong(), listSuatChieu.get(j), p);
+                    }
+                });
+                showTimeKiaPanel.add(btnSuatChieu);    
+            }
+            bNgayKia = true;
         }
-        GridLayout gridLayout = new GridLayout(1, 15, 10, 10);
-        showTimePanel.setLayout(gridLayout);
-        for(int i = 0; i < listSuatChieu.size(); i++) {
-            JButton btnSuatChieu = new JButton();
-            btnSuatChieu.setText(listSuatChieu.get(i).toString());
-            btnSuatChieu.setSize(80, 40);
-            showTimePanel.add(btnSuatChieu);    
-        }
-        showTimePanel.revalidate();    }//GEN-LAST:event_btnNgayKiaActionPerformed
+        showTimeKiaPanel.setVisible(true);
+        showTimeNayPanel.revalidate();    }//GEN-LAST:event_btnNgayKiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -468,7 +536,9 @@ public class Form_MovieDetails extends javax.swing.JFrame {
     private com.raven.swing.MyButton myButton1;
     private com.raven.swing.PanelBorder panelBorder1;
     private com.raven.component.ImagePanel poster;
-    private javax.swing.JPanel showTimePanel;
+    private javax.swing.JPanel showTimeKiaPanel;
+    private javax.swing.JPanel showTimeMaiPanel;
+    private javax.swing.JPanel showTimeNayPanel;
     private javax.swing.JLabel textDaoDien;
     private javax.swing.JLabel textDoTuoiChoPhep;
     private javax.swing.JLabel textKhoiChieu;

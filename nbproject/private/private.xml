@@ -13,27 +13,28 @@
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/SuatChieu.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Employee.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/ServiceMail.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/test/TestPhimDAO.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/Ghe.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/NgayChieuSuatChieuPhimPhong.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Movie.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/DAOInterface.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_MovieDetails.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_SellTicket.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/main/Main.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/NgayChieuSuatChieuPhimPhongDAO.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/swing/MenuItem.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/test/TestGheDAO.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Home.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_ChooseMovie.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/PhimDAO.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_addEmployee.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/NgayChieuSuatChieuGhePhong.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Login.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/Phong.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/Phim.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/database/JDBCUtil.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/TheLoaiPhim.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/NhanVienDAO.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_Corn_Water.java</file>
+            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/form/Form_MovieShowSelection.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/PhongDAO.java</file>
-            <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/test/TestNgayChieuSuatChieuGhePhong.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/dao/GheDAO.java</file>
             <file>file:/D:/UIT/QL_BANVEXEMPHIM/DoAnJava/src/com/raven/models/NhanVien.java</file>
         </group>
