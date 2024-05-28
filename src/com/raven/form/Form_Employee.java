@@ -45,6 +45,7 @@ public class Form_Employee extends javax.swing.JPanel {
         TableActionEvent evt = new TableActionEvent() {
             @Override
             public void onEdit(int row) {
+                System.out.println("edit on" + row);
             }
 
             @Override

@@ -121,6 +121,13 @@ public class Form_Service extends javax.swing.JPanel {
             }
         });
         spTable.setViewportView(tableMovie);
+        if (tableMovie.getColumnModel().getColumnCount() > 0) {
+            tableMovie.getColumnModel().getColumn(0).setResizable(false);
+            tableMovie.getColumnModel().getColumn(1).setResizable(false);
+            tableMovie.getColumnModel().getColumn(2).setResizable(false);
+            tableMovie.getColumnModel().getColumn(3).setResizable(false);
+            tableMovie.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         tableCombo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

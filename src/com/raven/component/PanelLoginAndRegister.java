@@ -89,6 +89,13 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                 txtPass.setText("");
             }
         }); 
+        cmd.getInputMap(JButton.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ENTER"), "signUpAction");
+        cmd.getActionMap().put("signUpAction", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                cmd.doClick();
+            }
+});
     }
 
     private void initLogin(ActionListener eventLogin) {
@@ -125,6 +132,7 @@ public class PanelLoginAndRegister extends javax.swing.JLayeredPane {
                 dataLogin = new ModelLogin(email, password);
             }
         }); 
+
         cmd.getInputMap(JButton.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ENTER"), "signInAction");
         cmd.getActionMap().put("signInAction", new AbstractAction() {
             @Override

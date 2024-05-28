@@ -166,7 +166,6 @@ public class Form_Login extends javax.swing.JFrame {
     try {
         // Lấy dữ liệu đăng nhập từ giao diện
         ModelLogin data = loginAndRegister.getDataLogin();
-        System.out.println("data" + ": " + data.getEmail() + " " + data.getPassword());
         
         // Thực hiện đăng nhập
         TaiKhoan user = service.login(data);
